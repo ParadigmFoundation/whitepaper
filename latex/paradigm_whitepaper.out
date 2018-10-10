@@ -1,0 +1,43 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Protocol Schematic and Overview}{}% 2
+\BOOKMARK [1][-]{section.3}{OrderStream Decentralized Order Relay Network}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Overview and Introduction}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Protocol Infrastructure}{section.3}% 5
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Node Architecture}{subsection.3.2}% 6
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Network Architecture}{subsection.3.2}% 7
+\BOOKMARK [2][-]{subsection.3.3}{State and Access Control}{section.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Formal Description}{subsection.3.3}% 9
+\BOOKMARK [2][-]{subsection.3.4}{Transaction Types}{section.3}% 10
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Internal Transaction Type}{subsection.3.4}% 11
+\BOOKMARK [3][-]{subsubsection.3.4.2}{External Transaction Types}{subsection.3.4}% 12
+\BOOKMARK [2][-]{subsection.3.5}{OrderBroadcast Transaction Data Model}{section.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.5.1}{Overview}{subsection.3.5}% 14
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Data Structure Specification}{subsection.3.5}% 15
+\BOOKMARK [2][-]{subsection.3.6}{Network and Validator Incentive Model}{section.3}% 16
+\BOOKMARK [3][-]{subsubsection.3.6.1}{Introduction}{subsection.3.6}% 17
+\BOOKMARK [3][-]{subsubsection.3.6.2}{Tendermint and the OrderStream's Consensus Model}{subsection.3.6}% 18
+\BOOKMARK [3][-]{subsubsection.3.6.3}{Formal Client and Validator Latency Models}{subsection.3.6}% 19
+\BOOKMARK [3][-]{subsubsection.3.6.4}{A Note on Validator Nodes vs. Full Nodes}{subsection.3.6}% 20
+\BOOKMARK [2][-]{subsection.3.7}{Validator Integrity and Auditability}{section.3}% 21
+\BOOKMARK [1][-]{section.4}{OrderGateway Forwarding Contract and Interface System}{}% 22
+\BOOKMARK [2][-]{subsection.4.1}{Overview and Introduction}{section.4}% 23
+\BOOKMARK [2][-]{subsection.4.2}{Protocol Contracts}{section.4}% 24
+\BOOKMARK [3][-]{subsubsection.4.2.1}{OrderGateway Contract}{subsection.4.2}% 25
+\BOOKMARK [2][-]{subsection.4.3}{SubContracts and Settlement Logic}{section.4}% 26
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Overview}{subsection.4.3}% 27
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Native SubContracts}{subsection.4.3}% 28
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Wrapping SubContracts}{subsection.4.3}% 29
+\BOOKMARK [2][-]{subsection.4.4}{Filling Orders}{section.4}% 30
+\BOOKMARK [1][-]{section.5}{The Matcher Model}{}% 31
+\BOOKMARK [1][-]{section.6}{Protocol Governance and Decentralization}{}% 32
+\BOOKMARK [1][-]{section.7}{Future Work}{}% 33
+\BOOKMARK [2][-]{subsection.7.1}{Decentralized Trade Execution}{section.7}% 34
+\BOOKMARK [2][-]{subsection.7.2}{OrderGateway Upgrades and Expansion}{section.7}% 35
+\BOOKMARK [1][-]{section.8}{Acknowledgements}{}% 36
+\BOOKMARK [1][-]{section.9}{Appendix}{}% 37
+\BOOKMARK [2][-]{subsection.9.1}{Paradigm-specific Terminology}{section.9}% 38
+\BOOKMARK [2][-]{subsection.9.2}{Third-party Software and Protocols}{section.9}% 39
+\BOOKMARK [2][-]{subsection.9.3}{Code and Order Examples}{section.9}% 40
+\BOOKMARK [3][-]{subsubsection.9.3.1}{OrderGateway Specification \(Solidity\)}{subsection.9.3}% 41
+\BOOKMARK [3][-]{subsubsection.9.3.2}{SubContract Interface Specification \(Solidity\)}{subsection.9.3}% 42
+\BOOKMARK [3][-]{subsubsection.9.3.3}{OrderStream Data Model Example \(JSON\)}{subsection.9.3}% 43
