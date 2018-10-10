@@ -33,11 +33,12 @@
 \BOOKMARK [1][-]{section.7}{Future Work}{}% 33
 \BOOKMARK [2][-]{subsection.7.1}{Decentralized Trade Execution}{section.7}% 34
 \BOOKMARK [2][-]{subsection.7.2}{OrderGateway Upgrades and Expansion}{section.7}% 35
-\BOOKMARK [1][-]{section.8}{Acknowledgements}{}% 36
-\BOOKMARK [1][-]{section.9}{Appendix}{}% 37
-\BOOKMARK [2][-]{subsection.9.1}{Paradigm-specific Terminology}{section.9}% 38
-\BOOKMARK [2][-]{subsection.9.2}{Third-party Software and Protocols}{section.9}% 39
-\BOOKMARK [2][-]{subsection.9.3}{Code and Order Examples}{section.9}% 40
-\BOOKMARK [3][-]{subsubsection.9.3.1}{OrderGateway Specification \(Solidity\)}{subsection.9.3}% 41
-\BOOKMARK [3][-]{subsubsection.9.3.2}{SubContract Interface Specification \(Solidity\)}{subsection.9.3}% 42
-\BOOKMARK [3][-]{subsubsection.9.3.3}{OrderStream Data Model Example \(JSON\)}{subsection.9.3}% 43
+\BOOKMARK [2][-]{subsection.7.3}{Second Layer Reputation Systems}{section.7}% 36
+\BOOKMARK [1][-]{section.8}{Acknowledgements}{}% 37
+\BOOKMARK [1][-]{section.9}{Appendix}{}% 38
+\BOOKMARK [2][-]{subsection.9.1}{Paradigm-specific Terminology}{section.9}% 39
+\BOOKMARK [2][-]{subsection.9.2}{Third-party Software and Protocols}{section.9}% 40
+\BOOKMARK [2][-]{subsection.9.3}{Code and Order Examples}{section.9}% 41
+\BOOKMARK [3][-]{subsubsection.9.3.1}{OrderGateway Specification \(Solidity\)}{subsection.9.3}% 42
+\BOOKMARK [3][-]{subsubsection.9.3.2}{SubContract Interface Specification \(Solidity\)}{subsection.9.3}% 43
+\BOOKMARK [3][-]{subsubsection.9.3.3}{OrderStream Data Model Example \(JSON\)}{subsection.9.3}% 44

@@ -33,6 +33,7 @@
 \contentsline {section}{\numberline {7}Future Work}{16}{section.7}
 \contentsline {subsection}{\numberline {7.1}Decentralized Trade Execution}{16}{subsection.7.1}
 \contentsline {subsection}{\numberline {7.2}OrderGateway Upgrades and Expansion}{16}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Second Layer Reputation Systems}{16}{subsection.7.3}
 \contentsline {section}{\numberline {8}Acknowledgements}{17}{section.8}
 \contentsline {section}{\numberline {9}Appendix}{18}{section.9}
 \contentsline {subsection}{\numberline {9.1}Paradigm-specific Terminology}{18}{subsection.9.1}
