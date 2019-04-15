@@ -1,0 +1,22 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
+\contentsline {section}{\numberline {2}Overview}{4}{section.2}
+\contentsline {section}{\numberline {3}Specification}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Orders}{5}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}SubContract interface}{5}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Order message format}{5}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Ethereum Contract System}{6}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Introduction}{6}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Permission model}{6}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Architecture}{6}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}Treasury}{6}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.5}Poster bonding}{6}{subsubsection.3.2.5}
+\contentsline {subsubsection}{\numberline {3.2.6}Validator token-curated registry}{6}{subsubsection.3.2.6}
+\contentsline {subsection}{\numberline {3.3}Tendermint Network}{6}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Introduction}{6}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Architecture}{7}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Ethereum peg-zone}{7}{subsubsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.4}Poster access control}{7}{subsubsection.3.3.4}
+\contentsline {subsubsection}{\numberline {3.3.5}State model}{7}{subsubsection.3.3.5}
+\contentsline {subsubsection}{\numberline {3.3.6}Transaction types}{7}{subsubsection.3.3.6}
+\contentsline {subsubsection}{\numberline {3.3.7}Validator curation}{7}{subsubsection.3.3.7}
+\contentsline {subsection}{\numberline {3.4}Incentive Models}{7}{subsection.3.4}
