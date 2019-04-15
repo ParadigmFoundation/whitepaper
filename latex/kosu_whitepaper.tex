@@ -1,4 +1,4 @@
-\documentclass[9pt]{article}
+\documentclass[10pt]{article}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{amsmath}
@@ -66,7 +66,21 @@
 % BEGIN INTRO
 \section{Introduction}\label{intro}
 
-\noindent The... // TODO (coming from google doc)
+\noindent Historically, financial markets have been relatively siloed. To date, centralized entities control significant entry points and accounting systems, limiting access beyond a small set of privileged participants. The recent invention of blockchains, decentralized ledger systems, is now challenging this trusted paradigm. Ethereum, a public blockchain with a built-in Turing-complete programming language, provides developers an immutable and verifiable computation platform for scripts known as “smart-contracts”. These scripts can encode arbitrary, deterministic state transition functions, providing a powerful primitive for more complex ledger based application systems.
+\medskip
+
+\noindent Since the network’s genesis in 2014, developers have leveraged smart contracts for a wide range of novel protocol systems. Perhaps the most adopted technical standard for smart contracts is the ERC-20 token implementation. The standard defines a common token interface allowing for the creation of a diverse set of Ethereum-based assets. These tokens often serve as a critical crypto economic primitive providing core utility for protocol systems also deployed on Ethereum. As such, a system of exchange is a key requisite in a mature token-dependent contract ecosystem.
+\medskip
+
+\noindent In early 2017, the 0x Project published a whitepaper defining a maker-taker based exchange  protocol in which a pipeline of publicly accessible Ethereum smart contracts facilitate the wallet-to-wallet settlement of funds. In this model, order broadcast and discovery happen off-chain. Independent entities known as relayers are responsible for sourcing and maintaining liquidity in the form of independent collections of signed order messages. This hybrid architecture drastically improved the efficiency of existing DEX systems while also providing a critical open exchange primitive with high extensibility. Since the first deployment of the 0x protocol, a significant number have adopted it as a common piece of infrastructure. To date, the team continues to push the limits on scalability, efficiency and incentivization for DEX systems.
+\medskip
+
+\noindent
+Virtual settlement systems, specifically decentralized exchanges (DEXs), are a relatively accessible use case for blockchains; a direct evolution from the original digital currency use-case. While conceptually apparent, the architecture of DEXs is a complex and evolving subject. The scalability restraints of blockchain systems combined with the complexities of an asynchronous discrete time system limit their compatibility with optimally efficient continuous time order books and settlement systems. As such, alternative DEX architectures have also captured considerable market share. These systems include dutch auctions and automated market making systems. While immediately compelling for some use cases, the evolution towards hybrid continuous time order books is likely inevitable. These systems, though currently constrained, likely represent the most scalable and efficient DEX structure.
+\medskip
+
+\noindent
+The Kosu network is designed within the 0x-motivated ecosystem, providing a decentralized aggregation primitive for arbitrary limit orders. More specifically, the Kosu network aims to provide a highly extensible decentralized complement to independent centralized aggregators, or relayers. The set of orders maintained on the Kosu network should represent a high-value subset of the compatible order universe.
 
 \clearpage
 \pagebreak
@@ -83,7 +97,7 @@
 
 \medskip
 
-\noindent The first system is the Kosu network, a collection of globally distributed computers (nodes) that collectively maintain and update the network’s shared state. The network supports basic order booking functionality, access control for user accounts, and cryptographic proofs of the existence of state contents. Validators secure the network by processing transactions, creating blocks, and reaching consensus with other validators on the canonical chain and application state. 
+\noindent The first system is the Kosu blockchain, a collection of globally distributed nodes that collectively maintain and update the network’s shared order book\footnote{The Kosu order book is not a conventional limit order book, but rather a hash of specific recent orders from posters with active bandwidth allocation bonded tokens. The structure described in the ORDERBOOK // TODO section allows for a proof to be generated about the validity of a set of individual orders at a given Kosu block height.  See more here // TODO: link}, and maintain a one-way Peg with the Ethereum blockchain. The network supports basic order booking functionality, access control for user accounts, and cryptographic proofs of the existence of state contents, including the set of orders comprising the "order book". Validators\footnote{ The networks full nodes provide access to the order book and provide an interface for users to submit orders, laying the foundation for a wide array of applications.} secure the network by voting on state changes to an Ethereum contract system, processing orders, and reaching consensus with other validators on the canonical chain and the overall application state.
 
 \medskip
 
