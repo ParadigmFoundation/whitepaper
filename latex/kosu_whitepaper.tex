@@ -306,7 +306,7 @@ This is in contrast to the security model Kuso uses where economic finality is g
 The Kosu to Ethereum one-way peg-zone facilitates a small sub-set of Ethereum's state to be represented on the Tendermint network. The usage of a one-way peg allows Kosu to leverage the security and uptime of the Ethereum network for critical extra-protocol actions, such as the transfer and exchange of KOSU tokens, and validator set curation.
 \medskip
 
-Generalized and two-way peg-zones require complex construction, as well as more and varying security assumptions, so Kosu uses a simple architecture for its peg-zone that is specific to a subset of state changes in the Kosu contract system (see \ref{ethereum-contract-system}).
+Generalized and two-way peg-zones require complex construction\cite{peggy-spec} and additional security assumptions, so Kosu uses a simple architecture for its peg-zone that is specific to a subset of state changes in the Kosu contract system (see \ref{ethereum-contract-system}).
 
 \subsubsection{Architecture}\label{peg-architecture}
 The design of the system is...
@@ -380,40 +380,44 @@ KOSU to ETH...\cite{bft}
 % BEGIN BIBLIOGRAPHY
 \begin{thebibliography}{9}
 
+\bibitem{peggy-spec}
+Kunze, Federico, et al. "Two-way Permissionless Peg Zones." Tendermint.
+\\\texttt{https://github.com/cosmos/peggy/tree/master/spec}
+
 \bibitem{blockchain-taxonomy}
 Tasca, Paola., Tessone, Claudio. J. "Taxonomy of Blockchain TechnologiesPrinciples of Identification and Classification."
 \\\texttt{https://arxiv.org/pdf/1708.04872.pdf}
 
 \bibitem{tendermint-wp}
-Ethan Buchman, et al. "Tendermint: Byzantine Fault Tolerance in the Age of Blockchains,"
+Ethan Buchman, et al. "Tendermint: Byzantine Fault Tolerance in the Age of Blockchains."
 \\\small\texttt{https://allquantor.at/blockchainbib/pdf/buchman2016tendermint.pdf}
 
 \bibitem{0x-wp}
-Warren, Will and Bandeali, Amir. "0x: An Open Protocol for Decentralized Exchange on the Ethereum Blockchain,"
+Warren, Will and Bandeali, Amir. "0x: An Open Protocol for Decentralized Exchange on the Ethereum Blockchain."
 \\\texttt{https://github.com/0xProject/whitepaper/blob/master/0x\_white\_paper.pdf}
 
 \bibitem{dharma-wp}
-Hollander, Nadav. "Dharma: A Generic Protocol for Tokenized Debt Issuance,"
+Hollander, Nadav. "Dharma: A Generic Protocol for Tokenized Debt Issuance."
 \\\texttt{https://whitepaper.dharma.io}
 
 \bibitem{tendermint}
-All In Bits Inc., Tendermint, et al. "Tendermint Consensus Reactor,"
+All In Bits Inc., Tendermint, et al. "Tendermint Consensus Reactor."
 \\\small\texttt{https://github.com/tendermint/tendermint/blob/master/docs/spec/reactors/consensus/consensus.md}
 
 \bibitem{paradigm-github}
-Paradigm Labs, corp., et al. "Paradigm Foundation GitHub,"
+Paradigm Labs, corp., et al. "Paradigm Foundation GitHub."
 \\\small\texttt{https://github.com/ParadigmFoundation/}
 
 \bibitem{kosu-monorepo}
-Paradigm Labs, corp., et al. "Kosu Monorepo: A Monorepo for the Kosu Protocol,"
+Paradigm Labs, corp., et al. "Kosu Monorepo: A Monorepo for the Kosu Protocol."
 \\\small\texttt{https://github.com/ParadigmFoundation/kosu-monorepo}
 
 \bibitem{kosu-sdk}
-Freyaldenhoven, Nick., et al. "Kosu SubContract SDK,"
+Freyaldenhoven, Nick., et al. "Kosu SubContract SDK."
 \\\small\texttt{https://github.com/ParadigmFoundation/ParadigmContracts/blob/master/sdk/contracts/SubContract.sol}
 
 \bibitem{bft}
-Leslie Lamport, Robert Shostak, Marshall Pease. "The Byzantine Generals Problem,"
+Leslie Lamport, Robert Shostak, Marshall Pease. "The Byzantine Generals Problem."
 \\ACM Transactions on Programming Languages and Systems, Vol. 4, No. 3. July 1982. Pages 382-401.
 
 \end{thebibliography}
