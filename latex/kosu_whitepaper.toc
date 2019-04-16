@@ -3,29 +3,32 @@
 \contentsline {section}{\numberline {3}Specification}{5}{section.3}
 \contentsline {subsection}{\numberline {3.1}Orders}{5}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}SubContract interface}{5}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Order message format}{5}{subsubsection.3.1.2}
+\contentsline {subsubsection}{\numberline {3.1.2}Order message format}{6}{subsubsection.3.1.2}
 \contentsline {subsection}{\numberline {3.2}Ethereum Contract System}{6}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}Introduction}{6}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Permission model}{6}{subsubsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}Architecture}{6}{subsubsection.3.2.3}
-\contentsline {subsubsection}{\numberline {3.2.4}Treasury}{6}{subsubsection.3.2.4}
-\contentsline {subsubsection}{\numberline {3.2.5}Poster bonding}{6}{subsubsection.3.2.5}
-\contentsline {subsubsection}{\numberline {3.2.6}Validator token-curated registry}{6}{subsubsection.3.2.6}
-\contentsline {subsection}{\numberline {3.3}Tendermint Network}{6}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Introduction}{6}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Permission model}{7}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Architecture}{7}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}Treasury}{7}{subsubsection.3.2.4}
+\contentsline {subsubsection}{\numberline {3.2.5}Poster bonding}{7}{subsubsection.3.2.5}
+\contentsline {subsubsection}{\numberline {3.2.6}Validator token-curated registry}{7}{subsubsection.3.2.6}
+\contentsline {subsection}{\numberline {3.3}Tendermint Network}{7}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Introduction}{7}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}Architecture}{7}{subsubsection.3.3.2}
-\contentsline {subsubsection}{\numberline {3.3.3}Ethereum peg-zone}{7}{subsubsection.3.3.3}
-\contentsline {subsubsection}{\numberline {3.3.4}Poster access control}{7}{subsubsection.3.3.4}
-\contentsline {subsubsection}{\numberline {3.3.5}State model}{7}{subsubsection.3.3.5}
-\contentsline {subsubsection}{\numberline {3.3.6}Transaction types}{7}{subsubsection.3.3.6}
-\contentsline {subsubsection}{\numberline {3.3.7}Validator curation}{7}{subsubsection.3.3.7}
-\contentsline {subsection}{\numberline {3.4}Incentive Models}{7}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Sybil tolerance}{7}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}Validator elections}{7}{subsubsection.3.4.2}
-\contentsline {subsubsection}{\numberline {3.4.3}Validator rewards}{7}{subsubsection.3.4.3}
-\contentsline {section}{\numberline {4}Token Distribution}{8}{section.4}
-\contentsline {subsection}{\numberline {4.1}Overview}{8}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Mechanics}{8}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Ether to Kosu}{8}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Kosu to Ether}{8}{subsection.4.4}
-\contentsline {section}{\numberline {5}Future Work}{9}{section.5}
+\contentsline {subsubsection}{\numberline {3.3.3}Poster access control}{7}{subsubsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.4}State model}{7}{subsubsection.3.3.4}
+\contentsline {subsubsection}{\numberline {3.3.5}Transaction types}{7}{subsubsection.3.3.5}
+\contentsline {subsubsection}{\numberline {3.3.6}Validator curation}{7}{subsubsection.3.3.6}
+\contentsline {subsection}{\numberline {3.4}Ethereum Peg Zone}{7}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Introduction}{7}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Architecture}{8}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}Process description}{8}{subsubsection.3.4.3}
+\contentsline {subsection}{\numberline {3.5}Incentive Models}{8}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Sybil tolerance}{8}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Validator elections}{8}{subsubsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.3}Validator rewards}{9}{subsubsection.3.5.3}
+\contentsline {section}{\numberline {4}Token Distribution}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}Overview}{10}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Mechanics}{10}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Ether to Kosu}{10}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Kosu to Ether}{10}{subsection.4.4}
+\contentsline {section}{\numberline {5}Future Work}{11}{section.5}
