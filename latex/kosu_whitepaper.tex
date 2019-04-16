@@ -210,6 +210,8 @@ A simple order message format is defined based on the SubContract interface. The
   \item Support for arbitrary signature schemes, and a special required signature from a poster\footnote{Described in more detail in the contracts and network sections, a "poster" is any entity that has bonded Kosu tokens in the Poster Registry contract. Doing so affords rate-limited write-access to the Kosu "order book" proportional to stake size.}
 \end{enumerate}
 
+The Kosu order message format is described below in a language-independent manner, however the type annotations indicate JSON types for each top-level field. The underlying structure of the non-primitive types (\texttt{array} and \texttt{object}) can in the protocols implementation\cite{kosu-monorepo} and documentation.
+
 % Begin table 2
 \bgroup
 \def\arraystretch{1.2}
@@ -294,13 +296,17 @@ Validators can...
 % BEGIN PEG NETWORK SUB-SECTION
 \subsection{Ethereum Peg Zone}\label{peg}
 \subsubsection{Introduction}\label{peg-intro}
-Communication between blockchains with differing types of finality guarantees requires the usage of a peg-zone. The Ethereum blockchain currently offers probabalisitic finality for state-modifying transactions included in blocks based on its proof-of-work consensus mechanism. Older blocks are exponentially harder to reorganize than recently mined blocks, thus as the age of a block increases, the chance of that block or its contents being moved in the blockchains chronology decreases exponentially.
+Communication between blockchains with differing types of finality guarantees requires the usage of a peg-zone. The Ethereum blockchain currently offers probabalisitic finality for state-modifying transactions included in blocks based on its proof-of-work consensus mechanism. Older blocks are exponentially harder to reorganize\cite{blockchain-taxonomy} than recently mined blocks, thus as the age of a block increases, the chance of that block or its contents being moved in the blockchains chronology decreases exponentially.
 \medskip
 
-This is in contrast to the security model Kuso uses where economic finality is guaranteed nearly instantly, thanks to the underlying Tendermint Consensus\cite{tendermint} engine  as soon as a superiority of the networks vote power supports the commit of a given block.
+This is in contrast to the security model Kuso uses where economic finality is guaranteed nearly instantly, thanks to the underlying Tendermint Consensus\cite{tendermint, tendermint-wp} engine. As soon as a superiority of the network's vote power supports the commit of a given block, it can be considered finalized and irreversible. It would be impossible for any entity to "reorganize" the canonical chain in the proof-of-work sense without possessing a superiority of vote power through the acquisition of a significant number of Kosu tokens, and approval to the validator set by existing token holders.
 \medskip
 
-In Kosus case, the peg-zone facilitates a small sub-set of Ethereum's state to be represented on the Tendermint network. Generalized and two-way peg-zones require  complex construction and security assumptions, so Kosu uses a simple architecture for this peg-zone that is specific to a subset of state changes in the Kosu contract system. The usage of a one-way peg allows Kosu to leverage the security and uptime of the Ethereum network for critical extra-protocol actions, such as the transfer and exchange of KOSU tokens, and validator set curation.
+
+The Kosu to Ethereum one-way peg-zone facilitates a small sub-set of Ethereum's state to be represented on the Tendermint network. The usage of a one-way peg allows Kosu to leverage the security and uptime of the Ethereum network for critical extra-protocol actions, such as the transfer and exchange of KOSU tokens, and validator set curation.
+\medskip
+
+Generalized and two-way peg-zones require complex construction, as well as more and varying security assumptions, so Kosu uses a simple architecture for its peg-zone that is specific to a subset of state changes in the Kosu contract system\ref{ethereum-contract-system}.
 
 \subsubsection{Architecture}\label{peg-architecture}
 The design of the system is...
@@ -374,12 +380,20 @@ KOSU to ETH...\cite{bft}
 % BEGIN BIBLIOGRAPHY
 \begin{thebibliography}{9}
 
+\bibitem{blockchain-taxonomy}
+Tasca, Paola., Tessone, Claudio. J. "Taxonomy of Blockchain TechnologiesPrinciples of Identification and Classification."
+\\\texttt{https://arxiv.org/pdf/1708.04872.pdf}
+
+\bibitem{tendermint-wp}
+Ethan Buchman, et al. "Tendermint: Byzantine Fault Tolerance in the Age of Blockchains,"
+\\\small\texttt{https://allquantor.at/blockchainbib/pdf/buchman2016tendermint.pdf}
+
 \bibitem{0x-wp}
-Will Warren, Amir Bandeali. "0x: An Open Protocol for Decentralized Exchange on the Ethereum Blockchain,"
+Warren, Will and Bandeali, Amir. "0x: An Open Protocol for Decentralized Exchange on the Ethereum Blockchain,"
 \\\texttt{https://github.com/0xProject/whitepaper/blob/master/0x\_white\_paper.pdf}
 
 \bibitem{dharma-wp}
-Nadav Hollander. "Dharma: A Generic Protocol for Tokenized Debt Issuance,"
+Hollander, Nadav. "Dharma: A Generic Protocol for Tokenized Debt Issuance,"
 \\\texttt{https://whitepaper.dharma.io}
 
 \bibitem{tendermint}
@@ -387,11 +401,15 @@ All In Bits Inc., Tendermint, et al. "Tendermint Consensus Reactor,"
 \\\small\texttt{https://github.com/tendermint/tendermint/blob/master/docs/spec/reactors/consensus/consensus.md}
 
 \bibitem{paradigm-github}
-Paradigm Labs, corp., et al. "Paradigm Foundation GitHub,
+Paradigm Labs, corp., et al. "Paradigm Foundation GitHub,"
 \\\small\texttt{https://github.com/ParadigmFoundation/}
 
+\bibitem{kosu-monorepo}
+Paradigm Labs, corp., et al. "Kosu Monorepo: A Monorepo for the Kosu Protocol,"
+\\\small\texttt{https://github.com/ParadigmFoundation/kosu-monorepo}
+
 \bibitem{kosu-sdk}
-Nick Freyaldenhoven, Paradigm Labs corp., "Kosu SubContract SDK,"
+Freyaldenhoven, Nick., et al. "Kosu SubContract SDK,"
 \\\small\texttt{https://github.com/ParadigmFoundation/ParadigmContracts/blob/master/sdk/contracts/SubContract.sol}
 
 \bibitem{bft}
