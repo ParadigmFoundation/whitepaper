@@ -20,3 +20,12 @@
 \contentsline {subsubsection}{\numberline {3.3.6}Transaction types}{7}{subsubsection.3.3.6}
 \contentsline {subsubsection}{\numberline {3.3.7}Validator curation}{7}{subsubsection.3.3.7}
 \contentsline {subsection}{\numberline {3.4}Incentive Models}{7}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Sybil tolerance}{7}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Validator elections}{7}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}Validator rewards}{7}{subsubsection.3.4.3}
+\contentsline {section}{\numberline {4}Token Distribution}{8}{section.4}
+\contentsline {subsection}{\numberline {4.1}Overview}{8}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Mechanics}{8}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Ether to Kosu}{8}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Kosu to Ether}{8}{subsection.4.4}
+\contentsline {section}{\numberline {5}Future Work}{9}{section.5}
