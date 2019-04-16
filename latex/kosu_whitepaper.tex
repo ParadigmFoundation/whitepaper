@@ -204,12 +204,11 @@ A simple order message format is defined based on the SubContract interface. The
 
 \begin{enumerate}
   \item Compatibility existing hybrid off-chain settlement systems (0x\cite{0x-wp}, Dharma\cite{dharma-wp}, etc.)
-  \item Representable as human-readable JSON, language independent message format
+  \item Representable as human-readable, language independent message format (JSON)
   \item Efficient serialization and lossless compression with existing transport layers in mind
   \item Support serialization to Solidity (and Ethereum) compatible data types and structures
   \item Support for arbitrary signature schemes, and a special required signature from a poster\footnote{Described in more detail in the contracts and network sections, a "poster" is any entity that has bonded Kosu tokens in the Poster Registry contract. Doing so affords rate-limited write-access to the Kosu "order book" proportional to stake size.}
 \end{enumerate}
-\medskip
 
 % Begin table 2
 \bgroup
@@ -236,7 +235,7 @@ A simple order message format is defined based on the SubContract interface. The
 \texttt{posterSignature} & \texttt{object} & yes & Stores the signature resulting from a poster entity signing a hash of the maker order values. Used to verify poster has bonded tokens. \\
 \hline
 \end{tabularx}
-\caption{Generically describes the data structure that represents an order message.} 
+\caption{Generic and high-level description of the Kosu Order message format, including optional fields.} 
 \end{table}
 \egroup
 % End table 2
