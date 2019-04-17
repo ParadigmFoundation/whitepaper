@@ -41,10 +41,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % START TITLE PAGE
-\title{ \textbf{Kosu: A Decentralized Relay Protocol for Smart Contract Based Financial Primitives} } 
-\author{Liam Kovatch, Henry Harder \\\texttt{https://kosu.io}}
-\date{5 June 2018 (Revised \today)}
-\maketitle 
+\title{\textbf{Kosu: A Decentralized Relay Protocol for Smart Contract Based Financial Primitives}} 
+\author{Liam Kovatch, Henry Harder \\\texttt{www.kosu.io}}
+\date{\today}
+\maketitle
 % END TITLE PAGE
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -299,7 +299,7 @@ Validators can...
 Communication between blockchains with differing types of finality guarantees requires the usage of a peg-zone. The Ethereum blockchain currently offers probabalisitic finality for state-modifying transactions included in blocks based on its proof-of-work consensus mechanism. Older blocks are exponentially harder to reorganize\cite{blockchain-taxonomy} than recently mined blocks, thus as the age of a block increases, the chance of that block or its contents being moved in the blockchains chronology decreases exponentially.
 \medskip
 
-This is in contrast to the security model Kuso uses where economic finality is guaranteed nearly instantly, thanks to the underlying Tendermint Consensus\cite{tendermint, tendermint-wp} engine. As soon as a superiority of the network's vote power supports the commit of a given block, it can be considered finalized and irreversible. It would be impossible for any entity to "reorganize" the canonical chain in the proof-of-work sense without possessing a superiority of vote power through the acquisition of a significant number of Kosu tokens, and approval to the validator set by existing token holders.
+This is in contrast to the security model Kosu uses where economic finality is guaranteed nearly instantly, thanks to the underlying Tendermint Consensus\cite{tendermint, tendermint-wp} engine. As soon as a superiority of the network's vote power supports the commit of a given block, it can be considered finalized and irreversible. It would be impossible for any entity to "reorganize" the canonical chain in the proof-of-work sense without possessing a superiority of vote power through the acquisition of a significant number of Kosu tokens, and approval to the validator set by existing token holders.
 \medskip
 
 
