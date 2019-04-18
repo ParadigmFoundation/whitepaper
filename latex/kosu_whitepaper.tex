@@ -98,11 +98,13 @@ The Kosu network is designed within the 0x-motivated ecosystem, providing a dece
 
 % BEGIN OVERVIEW SECTION
 \section{Overview}\label{overview}
-
-Kosu is chiefly composed of two interdependent systems that together implement the protocol’s core functionality of order message relay and the establishment of a consistent set of recent orders. The Kosu contract system supports the protocol's incentive mechanisms, validator curation by stakeholders, and sybil tolerance for the Kosu network, which supports base-layer order book functionality for exchange and liquidity systems built atop it.\footnote{See section \ref{specification} for details on each of these systems.}
+Kosu is a bonded proof-of-stake blockchain secured by Tendermint Consensus\cite{tendermint} and a suite of Ethereum contracts designed to support the construction of order booking and liquidity systems for emerging decentralized financial primitives.
 \medskip
 
-The first system is the Kosu blockchain, a collection of globally distributed nodes that collectively maintain and update the network’s shared state and "order book"\footnote{The Kosu order book is a set of hashes of specific recent orders, from which conventional limit order books can be constructed. See section TODO}, and maintain a one-way Peg with the Ethereum blockchain. The network supports basic order booking functionality, access control for user accounts, and cryptographic proofs of the existence of state contents, including the set of orders comprising the "order book". Validators secure the network by voting on state changes to an Ethereum contract system, processing orders, and reaching consensus with other validators\footnote{Kosu non-validating full nodes crucially provide access to the order book and enable users to submit orders, laying the foundation for a wide array of applications. Full nodes also allow a wide variety of proofs to be constructed about the existence or absence of state data.} on the canonical chain and the overall application state. In short, Kosu is a bonded proof-of-stake blockchain secured by Tendermint Consensus\cite{tendermint}.
+Kosu is chiefly composed of two interdependent systems that together implement the protocol’s core function: to support the decentralized relay of order messages, and to establish a consistent and verifiable set of recent orders. The Kosu contract system supports the protocol's incentive mechanisms, validator curation by stakeholders, and sybil tolerance for the Kosu network, which supports base-layer order book functionality for exchange and liquidity systems built atop it.\footnote{See section \ref{specification} for details on each of these systems.}
+\medskip
+
+The first system is the Kosu blockchain, a collection of globally distributed nodes that collectively maintain and update the network’s shared state and "order book"\footnote{The Kosu order book is a set of hashes of specific recent orders, from which conventional limit order books can be constructed. See section TODO}, and maintain a one-way Peg with the Ethereum blockchain. The network supports basic order booking functionality, access control for user accounts, and cryptographic proofs of the existence of state contents, including the set of orders comprising the "order book". Validators secure the network by voting on state changes to an Ethereum contract system, processing orders, and reaching consensus with other validators\footnote{Kosu non-validating full nodes crucially provide access to the order book and enable users to submit orders, laying the foundation for a wide array of applications. Full nodes also allow a wide variety of proofs to be constructed about the existence or absence of state data.} on the canonical chain and the overall application state. 
 \medskip
 
 The second and closely related component is the Kosu protocol smart-contract system. These contracts are deployed to Ethereum and implement Kosu’s native token and incentive mechanisms, support access control and sybil tolerance for posters, and allow stakeholders to curate the Kosu network’s validator set through a novel token-weighted voting system.
@@ -133,6 +135,7 @@ The ability for validators to specify both negative and positive reward rates is
 \medskip
 
 Validators see proposed and newly committed blocks prior to the rest of the network, and at scale, this information can be monetized. In order for the incentives to remain properly aligned in these conditions, the same aspect of the protocol's design that enables the inflationary reward mechanism, also enables validators to compete by offering to burn tokens for a validating position, which amounts to a payment for the role. The "payment" comes in the form of removing tokens from circulation (burning), which increases the value of all remaining tokens due to the decrease in supply, assuming no or little change in demand.
+\medskip
 \clearpage
 \pagebreak
 % END OVERVIEW SECTION
