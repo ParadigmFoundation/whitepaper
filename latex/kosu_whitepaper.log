@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 APR 2019 17:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 APR 2019 17:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -245,18 +245,18 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )) (/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux)
 \openout1 = `kosu_whitepaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
  (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
@@ -325,26 +325,26 @@ Package caption Info: End \AtBeginDocument code.
  [2] [3] [4
 
 ] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 181--181
+Underfull \hbox (badness 10000) in paragraph at lines 185--185
 []|\OT1/cmtt/m/n/10 makerData\OT1/cmr/m/n/10 ,
  []
 
 [6
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 190.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 194.
  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 190.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 194.
 
-Underfull \hbox (badness 10000) in paragraph at lines 235--235
+Underfull \hbox (badness 10000) in paragraph at lines 239--239
 []|\OT1/cmr/m/n/10 An ar-ray of equal length to the num-ber of
  []
 
 
-Underfull \hbox (badness 2126) in paragraph at lines 235--235
+Underfull \hbox (badness 2126) in paragraph at lines 239--239
 \OT1/cmtt/m/n/10 makerArguments \OT1/cmr/m/n/10 con-tain-ing ob-jects that de-fine the
  []
 
@@ -352,20 +352,15 @@ Underfull \hbox (badness 2126) in paragraph at lines 235--235
 <../figures/fig1.png, id=43, 434.22224pt x 310.761pt>
 File: ../figures/fig1.png Graphic file (type png)
 <use ../figures/fig1.png>
-Package pdftex.def Info: ../figures/fig1.png  used on input line 354.
+Package pdftex.def Info: ../figures/fig1.png  used on input line 358.
 (pdftex.def)             Requested size: 453.405pt x 324.48781pt.
  [10] [11 <../figures/fig1.png>] [12
 
 ] [13
 
 ]
-Overfull \hbox (6.29543pt too wide) in paragraph at lines 449--451
+Overfull \hbox (6.29543pt too wide) in paragraph at lines 429--431
 \OT1/cmtt/m/n/9 https://github.com/tendermint/tendermint/blob/master/docs/spec/reactors/consensus/consensus.md 
- []
-
-
-Overfull \hbox (20.47026pt too wide) in paragraph at lines 461--463
-\OT1/cmtt/m/n/9 https://github.com/ParadigmFoundation/ParadigmContracts/blob/master/sdk/contracts/SubContract.sol 
  []
 
 [14
@@ -374,13 +369,13 @@ Overfull \hbox (20.47026pt too wide) in paragraph at lines 461--463
 Here is how much of TeX's memory you used:
  6599 strings out of 492649
  99486 string characters out of 6129622
- 187070 words of memory out of 5000000
+ 186979 words of memory out of 5000000
  10369 multiletter control sequences out of 15000+600000
  10441 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,10n,77p,1695b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf (14 pages, 470709 bytes).
+Output written on /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf (14 pages, 471968 bytes).
 PDF statistics:
  105 PDF objects out of 1000 (max. 8388607)
  73 compressed objects within 1 object stream
