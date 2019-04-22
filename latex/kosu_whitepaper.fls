@@ -166,7 +166,6 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT /Users/hen/GitHub/whitepaper/latex/../figures/fig1.png
 INPUT ../figures/fig1.png
 INPUT ../figures/fig1.png
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm
 INPUT /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux
 INPUT /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.out
 INPUT /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.out
@@ -190,4 +189,3 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
-INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb
