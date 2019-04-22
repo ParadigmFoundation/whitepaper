@@ -11,25 +11,28 @@
 \contentsline {subsubsection}{\numberline {3.2.4}Treasury}{9}
 \contentsline {subsubsection}{\numberline {3.2.5}Poster bonding}{9}
 \contentsline {subsubsection}{\numberline {3.2.6}Validator token-curated registry}{9}
-\contentsline {subsubsection}{\numberline {3.2.7}Fraud proofs}{9}
-\contentsline {subsection}{\numberline {3.3}Tendermint Network}{9}
-\contentsline {subsubsection}{\numberline {3.3.1}Introduction}{9}
-\contentsline {subsubsection}{\numberline {3.3.2}Architecture}{9}
-\contentsline {subsubsection}{\numberline {3.3.3}Poster access control}{9}
-\contentsline {subsubsection}{\numberline {3.3.4}State model}{9}
-\contentsline {subsubsection}{\numberline {3.3.5}Transaction types}{10}
-\contentsline {subsubsection}{\numberline {3.3.6}Validator curation}{10}
-\contentsline {subsection}{\numberline {3.4}Ethereum Peg Zone}{10}
-\contentsline {subsubsection}{\numberline {3.4.1}Introduction}{10}
-\contentsline {subsubsection}{\numberline {3.4.2}Architecture}{10}
-\contentsline {subsubsection}{\numberline {3.4.3}Process description}{11}
-\contentsline {subsection}{\numberline {3.5}Incentive Models}{11}
-\contentsline {subsubsection}{\numberline {3.5.1}Sybil tolerance}{11}
-\contentsline {subsubsection}{\numberline {3.5.2}Validator elections}{11}
-\contentsline {subsubsection}{\numberline {3.5.3}Validator rewards}{11}
-\contentsline {section}{\numberline {4}Token Distribution}{12}
-\contentsline {subsection}{\numberline {4.1}Overview}{12}
-\contentsline {subsection}{\numberline {4.2}Mechanics}{12}
-\contentsline {subsection}{\numberline {4.3}Ether to Kosu}{12}
-\contentsline {subsection}{\numberline {4.4}Kosu to Ether}{12}
-\contentsline {section}{\numberline {5}Future Work}{13}
+\contentsline {subsection}{\numberline {3.3}Tendermint Network}{10}
+\contentsline {subsubsection}{\numberline {3.3.1}Introduction}{10}
+\contentsline {subsubsection}{\numberline {3.3.2}Architecture}{11}
+\contentsline {subsubsection}{\numberline {3.3.3}Poster access control}{12}
+\contentsline {subsubsection}{\numberline {3.3.4}State model}{12}
+\contentsline {subsubsection}{\numberline {3.3.5}Transaction types}{13}
+\contentsline {subsubsection}{\numberline {3.3.6}Validator curation}{14}
+\contentsline {subsection}{\numberline {3.4}Ethereum Peg Zone}{14}
+\contentsline {subsubsection}{\numberline {3.4.1}Introduction}{14}
+\contentsline {subsubsection}{\numberline {3.4.2}Architecture}{15}
+\contentsline {subsubsection}{\numberline {3.4.3}Process description}{16}
+\contentsline {subsection}{\numberline {3.5}Incentive Models}{17}
+\contentsline {subsubsection}{\numberline {3.5.1}Validators}{17}
+\contentsline {subsubsection}{\numberline {3.5.2}Posters}{18}
+\contentsline {subsubsection}{\numberline {3.5.3}Voters}{18}
+\contentsline {section}{\numberline {4}Token Distribution}{19}
+\contentsline {subsection}{\numberline {4.1}Overview}{19}
+\contentsline {subsection}{\numberline {4.2}Mechanics}{19}
+\contentsline {subsection}{\numberline {4.3}Ether to Kosu}{20}
+\contentsline {subsection}{\numberline {4.4}Kosu to Ether}{20}
+\contentsline {section}{\numberline {5}The Matcher Model}{21}
+\contentsline {section}{\numberline {6}Future Work}{22}
+\contentsline {subsection}{\numberline {6.1}Formalized Governance}{22}
+\contentsline {subsection}{\numberline {6.2}Decentralized Trade Execution}{22}
+\contentsline {subsection}{\numberline {6.3}Decentralized Price Oracles}{22}
