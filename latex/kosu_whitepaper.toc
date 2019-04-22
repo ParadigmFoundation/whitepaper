@@ -27,13 +27,13 @@
 \contentsline {subsubsection}{\numberline {3.5.1}Validators}{18}
 \contentsline {subsubsection}{\numberline {3.5.2}Posters}{19}
 \contentsline {subsubsection}{\numberline {3.5.3}Voters}{19}
-\contentsline {section}{\numberline {4}Token Distribution}{20}
-\contentsline {subsection}{\numberline {4.1}Overview}{20}
-\contentsline {subsection}{\numberline {4.2}Mechanics}{20}
-\contentsline {subsection}{\numberline {4.3}Ether to Kosu}{21}
-\contentsline {subsection}{\numberline {4.4}Kosu to Ether}{21}
-\contentsline {section}{\numberline {5}The Matcher Model}{22}
-\contentsline {section}{\numberline {6}Future Work}{23}
-\contentsline {subsection}{\numberline {6.1}Formalized Governance}{23}
-\contentsline {subsection}{\numberline {6.2}Decentralized Trade Execution}{23}
-\contentsline {subsection}{\numberline {6.3}Decentralized Price Oracles}{23}
+\contentsline {section}{\numberline {4}Token Distribution}{21}
+\contentsline {subsection}{\numberline {4.1}Overview}{21}
+\contentsline {subsection}{\numberline {4.2}Mechanics}{21}
+\contentsline {subsection}{\numberline {4.3}Ether to Kosu}{22}
+\contentsline {subsection}{\numberline {4.4}Kosu to Ether}{22}
+\contentsline {section}{\numberline {5}The Matcher Model}{23}
+\contentsline {section}{\numberline {6}Future Work}{24}
+\contentsline {subsection}{\numberline {6.1}Formalized Governance}{24}
+\contentsline {subsection}{\numberline {6.2}Decentralized Trade Execution}{24}
+\contentsline {subsection}{\numberline {6.3}Decentralized Price Oracles}{24}

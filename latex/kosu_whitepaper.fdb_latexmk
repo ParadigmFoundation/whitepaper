@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1555976452 "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf" "kosu_whitepaper" 1555976464
+["pdflatex"] 1555976517 "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf" "kosu_whitepaper" 1555976519
   "../figures/fig1.png" 1555976452 331150 431cf105f3eefc4edae643d815ecf9ef ""
   "../figures/fig2.png" 1555976064 197406 bc8f3e894e6d471410a7d39389b7722e ""
-  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux" 1555976455 8531 d3a0997f544aba985cdf3e1df83c6af4 ""
-  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" 1555976464 87982 3d9e20f6ae58716c3c1ce7c6bb8a48fb ""
+  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux" 1555976519 8531 aa2e6775d6c336eb519c4289179dc158 ""
+  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" 1555976513 87989 d9c623233efaeaef4f8a8c8a47779846 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -103,14 +103,14 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1523934492 2717033 f61a5287d9c22a39a74f1979fe3f905c ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1523934516 4220280 10cab8fbd7c5a7c52aba9917e190d018 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "kosu_whitepaper.aux" 1555976455 8531 d3a0997f544aba985cdf3e1df83c6af4 ""
-  "kosu_whitepaper.tex" 1555976464 87982 3d9e20f6ae58716c3c1ce7c6bb8a48fb ""
-  "kosu_whitepaper.toc" 1555976455 2595 94a35f70f2c63f655b368cd0b360153d ""
+  "kosu_whitepaper.aux" 1555976519 8531 aa2e6775d6c336eb519c4289179dc158 ""
+  "kosu_whitepaper.tex" 1555976513 87989 d9c623233efaeaef4f8a8c8a47779846 ""
+  "kosu_whitepaper.toc" 1555976519 2595 320c119223e2c43d5032f8965d63036a ""
   "solidity-highlighting.tex" 1555448423 2730 dc5e523561ee6df9bd335acbb548f84b ""
   (generated)
-  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf"
   "kosu_whitepaper.aux"
+  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.log"
+  "kosu_whitepaper.pdf"
+  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf"
   "kosu_whitepaper.log"
   "kosu_whitepaper.toc"
-  "kosu_whitepaper.pdf"
-  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.log"
