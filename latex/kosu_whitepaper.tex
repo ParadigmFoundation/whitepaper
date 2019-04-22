@@ -134,6 +134,34 @@ During the continuous validator governance and curation process, individuals wis
 \medskip
 
 The ability for validators to specify both negative and positive reward rates is a crucial component of the overall system design. For the nascent network, validators will be able to extract little value from the act of validating alone, thus will require inflationary rewards that justify the costs of managing validator infrastructure. However, in a mature state the Kosu network could present implicit value capture opportunities to validators in the form of positional information advantages. More generally, validator reward schedules are market-driven and account for both implicit and explicit reward capture.
+
+\subsection{Usage example}\label{overview-example}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/fig2.png}
+  \caption{Simplified chronology (arranged with time progressing in the downward direction) of the steps involved for a new user (the poster) to submit an order to the Kosu network.}
+  \label{fig:fig1}
+\end{figure}
+Figure \ref{fig:fig1} illustrates the actors, systems, and procedures involved in enabling a new user (the "poster") to contribute liquidity, via a signed order message, to the Kosu network and order book.
+\medskip
+
+Boxes represent individuals or human-controlled actors, ovals represent Ethereum smart-contracts, and boxes with rounded corners represent Kosu nodes. Solid arrows and dots indicate actions triggered by the poster, dashed arrows represent interactions validators are responsible for, dotted arrows represent actions triggered by the "taker", the individual or entity who fills the poster's order by submitting it to a virtual settlement system (such as the 0x protocol\cite{0x-wp}).
+\medskip
+
+The individual time-steps are shown on the left (and annotated below), with the first action taking place at time-step 1.
+\medskip
+
+\begin{enumerate}[1.]
+  \item A poster who intents to contribute liquidity to the Kosu network "buys" KOSU tokens by locking an arbitrary amount of Ether in the token's bonding curve contract.
+  \item In the bond transaction, the contract "sends" KOSU tokens to the poster (by increasing the corresponding balance entry in the token contract) according to the bonding curve equation and it's current parameterization.
+  \item The poster bonds any amount of their new KOSU tokens in the Poster Registry contract
+  \item The Kosu/Ethereum peg-zone updates the poster's balance in the Kosu network's shared state, granting them write access to the order book.
+  \item The poster creates and signs a maker order message, indicating their intent and ability to trade.
+  \item The poster submits their order message as a transaction to the Kosu network via a full node (or light client).
+  \item A Kosu validator includes the order transaction in a block and makes the order available to the greater network.
+  \item A taker (any individual filling maker order messages by submitting them for settlement) becomes aware of the new order from their own full node or light client.
+  \item The taker submits the maker order and any additional required information to an arbitrary blockchain-based virtual settlement system (such as 0x) according to the maker order's type. In most cases, the settlement system will initiate some type of transfer of funds between the maker and the taker.
+\end{enumerate}
 \clearpage
 \pagebreak
 % END OVERVIEW SECTION

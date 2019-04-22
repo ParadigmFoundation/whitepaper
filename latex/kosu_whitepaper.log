@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 APR 2019 15:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 APR 2019 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -324,87 +324,93 @@ Package caption Info: End \AtBeginDocument code.
 
  [2] [3] [4
 
-] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 191--191
+]
+<../figures/fig2.png, id=25, 432.71663pt x 305.44113pt>
+File: ../figures/fig2.png Graphic file (type png)
+<use ../figures/fig2.png>
+Package pdftex.def Info: ../figures/fig2.png  used on input line 141.
+(pdftex.def)             Requested size: 453.405pt x 320.06082pt.
+ [5 <../figures/fig2.png>] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 219--219
 []|\OT1/cmtt/m/n/10 makerData\OT1/cmr/m/n/10 ,
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 200.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 228.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 200.
- [6
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 228.
+ [7
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 245--245
+Underfull \hbox (badness 10000) in paragraph at lines 273--273
 []|\OT1/cmr/m/n/10 An ar-ray of equal length to the num-ber of
  []
 
 
-Underfull \hbox (badness 2126) in paragraph at lines 245--245
+Underfull \hbox (badness 2126) in paragraph at lines 273--273
 \OT1/cmtt/m/n/10 makerArguments \OT1/cmr/m/n/10 con-tain-ing ob-jects that de-fine the
  []
 
-[7] [8] [9] [10] [11] [12] [13] [14]
-<../figures/fig1.png, id=60, 434.22224pt x 310.761pt>
+[8] [9] [10] [11] [12] [13] [14] [15]
+<../figures/fig1.png, id=66, 434.22224pt x 310.761pt>
 File: ../figures/fig1.png Graphic file (type png)
 <use ../figures/fig1.png>
-Package pdftex.def Info: ../figures/fig1.png  used on input line 546.
+Package pdftex.def Info: ../figures/fig1.png  used on input line 574.
 (pdftex.def)             Requested size: 453.405pt x 324.48781pt.
- [15] [16 <../figures/fig1.png>] [17] [18] [19
+ [16] [17 <../figures/fig1.png>] [18] [19] [20
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 727--728
+Underfull \hbox (badness 10000) in paragraph at lines 755--756
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 728--729
+Underfull \hbox (badness 10000) in paragraph at lines 756--757
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 730--731
+Underfull \hbox (badness 10000) in paragraph at lines 758--759
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 738--739
+Underfull \hbox (badness 10000) in paragraph at lines 766--767
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--740
+Underfull \hbox (badness 10000) in paragraph at lines 767--768
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 741--742
+Underfull \hbox (badness 10000) in paragraph at lines 769--770
 
  []
 
-[20] [21
-
-] [22
+[21] [22
 
 ] [23
 
-] [24] (/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux) ) 
+] [24
+
+] [25] (/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux) ) 
 Here is how much of TeX's memory you used:
- 6622 strings out of 492649
- 99897 string characters out of 6129622
+ 6629 strings out of 492649
+ 100028 string characters out of 6129622
  186013 words of memory out of 5000000
- 10391 multiletter control sequences out of 15000+600000
+ 10397 multiletter control sequences out of 15000+600000
  10787 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,10n,77p,1650b,392s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf (24 pages, 586347 bytes).
+Output written on /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf (25 pages, 769994 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
- 118 compressed objects within 2 object streams
+ 175 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

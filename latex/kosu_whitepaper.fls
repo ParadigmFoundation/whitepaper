@@ -140,6 +140,9 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 OUTPUT /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.toc
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /Users/hen/GitHub/whitepaper/latex/../figures/fig2.png
+INPUT ../figures/fig2.png
+INPUT ../figures/fig2.png
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
