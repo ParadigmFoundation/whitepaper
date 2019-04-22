@@ -1,6 +1,6 @@
 \documentclass[10pt]{article}
 \usepackage{graphicx}
-% \usepackage{hyperref}
+\usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage[shortlabels]{enumitem}
 \usepackage{cite}
@@ -45,7 +45,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % START TITLE PAGE
-\title{\textbf{Kosu: A Decentralized Relay Protocol for Smart Contract Based Financial Primitives}} 
+\title{\textbf{Kosu: A Decentralized Liquididty Aggregation Primitive}} 
 \author{Liam Kovatch, Henry Harder \\\texttt{www.kosu.io}}
 \date{\today}
 \maketitle
@@ -57,7 +57,7 @@
 
 %BEGIN ABSTRACT
 \begin{abstract}
-  We motivate Kosu, a decentralized network and protocol that encourages the curation of a consistent, high-quality, verifiable, public order book. The Kosu network is an independent bonded proof-of-stake blockchain built on Tendermint Consensus. The lightweight state application is responsible for enforcing a simple access control ruleset and order booking procedure. The network utilizes a shared security model, wherein all staking and token-based mechanics happen on the Ethereum main-network. The model provides unidirectional communication and checkpoints between the two networks by leveraging Tendermint to provide finality for specific Ethereum-based state changes. Individuals intending to post orders to the Kosu network are required to bond tokens for the duration they wish to have access. The poster bonding mechanism creates a market for the allocation of network resources and an implicit incentive to contribute quality liquidity to the network. Kosu validators are selected via a token curated registry system on Ethereum. This registry system allows both the inflation rate as well as the number of active validators to be market driven and determined by the network’s stakeholders. The network is highly generalizable, supporting orders of arbitrary maker-taker based virtual settlement systems. In its entirety, the proposed system effectively curates a decentralized order book that serves as a liquidity aggregation primitive for second layer systems. Kosu will be free to use and open source, reducing barriers to entry for both developers and market agents.
+  \noindent We motivate Kosu, a decentralized network and protocol that encourages the curation of a consistent, high-quality, verifiable, public order book. The Kosu network is an independent bonded proof-of-stake blockchain built on Tendermint Consensus. The lightweight state application is responsible for enforcing a simple access control ruleset and order booking procedure. The network utilizes a shared security model, wherein all staking and token-based mechanics happen on the Ethereum main-network. The model provides unidirectional communication and checkpoints between the two networks by leveraging Tendermint to provide finality for specific Ethereum-based state changes. Individuals intending to post orders to the Kosu network are required to bond tokens for the duration they wish to have access. The poster bonding mechanism creates a market for the allocation of network resources and an implicit incentive to contribute quality liquidity to the network. Kosu validators are selected via a token curated registry system on Ethereum. This registry system allows both the inflation rate as well as the number of active validators to be market driven and determined by the network’s stakeholders. The network is highly generalizable, supporting orders of arbitrary maker-taker based virtual settlement systems. In its entirety, the proposed system effectively curates a decentralized order book that serves as a liquidity aggregation primitive for second layer systems. Kosu will be free to use and open source, reducing barriers to entry for both developers and market agents.
 \end{abstract}
 \pagebreak
 % END ABSTRACT
@@ -750,27 +750,46 @@ $r = \frac{b}{p_j*j}$
 
 From equation \ref{parametric-eq}, we can further derive equations for calculating payouts in both directions. The equation for both payout directions are included below. For a more formal derivation of the equations referenced below, please refer to Bancor’s “Formulas for Bancor system”\cite{bancor-formulas}. 
 \subsection{Ether to Kosu}\label{token-distribution-eth-kosu}
+\begin{equation}
+  \beta = j* ((\frac{1+\alpha}{b})^{\frac{b}{p*j}} - 1)
+\end{equation}
+\medskip
 
-\begin{itemize}
-  \item Input: \\ $\alpha =$ quantity of Ether deposited \\
-  \item Output: \\ $\beta =$ quantity of KOSU received \\
-  \item Quantities necessary for parameterization (result of read to contract system state): \\ $j =$ KOSU supply \\ $b = $ total quantity of Ether collateral \\ $p =$ price of KOSU at $j$
-  \item Then: \\
-  \begin{equation}
-    \beta = j* ((\frac{1+\alpha}{b})^{\frac{b}{p*j}} - 1)
-  \end{equation}
-\end{itemize}
+\noindent $\alpha =$ quantity of Ether deposited
+\medskip
+
+\noindent $\beta =$ quantity of KOSU received
+\medskip
+
+\noindent $j =$ KOSU supply
+\medskip
+
+\noindent $b = $ total quantity of Ether collateral
+\medskip
+
+\noindent $p =$ price of KOSU at $j$
+\medskip
 
 \subsection{Kosu to Ether}\label{token-distribution-kosu-eth}
-\begin{itemize}
-  \item Input: \\ $\beta =$ quantity of KOSU deposited \\
-  \item Output: \\ $\alpha =$ quantity of Ether received \\
-  \item Quantities necessary for parameterization (result of read to contract system state): \\ $j =$ KOSU supply \\ $b = $ total quantity of Ether collateral \\ $p =$ price of KOSU at $j$
-  \item Then: \\
-  \begin{equation}
-    \alpha = b* ((\frac{1+\beta}{j})^{\frac{p*j}{b}} - 1)
-  \end{equation}
-\end{itemize}
+\begin{equation}
+  \alpha = b* ((\frac{1+\beta}{j})^{\frac{p*j}{b}} - 1)
+\end{equation}
+\medskip
+
+\noindent $\beta =$ quantity of KOSU deposited
+\medskip
+
+\noindent $\alpha =$ quantity of Ether received
+\medskip
+
+\noindent $j =$ KOSU supply
+\medskip
+
+\noindent $b = $ total quantity of Ether collateral
+\medskip
+
+\noindent $p =$ price of KOSU at $j$
+\medskip
 \clearpage
 \pagebreak
 % END TOKEN DISTRIBUTION SECTION
