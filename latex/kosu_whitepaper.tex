@@ -429,10 +429,14 @@ The submission of order transactions is limited over deterministically calculate
 \medskip
 
 During generation of these rebalance transactions, Validators (via their Witness processes) snapshot the most up-to-date bonded balances of each account in the Poster Registry contract (see \ref{ethereum-contract-system-poster-bonding}), and proportionally allocate the number of orders to be accepted that period to posters based on the following equation(s).
+
+\begin{equation}\label{bandwidth-equation}
+  L_i =  P_{max} * \frac{B_i}{\sum_{i=1}^{n}B_i}
+\end{equation}
 \medskip
 
-// do eqs. in latex
-\medskip
+In equation \ref{bandwidth-equation} (above), $L_i$ represents the rate-limit of poster account $i$, $P_{max}$ is the total number of orders accepted per-period, $B_i$ is the bonded token balance of poster account $i$, and $n$ is the total number of poster accounts. This equation is calculated at the beginning of each new rebalance period to generate the limit mapping for that period.
+\medskip 
 
 When the Ethereum block marking the end of a rebalance period is finalized\footnote{\ A block is considered finalized when it has reached a sufficient arbitrary age (number of blocks mined above it).}, each validator will create and sign a rebalance transaction, which includes a proposed rate-limit mapping constructed using the method described above. These transactions are verified based on the correct parameterization of the period (period length, order limit, etc.) as well as the accuracy of the proposed rate-limit mapping. 
 \medskip
@@ -581,9 +585,9 @@ Below is a simplified description of the processes involved in updating a poster
 
 The process of updating the network’s validator set and poster accounts is similar, as both use the same witness infrastructure. However, there are important distinctions between how the events are initially generated, and the transitions they effect within the underlying Kosu state machine.
 
-\begin{enumerate}[A)]
+\begin{enumerate}[A.]
   \item Addition or modification of poster account (shown as A, solid lines in fig. \ref{fig:fig2}):
-  \begin{enumerate}[i)]
+  \begin{enumerate}[i.]
     \item A poster entity submits a bond or unbond transaction to the poster registry.
     \item If the transaction is valid, it is included in an Ethereum block and the registry calls a function on the EventEmitter contract during execution of the transaction.
     \item The EventEmitter contract produces an event log containing the posters address, their new balance, and additional meta-data.
@@ -593,7 +597,7 @@ The process of updating the network’s validator set and poster accounts is sim
     \item When the transactions reach the underlying state machine, they are added to a confirmation queue where they await sufficient confirmation from a super-majority of validators. Once reached, the state change is applied to the necessary poster account to reflect their updated balance of bonded Kosu tokens.
   \end{enumerate}
   \item Addition or removal of a Kosu validator (shown as B, dotted lines in fig. \ref{fig:fig2}):
-  \begin{enumerate}[i)]
+  \begin{enumerate}[i.]
     \item A validator listing is confirmed into (or voted out of) the Validator Registry (exact process detailed in section \ref{ethereum-contract-system-tcr})
     \item During execution of an Ethereum transaction that confirms the validator’s listing update, a function call is made to the EventEmitter contract.
     \item The EventEmitter contract produces an event with the validator’s Ethereum address, their Tendermint public key, and their staked balance (which is set to 0 in the case of a removal).
@@ -687,12 +691,12 @@ In order to gain intuition about the system and parametric equation used, we wil
 
 Let us define a slightly exponential family of curves $ y = m*x^n $ where $y$ is the price of KOSU denominated in ETH, $x$ is the KOSU supply, $n$ is a predetermined constant within the range $(1,2)$ and $m$ is the slope which is parameterized upon each bond/unbond transaction. The power function $y$ represents the price of KOSU denominated in ETH and $x$ defines the total KOSU supply. We can thus calculate the total amount paid, which should correspond to the total pool balance, at some token supply $j$ with the following integral calculation.
 
-\begin{equation}
+\begin{equation}\label{full-bonding-integral}
   b = \int_{0}^{j} m*x^n dx
 \end{equation}
 \medskip
 
-\noindent The full integral can be simplified to
+\noindent The full integral in equation \ref{full-bonding-integral} be simplified to:
 
 \begin{equation}
   b = \frac{m}{n+1}j^{n+1}

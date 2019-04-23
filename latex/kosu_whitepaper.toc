@@ -19,14 +19,14 @@
 \contentsline {subsubsection}{\numberline {3.3.4}State model}{13}{subsubsection.3.3.4}
 \contentsline {subsubsection}{\numberline {3.3.5}Transaction types}{14}{subsubsection.3.3.5}
 \contentsline {subsubsection}{\numberline {3.3.6}Validator curation}{15}{subsubsection.3.3.6}
-\contentsline {subsection}{\numberline {3.4}Ethereum Peg Zone}{15}{subsection.3.4}
-\contentsline {subsubsection}{\numberline {3.4.1}Introduction}{15}{subsubsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4}Ethereum Peg Zone}{16}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Introduction}{16}{subsubsection.3.4.1}
 \contentsline {subsubsection}{\numberline {3.4.2}Architecture}{16}{subsubsection.3.4.2}
 \contentsline {subsubsection}{\numberline {3.4.3}Process description}{17}{subsubsection.3.4.3}
 \contentsline {subsection}{\numberline {3.5}Incentive Models}{18}{subsection.3.5}
 \contentsline {subsubsection}{\numberline {3.5.1}Validators}{18}{subsubsection.3.5.1}
 \contentsline {subsubsection}{\numberline {3.5.2}Posters}{19}{subsubsection.3.5.2}
-\contentsline {subsubsection}{\numberline {3.5.3}Voters}{19}{subsubsection.3.5.3}
+\contentsline {subsubsection}{\numberline {3.5.3}Voters}{20}{subsubsection.3.5.3}
 \contentsline {section}{\numberline {4}Token Distribution}{21}{section.4}
 \contentsline {subsection}{\numberline {4.1}Overview}{21}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Mechanics}{21}{subsection.4.2}
