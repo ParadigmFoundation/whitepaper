@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1556125990 "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf" "kosu_whitepaper" 1556125992
+["pdflatex"] 1556125990 "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf" "kosu_whitepaper" 1556126015
   "../figures/fig1.png" 1555976452 331150 431cf105f3eefc4edae643d815ecf9ef ""
   "../figures/fig2.png" 1556043223 197381 0fa526021fdc2ccd225caecf5826c278 ""
   "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux" 1556125992 12270 ef900aac74b3d5a8f31211068d0c9132 ""
-  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" 1556125989 88127 98b7426290e3e2a992526e4ea880d0f8 ""
+  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" 1556126015 88127 98b7426290e3e2a992526e4ea880d0f8 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -105,13 +105,13 @@
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "kosu_whitepaper.aux" 1556125992 12270 ef900aac74b3d5a8f31211068d0c9132 ""
   "kosu_whitepaper.out" 1556125992 2643 c227abb74461fbf19f18ddef65ba589e ""
-  "kosu_whitepaper.tex" 1556125989 88127 98b7426290e3e2a992526e4ea880d0f8 ""
+  "kosu_whitepaper.tex" 1556126015 88127 98b7426290e3e2a992526e4ea880d0f8 ""
   "kosu_whitepaper.toc" 1556125992 3289 f4cff5644fa7a87b67503ff1fc433284 ""
   (generated)
-  "kosu_whitepaper.aux"
-  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.log"
-  "kosu_whitepaper.out"
   "kosu_whitepaper.log"
   "kosu_whitepaper.pdf"
-  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf"
   "kosu_whitepaper.toc"
+  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.log"
+  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf"
+  "kosu_whitepaper.out"
+  "kosu_whitepaper.aux"
