@@ -689,35 +689,28 @@ Preceding an official network launch, a contract responsible for token distribut
 In order to gain intuition about the system and parametric equation used, we will consider the following derivation.
 \medskip
 
-Let us define a slightly exponential family of curves $ y = m*x^n $ where $y$ is the price of KOSU denominated in ETH, $x$ is the KOSU supply, $n$ is a predetermined constant within the range $(1,2)$ and $m$ is the slope which is parameterized upon each bond/unbond transaction. The power function $y$ represents the price of KOSU denominated in ETH and $x$ defines the total KOSU supply. We can thus calculate the total amount paid, which should correspond to the total pool balance, at some token supply $j$ with the following integral calculation.
+Let us define a slightly exponential family of curves $ y = m*x^n $ where $y$ is the price of KOSU denominated in ETH, $x$ is the KOSU supply, $n$ is a predetermined constant within the range $(1,2)$ and $m$ is the slope which is parameterized upon each bond/unbond transaction. The power function $y$ represents the price of KOSU denominated in ETH and $x$ defines the total KOSU supply. We can thus calculate the total amount paid, which should correspond to the total pool balance ($b$), at some token supply $j$ with the following integral calculation.
 
 \begin{equation}\label{full-bonding-integral}
-  b = \int_{0}^{j} m*x^n dx
+  b = \int_{0}^{j} m*x^n dx = \frac{m}{n+1}j^{n+1}
 \end{equation}
 \medskip
 
-\noindent The full integral in equation \ref{full-bonding-integral} be simplified to:
-
-\begin{equation}
-  b = \frac{m}{n+1}j^{n+1}
-\end{equation}
-\medskip
-
-\noindent Which can be re-written in terms of $m$: 
+\noindent Solving for $m$: 
 
 \begin{equation}
   m = \frac{b(n+1)}{j^{n+1}}
 \end{equation}
 \medskip
 
-Borrowing from Bancor, let us now define a constant called the reserve ratio, $r$, which gives the quotient of the current pool balance to the product of the token supply, $j$ and the price at this point, $p_j$\cite{bancor-whitepaper}.
+Borrowing from Bancor, let us now define a constant called the reserve ratio, $r$, which gives the quotient of the current pool balance and the product of the token supply, $j$ and the price at this point, $p_j$\cite{bancor-whitepaper}.
 
-\begin{equation}
+\begin{equation}\label{reserve-ratio}
   r = \frac{b}{p_j*j}
 \end{equation}
 \medskip
 
-\noindent Substituting our previously derived representation of $b$ and further expanding $p_j$ we get:
+\noindent From equations \ref{full-bonding-integral} and \ref{reserve-ratio}, we get:
 
 \begin{equation}
   r = \frac{\frac{m}{n+1}j^{n+1}}{j*(m*j^n)} = \frac{1}{n+1}
@@ -737,20 +730,8 @@ Borrowing from Bancor, let us now define a constant called the reserve ratio, $r
   y = \frac{b}{r*j^{\frac{1}{r}}}*x^{\frac{1}{r}-1}
 \end{equation}
 
-\noindent Where, in equation \ref{parametric-eq}:
+Where (in equation \ref{parametric-eq}) $y$ is the KOSU price denominated in Ether, $x$ is the quantity of KOSU bonded, $j$ is the total KOSU supply, $b$ is the total quantity of Ether collateral (pool balance), and $r$ is the reserve ratio, defined in equation \ref{reserve-ratio}.
 \medskip 
-
-$y = $ KOSU price denominated in Ether
-
-$x = $ quantity of KOSU bonded
-
-$j = $ total KOSU supply
-
-$b = $ total quantity of Ether collateral
-
-$r = \frac{b}{p_j*j}$ 
-
-\bigskip
 
 From equation \ref{parametric-eq}, we can further derive equations for calculating payouts in both directions. The equation for both payout directions are included below. For a more formal derivation of the equations referenced below, please refer to Bancor’s “Formulas for Bancor system”\cite{bancor-formulas}. 
 \subsection{Ether to Kosu}\label{token-distribution-eth-kosu}
@@ -759,41 +740,14 @@ From equation \ref{parametric-eq}, we can further derive equations for calculati
 \end{equation}
 \medskip
 
-\noindent $\alpha =$ quantity of Ether deposited
-\medskip
-
-\noindent $\beta =$ quantity of KOSU received
-\medskip
-
-\noindent $j =$ KOSU supply
-\medskip
-
-\noindent $b = $ total quantity of Ether collateral
-\medskip
-
-\noindent $p =$ price of KOSU at $j$
-\medskip
-
+Where $\alpha$ is the quantity of Ether deposited, $\beta$ is the quantity of KOSU received, $j$ is the current KOSU supply, $b$ is the quantity of Ether collateral (pool balance), and $p$ is the price of KOSU (in Ether) at supply level $j$. 
 \subsection{Kosu to Ether}\label{token-distribution-kosu-eth}
 \begin{equation}
   \alpha = b* ((\frac{1+\beta}{j})^{\frac{p*j}{b}} - 1)
 \end{equation}
 \medskip
 
-\noindent $\beta =$ quantity of KOSU deposited
-\medskip
-
-\noindent $\alpha =$ quantity of Ether received
-\medskip
-
-\noindent $j =$ KOSU supply
-\medskip
-
-\noindent $b = $ total quantity of Ether collateral
-\medskip
-
-\noindent $p =$ price of KOSU at $j$
-\medskip
+Where $\beta$ is the quantity of KOSU deposited, $\alpha$ is the quantity of Ether received, $j$ is the current KOSU supply, $b$ is the quantity of Ether collateral (pool balance), and $p$ is the price of KOSU (in Ether) at supply level $j$. 
 \clearpage
 \pagebreak
 % END TOKEN DISTRIBUTION SECTION
@@ -861,113 +815,113 @@ With that said, the strength of such a system, as referenced in the Uniswap disc
 % BEGIN BIBLIOGRAPHY
 \begin{thebibliography}{9}
 
-\bibitem{0x-wp}
-Warren, Will and Bandeali, Amir. "0x: An Open Protocol for Decentralized Exchange on the Ethereum Blockchain."
-\\\texttt{https://bit.ly/0x-whitepaper}
-
-\bibitem{flash-boys-2}
-Daian, Philip., et al. "Flash Boys 2.0: Frontrunning, Transaction Reordering, and Consensus Instability in Decentralized Exchanges."
-\\\texttt{https://bit.ly/flash-boys-paper}
-
 \bibitem{tendermint}
 All In Bits Inc., Tendermint, et al. "Tendermint Consensus Reactor."
 \\\texttt{https://bit.ly/tendermint-consensus-reactor}
-
-\bibitem{peggy-spec}
-Kunze, Federico, et al. "Two-way Permissionless Peg Zones." Tendermint.
-\\\texttt{https://bit.ly/peggy-spec}
-
-\bibitem{tendermint-abci-spec}
-Buchman, Ethan., et al. "Application Blockchain Interface Specification (Methods and Types)."
-\\\texttt{https://bit.ly/tendermint-abci-spec}
-
-\bibitem{tendermint-abci-apps}
-Buchman, Ethan., et al. "Application Blockchain Interface Specification (Applications)."
-\\\texttt{https://bit.ly/tendermint-abci-applications}
-
-\bibitem{tendermint-crypto-spec}
-Buchman, Ethan., et al. "Tendermint Core specification: Encoding and Digests."
-\\\texttt{https://bit.ly/tendermint-encoding-spec}
-
-\bibitem{sentry-architecture}
-Ramsay, Zack., et al. "Tendermint Core specification: Peer Discovery"
-\\\texttt{https://bit.ly/tendermint-node-spec}
-
-\bibitem{tendermint-iavl}
-Buchman, Ethan., et al. "Merkleized IAVL+ Tree implementation in Go"
-\\\texttt{http://bit.ly/tendermint-iavl}
-
-\bibitem{capital-markets-report}
-McKinsey Global Institute, "\$118 Trillion and Counting: Taking Stock of the World's Capital Markets."
-\\\texttt{https://bit.ly/mckinsey-capital-report}
-
-\bibitem{erc-20}
-Vogelsteller, Fabian and Buterin, Vitalik (et al.). "ERC-20 Token Standard." Tendermint.
-\\\texttt{https://bit.ly/erc-20-specification}
-
-\bibitem{bft}
-Leslie Lamport, Robert Shostak, Marshall Pease. "The Byzantine Generals Problem."
-\\ACM Transactions on Programming Languages and Systems, Vol. 4, No. 3. July 1982. Pages 382-401.
-
-\bibitem{blockchain-taxonomy}
-Tasca, Paola., Tessone, Claudio. J. "Taxonomy of Blockchain Technologies; Principles of Identification and Classification."
-\\\texttt{https://bit.ly/taxonomy-of-blockchains}
-
-\bibitem{tcr-1}
-Goldin, Michael. "Token Curated Registries 1.0." Medium.
-\\\texttt{https://bit.ly/token-curated-registries}
-
-\bibitem{tendermint-wp}
-Ethan Buchman, et al. "Tendermint: Byzantine Fault Tolerance in the Age of Blockchains."
-\\\texttt{https://bit.ly/tendermint-thesis}
-
-\bibitem{dharma-wp}
-Hollander, Nadav. "Dharma: A Generic Protocol for Tokenized Debt Issuance."
-\\\texttt{https://bit.ly/dharma-whitepaper}
-
-\bibitem{paradigm-github}
-Paradigm Labs, corp., et al. "Paradigm Foundation GitHub."
-\\\texttt{https://bit.ly/paradigm-labs-github}
-
-\bibitem{kosu-monorepo}
-Paradigm Labs, corp., et al. "Kosu Monorepo: A Monorepo for the Kosu Protocol."
-\\\texttt{https://bit.ly/kosu-protocol-repo}
-
-\bibitem{kosu-sdk}
-Freyaldenhoven, Nick., et al. "Kosu SubContract SDK."
-\\\texttt{https://bit.ly/kosu-settlement-sdk}
-
-\bibitem{ethereum-whitepaper}
-Buterin, Vitalik., et al. "Ethereum White Paper."
-\\\texttt{https://bit.ly/ethereum-white-paper}
-
-\bibitem{bancor-whitepaper}
-Hertzog,  Eyal., et al. "Bancor Protocol: Continuous Liquidity for Cryptographic Tokens through their Smart Contracts."
-\\\texttt{https://bit.ly/bancor-white-paper}
-
-\bibitem{bancor-formulas}
-Rosenfeld, Meni. "Formulas for Bancor system."
-\\\texttt{https://bit.ly/bancor-formulas}
-
-\bibitem{0x-roadmap-pt-2}
-Bloemen, Remco. "0x Roadmap 2019 (part 2): Scalability R\&D."
-\\\texttt{https://bit.ly/0x-scalability-pt-2}
-
-\bibitem{0x-selective-delay}
-Zeitz, Peter. "Research on Selective Delay TEC Process."
-\\\texttt{https://bit.ly/0x-selective-delay-research}
 
 \bibitem{0x-coordinator-specification}
 Bandeali, Amir and Berger, Fabio. "0x 2.0.0 Coordinator Specification."
 \\\texttt{https://bit.ly/0x-coordinator-spec}
 
+\bibitem{0x-roadmap-pt-2}
+Bloemen, Remco. "0x Roadmap 2019 (part 2): Scalability R\&D."
+\\\texttt{https://bit.ly/0x-scalability-pt-2}
+
+\bibitem{tendermint-abci-apps}
+Buchman, Ethan., et al. "Application Blockchain Interface Specification (Applications)."
+\\\texttt{https://bit.ly/tendermint-abci-applications}
+
+\bibitem{tendermint-abci-spec}
+Buchman, Ethan., et al. "Application Blockchain Interface Specification (Methods and Types)."
+\\\texttt{https://bit.ly/tendermint-abci-spec}
+
+\bibitem{tendermint-iavl}
+Buchman, Ethan., et al. "Merkleized IAVL+ Tree implementation in Go"
+\\\texttt{http://bit.ly/tendermint-iavl}
+
+\bibitem{tendermint-crypto-spec}
+Buchman, Ethan., et al. "Tendermint Core specification: Encoding and Digests."
+\\\texttt{https://bit.ly/tendermint-encoding-spec}
+
+\bibitem{ethereum-whitepaper}
+Buterin, Vitalik., et al. "Ethereum White Paper."
+\\\texttt{https://bit.ly/ethereum-white-paper}
+
+\bibitem{flash-boys-2}
+Daian, Philip., et al. "Flash Boys 2.0: Frontrunning, Transaction Reordering, and Consensus Instability in Decentralized Exchanges."
+\\\texttt{https://bit.ly/flash-boys-paper}
+
+\bibitem{tendermint-wp}
+Ethan Buchman, et al. "Tendermint: Byzantine Fault Tolerance in the Age of Blockchains."
+\\\texttt{https://bit.ly/tendermint-thesis}
+
+\bibitem{kosu-sdk}
+Freyaldenhoven, Nick., et al. "Kosu SubContract SDK."
+\\\texttt{https://bit.ly/kosu-settlement-sdk}
+
+\bibitem{tcr-1}
+Goldin, Michael. "Token Curated Registries 1.0." Medium.
+\\\texttt{https://bit.ly/token-curated-registries}
+
+\bibitem{bancor-whitepaper}
+Hertzog,  Eyal., et al. "Bancor Protocol: Continuous Liquidity for Cryptographic Tokens through their Smart Contracts."
+\\\texttt{https://bit.ly/bancor-white-paper}
+
+\bibitem{dharma-wp}
+Hollander, Nadav. "Dharma: A Generic Protocol for Tokenized Debt Issuance."
+\\\texttt{https://bit.ly/dharma-whitepaper}
+
+\bibitem{peggy-spec}
+Kunze, Federico, et al. "Two-way Permissionless Peg Zones." Tendermint.
+\\\texttt{https://bit.ly/peggy-spec}
+
+\bibitem{bft}
+Leslie Lamport, Robert Shostak, Marshall Pease. "The Byzantine Generals Problem."
+\\ACM Transactions on Programming Languages and Systems, Vol. 4, No. 3. July 1982. Pages 382-401.
+
+\bibitem{capital-markets-report}
+McKinsey Global Institute, "\$118 Trillion and Counting: Taking Stock of the World's Capital Markets."
+\\\texttt{https://bit.ly/mckinsey-capital-report}
+
+\bibitem{kosu-monorepo}
+Paradigm Labs, corp., et al. "Kosu Monorepo: A Monorepo for the Kosu Protocol."
+\\\texttt{https://bit.ly/kosu-protocol-repo}
+
+\bibitem{paradigm-github}
+Paradigm Labs, corp., et al. "Paradigm Labs GitHub."
+\\\texttt{https://bit.ly/paradigm-labs-github}
+
 \bibitem{polaris-intro-article}
 Pereira, Mykel. "Introducing Polaris: A trustless price oracle for ERC20 tokens on Ethereum Mainnet."
 \\\texttt{https://bit.ly/polaris-intro}
 
+\bibitem{sentry-architecture}
+Ramsay, Zack., et al. "Tendermint Core specification: Peer Discovery"
+\\\texttt{https://bit.ly/tendermint-node-spec}
+
+\bibitem{bancor-formulas}
+Rosenfeld, Meni. "Formulas for Bancor system."
+\\\texttt{https://bit.ly/bancor-formulas}
+
+\bibitem{blockchain-taxonomy}
+Tasca, Paola., Tessone, Claudio. J. "Taxonomy of Blockchain Technologies; Principles of Identification and Classification."
+\\\texttt{https://bit.ly/taxonomy-of-blockchains}
+
 \bibitem{uniswap-docs}
 Uniswap. "Uniswap Exchange Protocol Documentation."
 \\\texttt{https://bit.ly/uniswap-docs}
+
+\bibitem{erc-20}
+Vogelsteller, Fabian and Buterin, Vitalik (et al.). "ERC-20 Token Standard." Tendermint.
+\\\texttt{https://bit.ly/erc-20-specification}
+
+\bibitem{0x-wp}
+Warren, Will and Bandeali, Amir. "0x: An Open Protocol for Decentralized Exchange on the Ethereum Blockchain."
+\\\texttt{https://bit.ly/0x-white-paper}
+
+\bibitem{0x-selective-delay}
+Zeitz, Peter. "Research on Selective Delay TEC Process."
+\\\texttt{https://bit.ly/0x-selective-delay-research}
 
 \end{thebibliography}
 
