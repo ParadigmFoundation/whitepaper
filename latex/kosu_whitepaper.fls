@@ -99,12 +99,6 @@ INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/footmisc/footmisc.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/footmisc/footmisc.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/tools/indentfirst.sty
 INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/tools/indentfirst.sty
-INPUT /Users/hen/GitHub/whitepaper/latex/solidity-highlighting.tex
-INPUT /Users/hen/GitHub/whitepaper/latex/solidity-highlighting.tex
-INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/xcolor/xcolor.sty
-INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/xcolor/xcolor.sty
-INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
-INPUT /usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
 INPUT /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux
 INPUT /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux
 OUTPUT /Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux
