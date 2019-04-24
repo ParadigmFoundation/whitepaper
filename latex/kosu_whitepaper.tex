@@ -54,7 +54,7 @@
 
 %BEGIN ABSTRACT
 \begin{abstract}
-  \noindent We motivate Kosu, a decentralized network and protocol that encourages the curation of a consistent, high-quality, verifiable, public order book. The Kosu network is an independent bonded proof-of-stake blockchain built on Tendermint Consensus. The lightweight state application is responsible for enforcing a simple access control ruleset and order booking procedure. The network utilizes a shared security model, wherein all staking and token-based mechanics happen on the Ethereum main-network. The model provides unidirectional communication and checkpoints between the two networks by leveraging Tendermint to provide finality for specific Ethereum-based state changes. Individuals intending to post orders to the Kosu network are required to bond tokens for the duration they wish to have access. The poster bonding mechanism creates a market for the allocation of network resources and an implicit incentive to contribute quality liquidity to the network. Kosu validators are selected via a token curated registry system on Ethereum. This registry system allows both the inflation rate as well as the number of active validators to be market driven and determined by the network’s stakeholders. The network is highly generalizable, supporting orders of arbitrary maker-taker based virtual settlement systems. In its entirety, the proposed system effectively curates a decentralized order book that serves as a liquidity aggregation primitive for second layer systems. Kosu will be free to use and open source, reducing barriers to entry for both developers and market agents.
+  \noindent We motivate Kosu, a decentralized network and protocol that encourages the curation of a consistent, high-quality, verifiable, public order book. The Kosu network is a bonded proof-of-stake blockchain built on Tendermint Consensus. The underlying state machine is responsible for enforcing a simple access control ruleset and order booking procedure. The network utilizes a shared security model, wherein all staking and token-based mechanics happen on the Ethereum main-network. The model provides unidirectional communication and checkpoints between the two networks by leveraging Tendermint to provide finality for specific Ethereum-based state changes. Individuals intending to post orders to the Kosu network are required to bond tokens for the duration they wish to have access. The poster bonding mechanism creates a market for the allocation of network resources and an implicit incentive to contribute quality liquidity to the network. Kosu validators are selected via a token curated registry system on Ethereum. This registry system allows both the inflation rate as well as the number of active validators to be market driven and determined by the network’s stakeholders. The network is generalizable, supporting orders of arbitrary maker-taker based virtual settlement systems. In its entirety, the proposed system effectively curates a decentralized order book and serves as a liquidity aggregation primitive for second layer systems. Kosu is free to use and open source, reducing barriers to entry for both developers and market agents.
 \end{abstract}
 \pagebreak
 % END ABSTRACT
@@ -74,16 +74,16 @@
 
 % BEGIN INTRO
 \section{Introduction}\label{intro}
-Historically, financial markets have been relatively siloed. To date, centralized entities control significant entry points and accounting systems, limiting access beyond a small set of privileged participants\cite{capital-markets-report}. The recent invention of blockchains, decentralized ledger systems, is now challenging this trusted paradigm. Ethereum, a public blockchain with a built-in Turing-complete programming language, provides developers an immutable and verifiable computation platform for scripts known as “smart-contracts”. These scripts can encode arbitrary, deterministic state transition functions, providing a powerful primitive for more complex ledger based application systems\cite{ethereum-whitepaper}.
+Historically, financial markets have been relatively siloed. To date, centralized entities control significant entry points and accounting systems, limiting access beyond a small set of privileged participants\cite{capital-markets-report}. The recent invention of blockchains, decentralized ledger systems, challenges this trusted paradigm. Ethereum, a public blockchain with a built-in Turing-complete programming language, provides developers an immutable and verifiable computation platform for scripts known as “smart-contracts”. These scripts can encode arbitrary, deterministic state transition functions, providing a powerful primitive for more complex ledger based application systems\cite{ethereum-whitepaper}.
 \medskip
 
-Since the network’s genesis in 2014, developers have leveraged smart contracts for a wide range of novel protocol systems. Perhaps the most adopted technical standard for smart contracts is the ERC-20 token implementation\cite{erc-20}. The standard defines a common token interface allowing for the creation of a diverse set of Ethereum-based assets. These tokens often serve as a critical crypto economic primitive providing core utility for protocol systems also deployed on Ethereum. As such, a system of exchange is a key requisite for a token-dependent contract ecosystem.
+Since the network’s genesis in 2014, developers have leveraged smart contracts for a wide range of novel protocol systems. Perhaps the most adopted technical standard for smart contracts is the ERC-20 token implementation\cite{erc-20}. The standard defines a common token interface allowing for the creation of a diverse set of composable Ethereum-based assets. These tokens often serve as a critical crypto economic primitive providing core utility for protocol systems deployed on Ethereum. As such, a system of exchange is a key requisite for a token-dependent contract ecosystem.
 \medskip
 
-In early 2017, the 0x Project published a whitepaper defining a maker-taker based exchange  protocol in which a pipeline of publicly accessible Ethereum smart contracts facilitate the wallet-to-wallet settlement of funds. In this model, order broadcast and discovery happen off-chain. Independent entities known as relayers are responsible for sourcing and maintaining liquidity in the form of independent collections of signed order messages. This hybrid architecture drastically improved the efficiency of existing DEX systems while also providing a critical open exchange primitive with high extensibility\cite{0x-wp}. Since the first deployment of the 0x protocol, a significant number of projects have adopted it as a common piece of infrastructure facilitating 713,000 trades and \$750,000,000 in volume at the time of writing. Moving forward, the team continues to innovate on the scalability, efficiency and incentivization of DEX systems.
+In early 2017, the 0x Project published a whitepaper defining a maker-taker based exchange  protocol in which a pipeline of publicly accessible Ethereum smart contracts facilitate the wallet-to-wallet settlement of funds. In this model, order broadcast and discovery happen off-chain. Independent entities known as relayers are responsible for sourcing and maintaining liquidity in the form of signed order messages. This hybrid architecture drastically improved the efficiency of existing decentralized exchange (DEX) systems while also providing a critical open exchange primitive with high extensibility\cite{0x-wp}. Since the first deployment of the 0x protocol, a significant number of projects have adopted it as a common piece of infrastructure facilitating 713,000 trades and \$750,000,000 in volume at the time of writing. Moving forward, the team continues to innovate on the scalability, efficiency and incentivization of DEX systems.
 \medskip
 
-Virtual settlement systems, specifically decentralized exchanges (DEXs), are a relatively accessible use case for blockchains; a direct evolution from the original digital currency use-case. While conceptually apparent, the architecture of DEXs is a complex and evolving subject. The scalability restraints of blockchain systems combined with the complexities of an asynchronous discrete time system limit their compatibility with optimally efficient continuous time order books and settlement systems\cite{flash-boys-2}. As such, alternative DEX architectures have also captured considerable market share. These systems include dutch auctions and automated market making systems. While immediately compelling for some use cases, the evolution towards hybrid decentralized exchange structures, similar to 0x, is likely. These systems, though currently constrained, have a clear path towards scalability and offer the most scalable, efficient and extensible DEX structure to date\cite{0x-roadmap-pt-2}. 
+Virtual settlement systems, specifically decentralized exchanges, are a relatively accessible use case for blockchains; a direct evolution from the original digital currency use-case. While conceptually apparent, the architecture of DEXs is a complex and evolving subject. The scalability constraints of blockchain systems combined with the complexities of an asynchronous discrete time system limit their compatibility with continuous time order books and settlement systems\cite{flash-boys-2}. As such, alternative DEX architectures have also captured considerable market share. These systems include dutch auctions and automated market making systems. While immediately compelling for some use cases, the evolution towards hybrid decentralized exchange structures, similar to 0x, is likely. These systems, though currently constrained, have a clear path towards scalability and offer the most competitively priced and extensible DEX structure to date\cite{0x-roadmap-pt-2}. 
 \medskip
 
 The Kosu network is designed within the 0x-motivated ecosystem, providing a decentralized aggregation primitive for arbitrary limit orders. More specifically, the Kosu network aims to provide a highly extensible decentralized complement to independent centralized aggregators, or relayers. The set of orders maintained on the Kosu network will represent a high-value subset of the available order universe.
@@ -100,19 +100,19 @@ The Kosu network is designed within the 0x-motivated ecosystem, providing a dece
 Kosu is a public blockchain designed to support the construction of order booking and liquidity systems for emerging decentralized financial primitives. The Kosu network uses a bonded proof-of-stake security model implemented with Tendermint Consensus\cite{tendermint} and a system of Ethereum contracts that include the protocol’s native token.
 \medskip
 
-Kosu is primarily composed of two interdependent systems\footnote{\ These systems are described in more detail in section \ref{specification}.} that together implement the protocol’s core function: to establish and curate a consistent and verifiable set of recent, high-quality orders. The Kosu contract system is responsible for defining the protocol's incentive mechanisms, facilitating validator curation by stakeholders, and specifying an access control scheme for the Kosu network. The functionality provided by the contract system supports the network-based order booking service on which exchange and liquidity systems can be built.
+Kosu is primarily composed of two interdependent systems\footnote{\ These systems are described in more detail in section \ref{specification}.} that together implement the protocol’s core function: to establish and curate a consistent and verifiable set of recent, high-quality orders. The Kosu contract system is responsible for defining the protocol's incentive mechanisms, facilitating validator curation by stakeholders, and specifying an access control scheme for the Kosu network. The functionality provided by the contract system supports the network-based order booking service upon which exchange and liquidity systems can be built.
 \medskip
 
-The Kosu network is a system of globally distributed nodes collectively maintain and update the shared order book\footnote{\ The Kosu order book is a set of hashes of specific recent orders, from which conventional limit order books can be constructed. See section \ref{tm-network-state}.} and blockchain while providing a one-way peg to Ethereum. The network supports basic order booking functionality, access control for user accounts, and cryptographic proofs of the existence of state contents, including the set of orders that compose the current "order book". Validators\footnote{\ Kosu non-validating full nodes crucially provide access to the order book and enable users to submit orders, laying the foundation for a wide array of applications. Full nodes also allow a wide variety of proofs to be constructed about the existence or absence of state data.} secure the network by submitting attestations about specific state changes to the Ethereum contract system, processing orders, and reaching consensus on the canonical chain and overall application state. 
+The Kosu network is a system of globally distributed nodes that collectively maintain and update the shared order book\footnote{\ The Kosu order book is a set of hashes of specific recent orders, from which conventional limit order books can be constructed. See section \ref{tm-network-state}.} and blockchain while providing a one-way peg to Ethereum. The network supports basic order booking functionality, access control for user accounts, and cryptographic proofs of the existence of state contents, including the set of orders that compose the current ``order book.'' Validators\footnote{\ Kosu non-validating full nodes crucially provide access to the order book and enable users to submit orders, laying the foundation for a wide array of applications. Full nodes also allow a wide variety of proofs to be constructed about the existence or absence of state data.} secure the network by submitting attestations about specific state changes to the Ethereum contract system, processing orders, and reaching consensus on the canonical chain and overall application state. 
 \medskip
 
-The Kosu protocol’s Ethereum-based smart-contract system implements the protocol’s native token and manages core incentive mechanisms. These mechanisms manage access control for posters and allow stakeholders to curate the Kosu network’s validator set through a novel weighted voting system and token-curated registry.
+The Kosu protocol’s Ethereum-based smart-contract system implements the protocol’s native token and core incentive mechanisms. These mechanisms manage access control for posters and allow stakeholders to curate the Kosu network’s validator set through a novel weighted voting system and token-curated registry.
 \medskip
 
 Kosu validators are required to run full Ethereum nodes and are responsible for submitting special attestations, or “witness” transactions, to the Kosu network about specific state changes to the protocol’s contract system. Specifically, the network must reflect updates to users’ bonded token balances (which affect a order rate limit enforced by the network), and updates to the dynamic registry contract containing the curated list of validators.
 \medskip
 
-Individuals who wish to leverage the network’s decentralized order booking and message relay features are called posters, and can gain write access to the network by bonding any amount of Kosu tokens in a poster registry contract. After their bond transaction is confirmed on Ethereum to a certain depth, validators update the Kosu network's shared state to reflect the bonded balance change of the new poster. The same mechanism allows posters to adjust the amount of tokens they have bonded, or withdraw entirely from the system at any time. The amount of tokens a poster chooses to bond determines the maximum number of orders they may post per defined period, which is proportional to their bonded balance relative to the total number of poster bonded tokens.
+Individuals who wish to leverage the network’s decentralized order booking and message relay features are called posters, and can gain write access to the network by bonding any amount of Kosu tokens in a poster registry contract. After their bond transaction is confirmed on Ethereum to a certain depth, validators update the Kosu network's shared state to reflect the bonded balance change of the new poster. The same mechanism allows posters to adjust the amount of tokens they have bonded, or withdraw entirely from the system at any time. The amount of tokens a poster chooses to bond determines the maximum number of orders they may post per defined period, which is proportional to their bonded balance relative to the total number tokens bonded by posters.
 \medskip
 
 At deterministic intervals based on the height of the Ethereum blockchain, Kosu validators compute a simple rate-limit mapping based on in-state balance data that allocates network order throughput proportionally to posters who have Kosu tokens bonded at the height a new interval starts. These intervals are called rebalance periods and allow the relatively continuous process of balance updates on the Ethereum Poster Registry, as a result of bonding/unbonding by posters, to be mapped to more discrete periods of rate-limiting in a deterministic manner. At the beginning of each new rebalance period, validators must reach consensus on the parameterization of the upcoming period. The starting and ending Ethereum block heights of the period, and the total number of orders to be accepted from posters during that time is determined prior to allowing posters write access for the period.
@@ -121,42 +121,41 @@ At deterministic intervals based on the height of the Ethereum blockchain, Kosu 
 During normal network operations between rebalance periods, validators accept and process incoming order transactions from posters (gossiped via connected full nodes), while submitting regular attestations (called witness transactions) to other validators on the network. This process ensures the state of the Kosu Ethereum contract system is accurately tracked.
 \medskip
 
-The validity of order transactions is based on the signature of the poster that submitted the order to the network, and a certain required data structure that enables recovery of the signature. Validity is defined as orders containing valid recoverable signatures from a poster account with a non-zero remaining limit for the current rebalance period. Validators will include such orders in a block and decrement the posters bandwidth allocation limit for that period for each order submitted. 
+The validity of order transactions is based on the signature of the poster that submitted the order to the network, and a certain required data structure that enables recovery of the signature. An order is considered valid if it contains a recoverable signature from a poster account with a non-zero remaining order post limit for the current rebalance period. Validators will include such orders in a block and decrement the posters bandwidth allocation limit for that period for each order submitted. 
 \medskip
 
-The Kosu network uses a bonded proof-of-stake security model wherein validators stake (by locking) tokens into a contract proportional to the amount of vote power they wish to receive. The number of tokens they associate with their stake are locked for the duration the entity wishes to validate. The validator may be stripped of their power at any time at the discretion of voting token holders, and if voted out, their tokens are distributed to the individuals responsible for raising – and voting in – the successful challenge. 
+The Kosu network uses a bonded proof-of-stake security model wherein validators stake (by locking) tokens into a contract proportional to the amount of vote power they wish to receive on the network. The number of tokens they associate with their stake are locked for the duration the entity wishes to validate. The validator may be stripped of their power at any time at the discretion of voting token holders, and if voted out, their tokens are distributed to the individuals responsible for raising – and voting in – the successful challenge. 
 \medskip
 
-During the continuous validator governance and curation process, individuals wishing to become validators submit proposals in which they specify a positive or negative reward schedule. If this value is positive, the validator will be rewarded newly minted tokens that inflate the existing supply. If the value is negative, validators will be required to constantly collateralize their listing at the rate specified so their tokens may be burned. In this case, the negative "reward" deflates the existing supply. 
+During the continuous validator governance and curation process, individuals wishing to become validators submit proposals in which they specify a positive or negative reward schedule. If this value is positive, the validator will be rewarded newly minted tokens that inflate the existing supply. If the value is negative, validators will be required to constantly collateralize their listing at the rate specified so their tokens may be burned. In this case, the negative ``reward'' deflates the existing supply. 
 \medskip
 
 The ability for validators to specify both negative and positive reward rates is a crucial component of the overall system design. For the nascent network, validators will be able to extract little value from the act of validating alone, thus will require inflationary rewards that justify the costs of managing validator infrastructure. However, in a mature state the Kosu network could present implicit value capture opportunities to validators in the form of positional information advantages. More generally, validator reward schedules are market-driven and account for both implicit and explicit reward capture.
 
+\clearpage
+\pagebreak
 \subsection{Usage example}\label{overview-example}
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../figures/fig2.png}
-  \caption{Simplified chronology (arranged with time progressing in the downward direction) of the steps involved for a new user (the poster) to submit an order to the Kosu network.}
+  \caption{Simplified chronology (arranged with time progressing in the downward direction) of the steps involved for a new user (the poster) to submit an order to the Kosu network. The individual time-steps are shown on the left (and annotated below), with the first action taking place at time-step 1.}
   \label{fig:fig1}
 \end{figure}
-Figure \ref{fig:fig1} illustrates the actors, systems, and procedures involved in enabling a new user (the "poster") to contribute liquidity, via a signed order message, to the Kosu network and order book.
+Figure \ref{fig:fig1} illustrates the actors, systems, and procedures involved in enabling a new user (the ``poster'') to contribute liquidity, via a signed order message, to the Kosu network and order book. 
 \medskip
 
-Boxes represent individuals or human-controlled actors, ovals represent Ethereum smart-contracts, and boxes with rounded corners represent Kosu nodes. Solid arrows and dots indicate actions triggered by the poster, dashed arrows represent interactions validators are responsible for, dotted arrows represent actions triggered by the "taker", the individual or entity who fills the poster's order by submitting it to a virtual settlement system (such as the 0x protocol\cite{0x-wp}).
-\medskip
-
-The individual time-steps are shown on the left (and annotated below), with the first action taking place at time-step 1.
+Boxes represent individuals or human-controlled actors, ovals represent Ethereum smart-contracts, and boxes with rounded corners represent Kosu nodes. Solid arrows and dots indicate actions triggered by the poster, dashed arrows represent interactions validators are responsible for, and dotted arrows represent actions triggered by the ``taker,'' the individual or entity who fills the poster's order by submitting it to a virtual settlement system (such as the 0x protocol\cite{0x-wp}).
 \medskip
 
 \begin{enumerate}[1.]
-  \item A poster who intents to contribute liquidity to the Kosu network "buys" KOSU tokens by locking an arbitrary amount of Ether in the token's bonding curve contract.
-  \item In the bond transaction, the contract "sends" KOSU tokens to the poster (by increasing the corresponding balance entry in the token contract) according to the bonding curve equation and it's current parameterization.
+  \item A poster who intents to contribute liquidity to the Kosu network ``buys'' KOSU tokens by locking an arbitrary amount of Ether in the token's bonding curve contract.
+  \item In the bond transaction, the contract ``sends'' KOSU tokens to the poster according to the bonding curve equation and its current parameterization.
   \item The poster bonds any amount of their new KOSU tokens in the Poster Registry contract
   \item The Kosu/Ethereum peg-zone updates the poster's balance in the Kosu network's shared state, granting them write access to the order book.
-  \item The poster creates and signs a maker order message, indicating their intent and ability to trade.
+  \item The poster creates and signs a maker order message for an arbitrary settlement system, indicating their intent and ability to trade.
   \item The poster submits their order message as a transaction to the Kosu network via a full node (or light client).
   \item A Kosu validator includes the order transaction in a block and makes the order available to the greater network.
-  \item A taker (any individual filling maker order messages by submitting them for settlement) becomes aware of the new order from their own full node or light client.
+  \item A taker (any individual filling maker order messages by submitting them for settlement) becomes aware of the new order from their own Kosu full node or light client.
   \item The taker submits the maker order and any additional required information to an arbitrary blockchain-based virtual settlement system (such as 0x) according to the maker order's type. In most cases, the settlement system will initiate some type of transfer of funds between the maker and the taker.
 \end{enumerate}
 \clearpage
@@ -180,7 +179,7 @@ Many nuanced components and processes are referenced at a high level for the sak
 The Kosu protocol defines a simple and extensible data structure to represent signed order messages on the network. The primary purpose of the defined order schematic is to allow signature recovery for the verification of poster bandwidth allocation during order processing and validation.
 \medskip
 
-The order format described below is also designed to allow the “wrapping” of existing hybrid-decentralized\footnote{\ Refers to DEX architecture where asset settlement takes place on-chain, and order matching/relay occurs elsewhere.} order messages (such as 0x\cite{0x-wp} and Dharma\cite{dharma-wp}) for relay on the Kosu network, and settlement through a system of generalizable forwarding contracts.
+The order format described below is also designed to allow the “wrapping” of existing hybrid-decentralized\footnote{\ Refers to DEX architecture where asset settlement takes place on-chain, and order matching/relay occurs elsewhere.} order messages (such as 0x and Dharma\cite{0x-wp, dharma-wp}) for relay on the Kosu network, and settlement through a system of generalizable forwarding contracts.
 \medskip
 
 Usage of the forwarding contract system is strictly optional, and unrelated to the core protocol in the sense that no state is shared between the protocol contract system and settlement contracts (called SubContracts, defined below).
@@ -190,7 +189,7 @@ Usage of the forwarding contract system is strictly optional, and unrelated to t
 Kosu can act as an order message aggregator and/or transport layer for a variety of types of on-chain exchange systems. To achieve this, a simple and extensible contract-based interface is defined that allows a common order message format to be used for a variety of Ethereum settlement pipelines that leverage hybrid decentralized exchange architecture.
 \medskip
 
-All current SubContract implementations are in Solidity and designed for use with Ethereum, however, any language and blockchain that supports sufficient scripting capabilities to satisfy the interface above can be used with Kosu\footnote{\ Posters must provide RLP-encoded SECP256K1 signatures in orders submissions regardless of settlement type.}.
+All current SubContract implementations are in Solidity and designed for use with Ethereum, however, any language and blockchain that supports sufficient scripting capabilities to satisfy the interface described in the table below can be used with Kosu\footnote{\ Posters must provide RLP-encoded SECP256K1 signatures in orders submissions regardless of settlement type.}.
 \medskip
 
 % Begin table 1
@@ -235,7 +234,7 @@ Since validity conditions of a given order vary greatly between settlement syste
 A simple order message format is defined based on the SubContract interface. The data structure was specifically designed to satisfy the following requirements:
 
 \begin{enumerate}
-  \item Compatibility with new and existing hybrid off-chain settlement systems (0x\cite{0x-wp}, Dharma\cite{dharma-wp}, etc.)
+  \item Compatibility with new and existing hybrid off-chain settlement systems (0x, Dharma, etc.\cite{0x-wp, dharma-wp})
   \item Efficient and lossless compression with existing transports and multiple languages in mind.
   \item Support for serialization to EVM compatible data types and structures.
   \item Support for arbitrary signature schemes\footnote{\ All orders still must include an SECP256K1 signature from a poster Ethereum account with bonded Kosu tokens.} within maker order messages
@@ -304,21 +303,21 @@ Such an architecture is desirable primarily for the following reasons:
 
 \begin{enumerate}
   \item A component implementation may be updated while the proxy contract's address stays the same\footnote{\ In order for this to be true, there must be no breaking changes to the component's interface.}.
-  \item Implementation contracts can operate in "trusted environments" by only accepting calls from the designated proxy.
+  \item Implementation contracts can operate in ``trusted environments'' by only accepting calls from the designated proxy.
 \end{enumerate}
 
 \subsubsection{System components}\label{ethereum-contract-system-components}
 Below is a list of the primary components (contracts) that make up the overall Kosu contract system, and a brief description of the functionality of each. More detail is provided about certain components in the following subsections.
 
 \begin{itemize}
-  \item \texttt{AuthorizedAddresses} - a registry containing the addresses of each protocol contract that enables a method modifier to restrict access to internal and sensitive methods.
+  \item \texttt{AuthorizedAddresses} - a registry containing the addresses of certain protocol contracts. Enables a method modifier (\texttt{isAuthorized}) to restrict access to internal and sensitive methods.
   \item \texttt{Authorizable} - implements a method modifier that restricts callers to addresses in the authorization registry (\texttt{AuthorizedAddresses}), inherited by many protocol contracts.
   \item \texttt{EventEmitter} - a contract responsible for emitting all system event logs. It is used by the Witness component of the Ethereum peg zone (see \ref{peg}).
   \item \texttt{KosuToken} - an implementation of the ERC-20 interface and the protocol's native token.
-  \item \texttt{Treasury} - central contract that manages system accounting and allowances, and many other crucial functions related to balances and token supply.
-  \item \texttt{PosterRegistryProxy} - the proxy contract for the \texttt{PosterRegistry} that provides its external interface.
-  \item \texttt{ValidatorRegistryProxy} - the proxy contract for the \texttt{ValidatorRegistry} that provides the external interface for validator governance and voting mechanisms.
-  \item \texttt{PosterRegistry} - implementation contract that allows users to bond\footnote{\ The term "stake" is avoided here since the balance may not be slashed, and does not provide rewards for lockup.} and un-bond KOSU tokens at arbitrary times and amounts in exchange for write access to the Kosu network order book. 
+  \item \texttt{Treasury} - central contract that manages system accounting and allowances, and other functionality related to balances and token supply.
+  \item \texttt{PosterRegistryProxy} - the proxy contract for the \texttt{PosterRegistry} that provides its external (public) interface.
+  \item \texttt{ValidatorRegistryProxy} - the proxy contract for the \texttt{ValidatorRegistry} that provides the public interface for validator governance and voting mechanisms.
+  \item \texttt{PosterRegistry} - implementation contract that allows users to bond\footnote{\ The term ``stake'' is avoided here since the balance may not be slashed, and does not provide rewards for lockup.} and un-bond KOSU tokens at arbitrary times and amounts in exchange for write access to the Kosu network order book. 
   \item \texttt{ValidatorRegistry} - an implementation of a modified token-curated-registry\cite{tcr-1} that allows any KOSU token holder to participate in the selection of the Kosu network's validators. Stakeholders are rewarded for participating in governance (for certain outcomes) by challenging new and existing listings, and voting on those challenges. 
   \item \texttt{Voting} - implementation contract that manages challenges and votes for the \texttt{ValidatorRegistry} contract. Implements a basic commit-reveal voting scheme.
 \end{itemize}
@@ -329,7 +328,7 @@ The only contracts that provide meaningful functionality for external users are 
 The Treasury contract is responsible for managing system token allowances, executing adjustments to token supply (as a result of the validator reward process), and other functionality related to asset management within the Kosu contract system.
 \medskip
 
-It acts as a central accounting system and tracks the balances of users tokens throughout the system, including those bonded by posters, staked by validators, or idly deposited within the treasury. This accounting system is crucial to the systems voting mechanics, which relies of the Treasury’s account of each user’s total system balance to assign vote power to participating stakeholders. 
+It acts as a central accounting system and tracks the balances of users' tokens throughout the system, including those bonded by posters, staked by validators, or idly deposited within the treasury. This accounting system is crucial to the systems voting mechanics, which relies of the Treasury’s account of each user’s total system balance to assign vote power to participating stakeholders. 
 \subsubsection{Poster bonding}\label{ethereum-contract-system-poster-bonding}
 The Poster Registry contract is a simple registry system that allows users to bond (register) and un-bond (release) Kosu tokens at any time, and in arbitrary amounts. The contract maintains a mapping of accounts to bonded token balances, and importantly, triggers the emission of an event log through the EventEmitter contract each time a poster registers or releases tokens, including the account address and the new balance.
 \medskip
@@ -813,111 +812,111 @@ With that said, the strength of such a system, as referenced in the Uniswap disc
 \begin{thebibliography}{9}
 
 \bibitem{tendermint}
-All In Bits Inc., Tendermint, et al. "Tendermint Consensus Reactor."
+All In Bits Inc., Tendermint, et al. ``Tendermint Consensus Reactor.''
 \\\texttt{https://bit.ly/tendermint-consensus-reactor}
 
 \bibitem{0x-coordinator-specification}
-Bandeali, Amir and Berger, Fabio. "0x 2.0.0 Coordinator Specification."
+Bandeali, Amir and Berger, Fabio. ``0x 2.0.0 Coordinator Specification.''
 \\\texttt{https://bit.ly/0x-coordinator-spec}
 
 \bibitem{0x-roadmap-pt-2}
-Bloemen, Remco. "0x Roadmap 2019 (part 2): Scalability R\&D."
+Bloemen, Remco. ``0x Roadmap 2019 (part 2): Scalability R\&D.''
 \\\texttt{https://bit.ly/0x-scalability-pt-2}
 
 \bibitem{tendermint-abci-apps}
-Buchman, Ethan., et al. "Application Blockchain Interface Specification (Applications)."
+Buchman, Ethan., et al. ``Application Blockchain Interface Specification (Applications).''
 \\\texttt{https://bit.ly/tendermint-abci-applications}
 
 \bibitem{tendermint-abci-spec}
-Buchman, Ethan., et al. "Application Blockchain Interface Specification (Methods and Types)."
+Buchman, Ethan., et al. ``Application Blockchain Interface Specification (Methods and Types).''
 \\\texttt{https://bit.ly/tendermint-abci-spec}
 
 \bibitem{tendermint-iavl}
-Buchman, Ethan., et al. "Merkleized IAVL+ Tree implementation in Go"
+Buchman, Ethan., et al. ``Merkleized IAVL+ Tree implementation in Go''
 \\\texttt{http://bit.ly/tendermint-iavl}
 
 \bibitem{tendermint-crypto-spec}
-Buchman, Ethan., et al. "Tendermint Core specification: Encoding and Digests."
+Buchman, Ethan., et al. ``Tendermint Core specification: Encoding and Digests.''
 \\\texttt{https://bit.ly/tendermint-encoding-spec}
 
 \bibitem{ethereum-whitepaper}
-Buterin, Vitalik., et al. "Ethereum White Paper."
+Buterin, Vitalik., et al. ``Ethereum White Paper.''
 \\\texttt{https://bit.ly/ethereum-white-paper}
 
 \bibitem{flash-boys-2}
-Daian, Philip., et al. "Flash Boys 2.0: Frontrunning, Transaction Reordering, and Consensus Instability in Decentralized Exchanges."
+Daian, Philip., et al. ``Flash Boys 2.0: Frontrunning, Transaction Reordering, and Consensus Instability in Decentralized Exchanges.''
 \\\texttt{https://bit.ly/flash-boys-paper}
 
 \bibitem{tendermint-wp}
-Ethan Buchman, et al. "Tendermint: Byzantine Fault Tolerance in the Age of Blockchains."
+Ethan Buchman, et al. ``Tendermint: Byzantine Fault Tolerance in the Age of Blockchains.''
 \\\texttt{https://bit.ly/tendermint-thesis}
 
 \bibitem{kosu-sdk}
-Freyaldenhoven, Nick., et al. "Kosu SubContract SDK."
+Freyaldenhoven, Nick., et al. ``Kosu SubContract SDK.''
 \\\texttt{https://bit.ly/kosu-settlement-sdk}
 
 \bibitem{tcr-1}
-Goldin, Michael. "Token Curated Registries 1.0." Medium.
+Goldin, Michael. ``Token Curated Registries 1.0.'' Medium.
 \\\texttt{https://bit.ly/token-curated-registries}
 
 \bibitem{bancor-whitepaper}
-Hertzog,  Eyal., et al. "Bancor Protocol: Continuous Liquidity for Cryptographic Tokens through their Smart Contracts."
+Hertzog,  Eyal., et al. ``Bancor Protocol: Continuous Liquidity for Cryptographic Tokens through their Smart Contracts.''
 \\\texttt{https://bit.ly/bancor-white-paper}
 
 \bibitem{dharma-wp}
-Hollander, Nadav. "Dharma: A Generic Protocol for Tokenized Debt Issuance."
+Hollander, Nadav. ``Dharma: A Generic Protocol for Tokenized Debt Issuance.''
 \\\texttt{https://bit.ly/dharma-whitepaper}
 
 \bibitem{peggy-spec}
-Kunze, Federico, et al. "Two-way Permissionless Peg Zones." Tendermint.
+Kunze, Federico, et al. ``Two-way Permissionless Peg Zones.'' Tendermint.
 \\\texttt{https://bit.ly/peggy-spec}
 
 \bibitem{bft}
-Leslie Lamport, Robert Shostak, Marshall Pease. "The Byzantine Generals Problem."
+Leslie Lamport, Robert Shostak, Marshall Pease. ``The Byzantine Generals Problem.''
 \\ACM Transactions on Programming Languages and Systems, Vol. 4, No. 3. July 1982. Pages 382-401.
 
 \bibitem{capital-markets-report}
-McKinsey Global Institute, "\$118 Trillion and Counting: Taking Stock of the World's Capital Markets."
+McKinsey Global Institute, ``\$118 Trillion and Counting: Taking Stock of the World's Capital Markets.''
 \\\texttt{https://bit.ly/mckinsey-capital-report}
 
 \bibitem{kosu-monorepo}
-Paradigm Labs, corp., et al. "Kosu Monorepo: A Monorepo for the Kosu Protocol."
+Paradigm Labs, corp., et al. ``Kosu Monorepo: A Monorepo for the Kosu Protocol.''
 \\\texttt{https://bit.ly/kosu-protocol-repo}
 
 \bibitem{paradigm-github}
-Paradigm Labs, corp., et al. "Paradigm Labs GitHub."
+Paradigm Labs, corp., et al. ``Paradigm Labs GitHub.''
 \\\texttt{https://bit.ly/paradigm-labs-github}
 
 \bibitem{polaris-intro-article}
-Pereira, Mykel. "Introducing Polaris: A trustless price oracle for ERC20 tokens on Ethereum Mainnet."
+Pereira, Mykel. ``Introducing Polaris: A trustless price oracle for ERC20 tokens on Ethereum Mainnet.''
 \\\texttt{https://bit.ly/polaris-intro}
 
 \bibitem{sentry-architecture}
-Ramsay, Zack., et al. "Tendermint Core specification: Peer Discovery"
+Ramsay, Zack., et al. ``Tendermint Core specification: Peer Discovery''
 \\\texttt{https://bit.ly/tendermint-node-spec}
 
 \bibitem{bancor-formulas}
-Rosenfeld, Meni. "Formulas for Bancor system."
+Rosenfeld, Meni. ``Formulas for Bancor system.''
 \\\texttt{https://bit.ly/bancor-formulas}
 
 \bibitem{blockchain-taxonomy}
-Tasca, Paola., Tessone, Claudio. J. "Taxonomy of Blockchain Technologies; Principles of Identification and Classification."
+Tasca, Paola., Tessone, Claudio. J. ``Taxonomy of Blockchain Technologies; Principles of Identification and Classification.''
 \\\texttt{https://bit.ly/taxonomy-of-blockchains}
 
 \bibitem{uniswap-docs}
-Uniswap. "Uniswap Exchange Protocol Documentation."
+Uniswap. ``Uniswap Exchange Protocol Documentation.''
 \\\texttt{https://bit.ly/uniswap-docs}
 
 \bibitem{erc-20}
-Vogelsteller, Fabian and Buterin, Vitalik (et al.). "ERC-20 Token Standard." Tendermint.
+Vogelsteller, Fabian and Buterin, Vitalik (et al.). ``ERC-20 Token Standard.'' Tendermint.
 \\\texttt{https://bit.ly/erc-20-specification}
 
 \bibitem{0x-wp}
-Warren, Will and Bandeali, Amir. "0x: An Open Protocol for Decentralized Exchange on the Ethereum Blockchain."
+Warren, Will and Bandeali, Amir. ``0x: An Open Protocol for Decentralized Exchange on the Ethereum Blockchain.''
 \\\texttt{https://bit.ly/0x-white-paper}
 
 \bibitem{0x-selective-delay}
-Zeitz, Peter. "Research on Selective Delay TEC Process."
+Zeitz, Peter. ``Research on Selective Delay TEC Process.''
 \\\texttt{https://bit.ly/0x-selective-delay-research}
 
 \end{thebibliography}
