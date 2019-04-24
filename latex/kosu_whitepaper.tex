@@ -97,7 +97,7 @@ The Kosu network is designed within the 0x-motivated ecosystem, providing a dece
 
 % BEGIN OVERVIEW SECTION
 \section{Overview}\label{overview}
-Kosu is a public blockchain designed to support the construction of order booking and liquidity systems for emerging decentralized financial primitives. The Kosu network uses a bonded proof-of-stake security model implemented with Tendermint Consensus\cite{tendermint} and a system of Ethereum contracts that include the protocol’s native token.
+Kosu is a public blockchain designed to support the construction of order booking and liquidity systems for decentralized financial primitives. The Kosu network uses a bonded proof-of-stake security model implemented with Tendermint Consensus\cite{tendermint} and a system of Ethereum contracts that include the protocol’s native token.
 \medskip
 
 Kosu is primarily composed of two interdependent systems\footnote{\ These systems are described in more detail in section \ref{specification}.} that together implement the protocol’s core function: to establish and curate a consistent and verifiable set of recent, high-quality orders. The Kosu contract system is responsible for defining the protocol's incentive mechanisms, facilitating validator curation by stakeholders, and specifying an access control scheme for the Kosu network. The functionality provided by the contract system supports the network-based order booking service upon which exchange and liquidity systems can be built.
@@ -115,7 +115,7 @@ Kosu validators are required to run full Ethereum nodes and are responsible for 
 Individuals who wish to leverage the network’s decentralized order booking and message relay features are called posters, and can gain write access to the network by bonding any amount of Kosu tokens in a poster registry contract. After their bond transaction is confirmed on Ethereum to a certain depth, validators update the Kosu network's shared state to reflect the bonded balance change of the new poster. The same mechanism allows posters to adjust the amount of tokens they have bonded, or withdraw entirely from the system at any time. The amount of tokens a poster chooses to bond determines the maximum number of orders they may post per defined period, which is proportional to their bonded balance relative to the total number tokens bonded by posters.
 \medskip
 
-At deterministic intervals based on the height of the Ethereum blockchain, Kosu validators compute a simple rate-limit mapping based on in-state balance data that allocates network order throughput proportionally to posters who have Kosu tokens bonded at the height a new interval starts. These intervals are called rebalance periods and allow the relatively continuous process of balance updates on the Ethereum Poster Registry, as a result of bonding/unbonding by posters, to be mapped to more discrete periods of rate-limiting in a deterministic manner. At the beginning of each new rebalance period, validators must reach consensus on the parameterization of the upcoming period. The starting and ending Ethereum block heights of the period, and the total number of orders to be accepted from posters during that time is determined prior to allowing posters write access for the period.
+At deterministic intervals based on the height of the Ethereum blockchain, Kosu validators compute a simple rate-limit mapping based on in-state balance data that allocates network order throughput proportionally to posters who have Kosu tokens bonded at the height that a new interval starts. These intervals are called rebalance periods and allow the relatively continuous process of balance updates on the Ethereum Poster Registry, as a result of bonding/unbonding by posters, to be mapped to more discrete periods of rate-limiting in a deterministic manner. At the beginning of each new rebalance period, validators must reach consensus on the parameterization of the upcoming period. The starting and ending Ethereum block heights of the period, and the total number of orders to be accepted from posters during that time is determined prior to allowing posters write access for the period.
 \medskip
 
 During normal network operations between rebalance periods, validators accept and process incoming order transactions from posters (gossiped via connected full nodes), while submitting regular attestations (called witness transactions) to other validators on the network. This process ensures the state of the Kosu Ethereum contract system is accurately tracked.
@@ -148,9 +148,9 @@ Boxes represent individuals or human-controlled actors, ovals represent Ethereum
 \medskip
 
 \begin{enumerate}[1.]
-  \item A poster who intents to contribute liquidity to the Kosu network ``buys'' KOSU tokens by locking an arbitrary amount of Ether in the token's bonding curve contract.
+  \item A poster who intends to contribute liquidity to the Kosu network ``buys'' KOSU tokens by locking an arbitrary amount of Ether in the token's bonding curve contract.
   \item In the bond transaction, the contract ``sends'' KOSU tokens to the poster according to the bonding curve equation and its current parameterization.
-  \item The poster bonds any amount of their new KOSU tokens in the Poster Registry contract
+  \item The poster bonds any amount of their new KOSU tokens in the Poster Registry contract.
   \item The Kosu/Ethereum peg-zone updates the poster's balance in the Kosu network's shared state, granting them write access to the order book.
   \item The poster creates and signs a maker order message for an arbitrary settlement system, indicating their intent and ability to trade.
   \item The poster submits their order message as a transaction to the Kosu network via a full node (or light client).
@@ -311,15 +311,15 @@ Below is a list of the primary components (contracts) that make up the overall K
 
 \begin{itemize}
   \item \texttt{AuthorizedAddresses} - a registry containing the addresses of certain protocol contracts. Enables a method modifier (\texttt{isAuthorized}) to restrict access to internal and sensitive methods.
-  \item \texttt{Authorizable} - implements a method modifier that restricts callers to addresses in the authorization registry (\texttt{AuthorizedAddresses}), inherited by many protocol contracts.
+  \item \texttt{Authorizable} - a contract that implements a method modifier that restricts callers to addresses in the authorization registry (\texttt{AuthorizedAddresses}), inherited by many protocol contracts.
   \item \texttt{EventEmitter} - a contract responsible for emitting all system event logs. It is used by the Witness component of the Ethereum peg zone (see \ref{peg}).
   \item \texttt{KosuToken} - an implementation of the ERC-20 interface and the protocol's native token.
-  \item \texttt{Treasury} - central contract that manages system accounting and allowances, and other functionality related to balances and token supply.
+  \item \texttt{Treasury} - the central contract that manages system accounting and allowances, and other functionality related to balances and token supply.
   \item \texttt{PosterRegistryProxy} - the proxy contract for the \texttt{PosterRegistry} that provides its external (public) interface.
   \item \texttt{ValidatorRegistryProxy} - the proxy contract for the \texttt{ValidatorRegistry} that provides the public interface for validator governance and voting mechanisms.
-  \item \texttt{PosterRegistry} - implementation contract that allows users to bond\footnote{\ The term ``stake'' is avoided here since the balance may not be slashed, and does not provide explicit rewards for lockup.} and un-bond KOSU tokens at arbitrary times and amounts in exchange for write access to the Kosu network order book. 
+  \item \texttt{PosterRegistry} - an implementation contract that allows users to bond\footnote{\ The term ``stake'' is avoided here since the balance may not be slashed, and does not provide explicit rewards for lockup.} and un-bond KOSU tokens at arbitrary times and amounts in exchange for write access to the Kosu network order book. 
   \item \texttt{ValidatorRegistry} - an implementation of a modified token-curated-registry\cite{tcr-1} that allows any KOSU token holder to participate in the selection of the Kosu network's validators. Stakeholders are rewarded for participating in governance (for certain outcomes) by challenging new and existing listings, and voting on those challenges. 
-  \item \texttt{Voting} - implementation contract that manages challenges and votes for the \texttt{ValidatorRegistry} contract. Implements a basic commit-reveal voting scheme.
+  \item \texttt{Voting} - an implementation contract that manages challenges and votes for the \texttt{ValidatorRegistry} contract. Implements a basic commit-reveal voting scheme.
 \end{itemize}
 
 The only contracts that provide meaningful functionality for external users are the Treasury, KOSU token contract, and the registry proxies for posters, validators, and voters.
