@@ -54,7 +54,7 @@
 
 %BEGIN ABSTRACT
 \begin{abstract}
-  \noindent We motivate Kosu, a decentralized network and protocol that encourages the curation of a consistent, high-quality, verifiable, public order book. The Kosu network is a bonded proof-of-stake blockchain built on Tendermint Consensus. The underlying state machine is responsible for enforcing a simple access control ruleset and order booking procedure. The network utilizes a shared security model, wherein all staking and token-based mechanics happen on the Ethereum main-network. The model provides unidirectional communication and checkpoints between the two networks by leveraging Tendermint to provide finality for specific Ethereum-based state changes. Individuals intending to post orders to the Kosu network are required to bond tokens for the duration they wish to have access. The poster bonding mechanism creates a market for the allocation of network resources and an implicit incentive to contribute quality liquidity to the network. Kosu validators are selected via a token curated registry system on Ethereum. This registry system allows both the inflation rate as well as the number of active validators to be market driven and determined by the network’s stakeholders. The network is generalizable, supporting orders of arbitrary maker-taker based virtual settlement systems. In its entirety, the proposed system effectively curates a decentralized order book and serves as a liquidity aggregation primitive for second layer systems. Kosu is free to use and open source, reducing barriers to entry for both developers and market agents.
+  \noindent We motivate Kosu, a decentralized network and protocol that encourages the curation of a consistent, high-quality, verifiable, public order book. The Kosu network is a bonded proof-of-stake blockchain built on Tendermint Consensus. The underlying state machine is responsible for enforcing a simple access control ruleset and order booking procedure. The network utilizes a shared security model, wherein all staking and token-based logic is implemented on the Ethereum main network. The model provides unidirectional communication and checkpoints between the two networks by leveraging Tendermint to provide finality for specific Ethereum-based state changes. Individuals intending to post orders to the Kosu network are required to bond tokens for the duration they wish to have access. The poster bonding mechanism creates a market for the allocation of network resources and an implicit incentive to contribute quality liquidity to the network. Kosu validators are selected via a token curated registry system on Ethereum. This registry system allows both the inflation rate as well as the number of active validators to be market driven and determined by the network’s stakeholders. The network is generalizable, supporting orders of arbitrary maker-taker based virtual settlement systems. In its entirety, the proposed system effectively curates a decentralized order book and serves as a liquidity aggregation primitive for second layer systems. Kosu is free to use and open source, reducing barriers to entry for both developers and market agents.
 \end{abstract}
 \pagebreak
 % END ABSTRACT
@@ -74,7 +74,7 @@
 
 % BEGIN INTRO
 \section{Introduction}\label{intro}
-Historically, financial markets have been relatively siloed. To date, centralized entities control significant entry points and accounting systems, limiting access beyond a small set of privileged participants\cite{capital-markets-report}. The recent invention of blockchains, decentralized ledger systems, challenges this trusted paradigm. Ethereum, a public blockchain with a built-in Turing-complete programming language, provides developers an immutable and verifiable computation platform for scripts known as “smart-contracts”. These scripts can encode arbitrary, deterministic state transition functions, providing a powerful primitive for more complex ledger based application systems\cite{ethereum-whitepaper}.
+Historically, financial markets have been relatively siloed. To date, centralized entities control significant entry points and accounting systems, limiting access beyond a small set of privileged participants\cite{capital-markets-report}. The recent invention of blockchains, decentralized ledger systems, challenges this trusted paradigm. Ethereum, a public blockchain with a built-in Turing-complete programming language, provides developers an immutable and verifiable computation platform for scripts known as ``smart-contracts.'' These scripts can encode arbitrary, deterministic state transition functions, providing a powerful primitive for more complex ledger based application systems\cite{ethereum-whitepaper}.
 \medskip
 
 Since the network’s genesis in 2014, developers have leveraged smart contracts for a wide range of novel protocol systems. Perhaps the most adopted technical standard for smart contracts is the ERC-20 token implementation\cite{erc-20}. The standard defines a common token interface allowing for the creation of a diverse set of composable Ethereum-based assets. These tokens often serve as a critical crypto economic primitive providing core utility for protocol systems deployed on Ethereum. As such, a system of exchange is a key requisite for a token-dependent contract ecosystem.
@@ -109,7 +109,7 @@ The Kosu network is a system of globally distributed nodes that collectively mai
 The Kosu protocol’s Ethereum-based smart-contract system implements the protocol’s native token and core incentive mechanisms. These mechanisms manage access control for posters and allow stakeholders to curate the Kosu network’s validator set through a novel weighted voting system and token-curated registry.
 \medskip
 
-Kosu validators are required to run full Ethereum nodes and are responsible for submitting special attestations, or “witness” transactions, to the Kosu network about specific state changes to the protocol’s contract system. Specifically, the network must reflect updates to users’ bonded token balances (which affect a order rate limit enforced by the network), and updates to the dynamic registry contract containing the curated list of validators.
+Kosu validators are required to run full Ethereum nodes and are responsible for submitting special attestations, or ``witness'' transactions, to the Kosu network about specific state changes to the protocol’s contract system. Specifically, the network must reflect updates to users’ bonded token balances (which affect a order rate limit enforced by the network), and updates to the dynamic registry contract containing the curated list of validators.
 \medskip
 
 Individuals who wish to leverage the network’s decentralized order booking and message relay features are called posters, and can gain write access to the network by bonding any amount of Kosu tokens in a poster registry contract. After their bond transaction is confirmed on Ethereum to a certain depth, validators update the Kosu network's shared state to reflect the bonded balance change of the new poster. The same mechanism allows posters to adjust the amount of tokens they have bonded, or withdraw entirely from the system at any time. The amount of tokens a poster chooses to bond determines the maximum number of orders they may post per defined period, which is proportional to their bonded balance relative to the total number tokens bonded by posters.
@@ -179,7 +179,7 @@ Many nuanced components and processes are referenced at a high level for the sak
 The Kosu protocol defines a simple and extensible data structure to represent signed order messages on the network. The primary purpose of the defined order schematic is to allow signature recovery for the verification of poster bandwidth allocation during order processing and validation.
 \medskip
 
-The order format described below is also designed to allow the “wrapping” of existing hybrid-decentralized\footnote{\ Refers to DEX architecture where asset settlement takes place on-chain, and order matching/relay occurs elsewhere.} order messages (such as 0x and Dharma\cite{0x-wp, dharma-wp}) for relay on the Kosu network, and settlement through a system of generalizable forwarding contracts.
+The order format described below is also designed to allow the ``wrapping'' of existing hybrid-decentralized\footnote{\ Refers to DEX architecture where asset settlement takes place on-chain, and order matching/relay occurs elsewhere.} order messages (such as 0x and Dharma\cite{0x-wp, dharma-wp}) for relay on the Kosu network, and settlement through a system of generalizable forwarding contracts.
 \medskip
 
 Usage of the forwarding contract system is strictly optional, and unrelated to the core protocol in the sense that no state is shared between the protocol contract system and settlement contracts (called SubContracts, defined below).
@@ -317,7 +317,7 @@ Below is a list of the primary components (contracts) that make up the overall K
   \item \texttt{Treasury} - central contract that manages system accounting and allowances, and other functionality related to balances and token supply.
   \item \texttt{PosterRegistryProxy} - the proxy contract for the \texttt{PosterRegistry} that provides its external (public) interface.
   \item \texttt{ValidatorRegistryProxy} - the proxy contract for the \texttt{ValidatorRegistry} that provides the public interface for validator governance and voting mechanisms.
-  \item \texttt{PosterRegistry} - implementation contract that allows users to bond\footnote{\ The term ``stake'' is avoided here since the balance may not be slashed, and does not provide rewards for lockup.} and un-bond KOSU tokens at arbitrary times and amounts in exchange for write access to the Kosu network order book. 
+  \item \texttt{PosterRegistry} - implementation contract that allows users to bond\footnote{\ The term ``stake'' is avoided here since the balance may not be slashed, and does not provide explicit rewards for lockup.} and un-bond KOSU tokens at arbitrary times and amounts in exchange for write access to the Kosu network order book. 
   \item \texttt{ValidatorRegistry} - an implementation of a modified token-curated-registry\cite{tcr-1} that allows any KOSU token holder to participate in the selection of the Kosu network's validators. Stakeholders are rewarded for participating in governance (for certain outcomes) by challenging new and existing listings, and voting on those challenges. 
   \item \texttt{Voting} - implementation contract that manages challenges and votes for the \texttt{ValidatorRegistry} contract. Implements a basic commit-reveal voting scheme.
 \end{itemize}
@@ -333,37 +333,44 @@ It acts as a central accounting system and tracks the balances of users' tokens 
 The Poster Registry contract is a simple registry system that allows users to bond (register) and un-bond (release) Kosu tokens at any time, and in arbitrary amounts. The contract maintains a mapping of accounts to bonded token balances, and importantly, triggers the emission of an event log through the EventEmitter contract each time a poster registers or releases tokens, including the account address and the new balance.
 \medskip
 
-Generation of the rate-limit mapping that allocates network order throughput (see \ref{tm-network-access}) to posters is handled by the Kosu network, after balance updates to the contract system are reflected in the networks state. This process, described in section \ref{peg}, is part of Kosu’s Ethereum peg-zone.
+Generation of the rate-limit mapping that allocates network order throughput (see \ref{tm-network-access}) to posters is handled by the Kosu network, after balance updates to the contract system are reflected in the network's shared state. This process, described in section \ref{peg}, is part of Kosu’s Ethereum peg-zone.
 \subsubsection{Validator token-curated registry}\label{ethereum-contract-system-tcr}
 The Validator Registry contract is an implementation of a token-curated registry (TCR), and a cornerstone piece of the Kosu protocol that enables decentralized curation of the networks validator set.
 
-There are three main concepts that behind token-curated registries. The goal of a TCR is to produce a curated set of \textit{listings}, which are entries that have successfully been included in the registry. Listings begin as \textit{proposals} which indicate intent to join the registry, backed by a number of tokens. Proposals and listings may be \textit{challenged} at any time, where a challenger must put up an equal number of tokens as the listing or proposal owner. Challenges trigger votes, which any token holder may participate in. 
+The goal of a TCR is to produce a curated set of \textit{listings}, which are entries that have successfully been included in the registry. Listings begin as \textit{proposals} which indicate intent to join the registry, backed by a number of tokens. Proposals and listings may be \textit{challenged} at any time, where a challenger must put up an equal number of tokens as the listing or proposal owner. Challenges trigger votes, which any token holder may participate in. 
 \medskip
 
-The specific mechanics of listings, proposals, and challenges within the Kosu Validator Registry are described below. 
+The specific mechanics of listings, proposals, and challenges within the Kosu Validator Registry are illustrated in figure \ref{fig:fig3} described below. 
 \medskip
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/fig3.png}
+  \caption{Simplified diagram of the Validator Registry listing curation cycle.}
+  \label{fig:fig3}
+\end{figure}
 
 \begin{enumerate}
-  \item Anyone may create a proposal that indicates their intent to become a network validator
+  \item Anyone may create a proposal that indicates their intent to become a network validator.
   \begin{enumerate}
     \item Proposals must include a stake greater than, or equal to a specified minimum stake.
-    \item Proposals also include a “reward” to be executed to the validator on a periodic basis.
+    \item Proposals also include a ``reward'' to be executed to the validator on a periodic basis.
     \begin{enumerate}
-      \item This reward may be positive (tokens minted) or negative (tokens burned).
+      \item This reward may be positive (tokens minted), negative (tokens burned), or zero.
       \item If it is negative and the listing is accepted, the validator must continually collateralize a treasury balance sufficient to cover their burn rate.
-      \item If they are unable to cover a burn, they may be removed from the listing without a full challenge (“touch-and-remove”)
+      \item If they are unable to cover a burn, they may be removed from the listing without a full challenge (``touch-and-remove'').
       \item If a listing owners system balance falls below their stake size, they may also be touch-and-removed. 
     \end{enumerate}
-    \item Proposals that are not challenged (see below) are automatically accepted after a certain period of time measured in Ethereum blocks.
+    \item Proposals that are not challenged (see below) are automatically accepted after a period of time measured in Ethereum blocks.
   \end{enumerate}
-  \item Pending proposals, as well as accepted listings may be challenged at any time.
+  \item Pending proposals and accepted listings may be challenged at any time.
   \begin{enumerate}
-    \item Challengers must have a system balance of tokens equal to or greater than the stake of the listing or proposal being challenged. 
+    \item Challengers must have a system balance of tokens equal-to or greater-than the stake of the listing or proposal being challenged. 
     \item Challenges may be voted on by any Kosu token holder using a commit-reveal vote scheme during a specified voting period.
     \item Vote weight is determined by the balance of a user within the Kosu contract system.
-    \item After the completion of a vote period, the ruling is determined based the binary outcome that received a majority of the vote weight.
-    \item If a challenge resolves against a listing or proposal, those staked tokens are distributed to the challenger and the winning voters.
-    \item If a challenge fails, the challengers collateral is distributed to the winning voters and the owner of the challenged listing. 
+    \item After the completion of a vote period, the ruling is determined based on the binary outcome that received a majority of the participating vote weight.
+    \item If a challenge resolves against a listing or proposal, the listing's staked tokens are distributed to the challenger and the winning voters.
+    \item If a challenge fails, the challenger's collateral is distributed to the winning voters and the owner of the challenged listing. 
     \item Voters are never penalized for voting on the losing side of a challenge.
     \item Failed challenges lose their collateral to the challenged listing and the winning voters.
   \end{enumerate}
@@ -375,86 +382,86 @@ The specific mechanics of listings, proposals, and challenges within the Kosu Va
 % BEGIN TENDERMINT NETWORK SUB-SECTION
 \subsection{Tendermint Network}\label{tm-network}
 \subsubsection{Introduction}\label{tm-network-intro}
-The Kosu network is a Byzantine-Fault Tolerant (BFT) bonded proof-of-stake blockchain built on Tendermint Core that is designed to act as a decentralized order message aggregation and curation primitive.
+The Kosu network is a Byzantine-Fault Tolerant (BFT) bonded proof-of-stake blockchain built on Tendermint Core that is designed to act as a decentralized order message aggregation and curation primitive\cite{bft, tendermint-wp}.
 \medskip 
 
 The core state machine, replicated across the network’s nodes by Tendermint, is designed with simplicity, efficiency, and safety in mind. It provides the minimal functionality necessary to establish a robust base layer upon which more sophisticated order booking and liquidity systems can be built.
 \medskip
 
-A primary feature of the network is the establishment of a canonical set of recent, valid  orders (see \ref{orders}) in each Kosu block. This order set, occasionally referred to as an “order book” due to helpful conceptual parallels, can be used to construct and verify a database of recent, curated order messages. This set of orders is computed deterministically by Kosu validators during block generation, and a hash representing the canonical order set for each block is included in the application’s state tree (see section \ref{tm-network-state}).
+A primary feature of the network is the establishment of a canonical set of recent, valid  orders (see \ref{orders}) in each Kosu block. This order set, occasionally referred to as an ``order book'' due to helpful conceptual parallels, can be used to construct and verify a database of recent, curated order messages. This set of orders is computed deterministically by Kosu validators during block generation and transaction execution. A hash representing the canonical order set for each block is included in the application’s state tree (see section \ref{tm-network-state}).
 \medskip
 
-The network uses a shared security model, wherein Kosu validators are full Ethereum nodes, and thus must stay in sync with both chains. This model allows the Kosu network to maintain a one-way peg-zone with the Ethereum blockchain, where state changes to the Kosu contract system (balance updates, etc.) can be reflected in the Kosu network’s state, by way of special attestation “witness” transactions. Validators vote on and agree to apply state changes that receive support from a supermajority of the networks validating vote power.
+The network uses a shared security model, wherein Kosu validators are full Ethereum nodes, and thus must stay in sync with both chains. This model allows the Kosu network to maintain a one-way peg-zone with the Ethereum blockchain, where state changes to the Kosu contract system (balance updates, etc.) can be reflected in the Kosu network’s state, by way of special attestation ``witness'' transactions. Validators vote on and agree to apply state changes that receive support from a super-majority\footnote{\ Defined as { $ n \geq \frac{2}{3}$}, where {$n$} is an amount of vote power\cite{tendermint-wp}.} of the networks validating vote power.
 \medskip
 
-Order messages are treated as a finite network resource, constrained by physical bandwidth limitations, the number of transactions that can be included within a block, and the size of the order messages themselves. Order throughput is allocated to posters over discrete intervals called “rebalance periods”, which are parameterized by validators based on the height of the Ethereum blockchain, and per-period order limit.
+Order messages are treated as a finite network resource, constrained by physical bandwidth limitations, the number of transactions that can be included within a block, and the size of the order messages themselves. Order throughput is allocated to posters over discrete intervals called ``rebalance periods,'' which are parameterized by validators based on the height of the Ethereum blockchain, and a per-period order limit.
 \medskip
 
-Validators establish the maximum number of orders to accept per rebalance period as a configurable consensus parameter, and proportionally allocate throughput to posters based on the number of Kosu tokens each has bonded. This mechanic acts as a sybil tolerance mechanism, and creates a market for access to order throughput. Individuals can always gain more bandwidth allocation by bonding more tokens in the Poster Registry (see \ref{ethereum-contract-system-poster-bonding}).
+Validators establish the maximum number of orders to accept per rebalance period as a configurable consensus parameter, and proportionally allocate throughput to posters based on the number of Kosu tokens each has bonded. This mechanic acts as a sybil tolerance mechanism, and creates a market for access to order throughput on the network. Individuals can always gain more bandwidth allocation by bonding more tokens in the Poster Registry (see \ref{ethereum-contract-system-poster-bonding}).
 \medskip
 
 Posters, individuals contributing order messages (see \ref{incentive-models}) to the network, sign their orders with the Ethereum keypair they used to bond tokens in the Poster Registry. When validators process these order transactions, the poster’s signature is recovered and checked against the in-state mapping of bandwidth allocations. Each valid order from a poster decrements their period limit by one, until a new period begins and the allocation is recomputed.
 \subsubsection{Architecture}\label{tm-network-architecture}
-Central to the Kosu protocol is its primary state application, a deterministic finite transactional state machine, replicated across nodes by Tendermint Core and its underlying consensus engine. 
+Central to the Kosu protocol is its primary state application, a deterministic and finite transactional state machine, replicated across nodes by Tendermint Core and its underlying consensus engine. 
 \medskip
 
-The overall architecture of the Kosu network is similar to a conventional Tendermint network, with the addition of the infrastructure necessary to support a one-way peg-zone (see section \ref{peg}) to the Ethereum blockchain. The network is constructed of computing nodes running a client implementation of the Kosu network. Full nodes with Tendermint key-pairs that correspond to a listing in the Validator Registry (see \ref{ethereum-contract-system-tcr}) are designated as validators: they collect transactions and take turns proposing arrangements of the transactions in blocks. 
+The overall architecture of the Kosu network is similar to a conventional Tendermint network, with the addition of the infrastructure necessary to support a one-way peg-zone (see section \ref{peg}) to the Ethereum blockchain. The network is comprised of computing nodes running a client implementation of the Kosu network. Full nodes with Tendermint key-pairs that correspond to a listing in the Validator Registry (see \ref{ethereum-contract-system-tcr}) are designated as validators: they collect transactions and take turns proposing arrangements of the transactions in blocks, verifying the correct state changes have been made by comparing the Merkle root hash of the each new state. 
 \medskip
 
 The Kosu network’s architecture around a peg to the Ethereum blockchain is comparable to that of a side-chain, but there is an important distinction in that no state is shared from the Kosu network to the Ethereum contract system. The contract system is responsible for establishing the validator set and the poster account-balance mapping, and the network implements specific functionality based on this subsetted state. See section \ref{peg} for a full description of this one-way peg zone.
 \medskip
 
-The networks shared state is stored in Merkle tree that self-balances using a modification of the AVL algorithm, introduced by Tendermint\cite{tendermint-iavl}. Such a structure allows efficient verification about the correctness of a new state via the Merkle root after execution of a block( a requirement for consensus to be reached through Tendermint). Additionally, usage of a Merkle tree allows light-clients and applications to construct and verify proofs about state contents.
+The networks shared state is stored in Merkle tree that self-balances using a modification of the AVL algorithm, introduced by Tendermint\cite{tendermint-iavl}. Such a structure allows efficient verification about the correctness of a new state via the Merkle root after execution of a block (a requirement for consensus to be reached through Tendermint). Additionally, usage of a Merkle tree allows light-clients and applications to construct and verify proofs about the correctness of state contents.
 \medskip
 
 Kosu validators must run the following processes (some of which may be available through the same client implementation):
 
 \begin{itemize}
-  \item \underline{Ethereum client} - all validators must run full Ethereum nodes in order to track the contract system’s state, and submit necessary attestation transactions.
+  \item \underline{Ethereum client} - all validators must run full Ethereum nodes in order to track the Kosu contract system’s state, and to sign and submit necessary attestation transactions.
   \item \underline{Kosu state machine} - the primary application logic, which implements the Tendermint application blockchain interface (ABCI)\cite{tendermint-abci-spec}.
-  \item \underline{Kosu Witness} - the validator process that implements the Kosu/Ethereum peg zone and submits Witness attestation transactions to the state machine.
-  \item \underline{Tendermint Core} - manages networking and state-machine replication of the Kosu sate machine via the Tendermint Consensus engine.
+  \item \underline{Kosu Witness} - the validator process that maintains a connection to the Ethereum client, and implements the Kosu/Ethereum peg zone. Responsible for submitting Witness attestation transactions to the state machine.
+  \item \underline{Tendermint Core} - manages peer-to-peer networking and state-machine replication of the Kosu sate machine via the Tendermint Consensus engine.
 \end{itemize}
 
-Validators likely will not run or provide public API or RPC services due to security concerns, therefore non-validating full-nodes play the important role of providing access to the network for most applications, infrastructure, and users.
+Validators likely will not run or provide public API or RPC services due to security concerns, therefore non-validating full-nodes play the important role of providing access to the network for most applications, infrastructure, and end users.
 \medskip
 
-Due to the fact that validators can be high-value targets for attacks (both for network denial-of-service, and targeted attacks to compromise the highly valuable validating keypairs), Kosu validators are expected to use special proxy full-nodes called “sentries”\cite{sentry-architecture} to access the network, and be isolated from the public internet.
+Due to the fact that validators can be high-value targets for attacks (both for network denial-of-service, and targeted attacks to compromise the highly valuable validating keypairs), Kosu validators are expected to use special proxy full-nodes called ``sentries'' to access the network, and be isolated from the public internet\cite{sentry-architecture}.
 \subsubsection{Poster access control}\label{tm-network-access}
 The submission of order transactions is limited over deterministically calculated time intervals called rebalance periods. These periods are parameterized by validators with rebalance transactions (see \ref{tm-network-tx-types}) that specify the start and end of the period, indicated in Ethereum block heights. The rebalance periods additionally specify a maximum number of order transactions to accept within that period. 
 \medskip
 
-During generation of these rebalance transactions, Validators (via their Witness processes) snapshot the most up-to-date bonded balances of each account in the Poster Registry contract (see \ref{ethereum-contract-system-poster-bonding}), and proportionally allocate the number of orders to be accepted that period to posters based on the following equation(s).
+During the generation of these rebalance transactions, validators (via their Witness processes) snapshot the most up-to-date bonded balances of each account in the Poster Registry contract (see \ref{ethereum-contract-system-poster-bonding}), and proportionally allocate the number of orders to be accepted that period to posters based on the following equation.
 
 \begin{equation}\label{bandwidth-equation}
   L_i =  P_{max} * \frac{B_i}{\sum_{i=1}^{n}B_i}
 \end{equation}
 \medskip
 
-In equation \ref{bandwidth-equation} (above), $L_i$ represents the rate-limit of poster account $i$, $P_{max}$ is the total number of orders accepted per-period, $B_i$ is the bonded token balance of poster account $i$, and $n$ is the total number of poster accounts. This equation is calculated at the beginning of each new rebalance period to generate the limit mapping for that period.
+In equation \ref{bandwidth-equation} (above), $L_i$ represents the rate-limit of poster account $i$, $P_{max}$ is the total number of orders accepted per-period, $B_i$ is the bonded token balance of poster account $i$, and $n$ is the total number of poster accounts. This equation is parameterized and calculated at the beginning of each new rebalance period to generate the limit mapping for that period.
 \medskip 
 
 When the Ethereum block marking the end of a rebalance period is finalized\footnote{\ A block is considered finalized when it has reached a sufficient arbitrary age (number of blocks mined above it).}, each validator will create and sign a rebalance transaction, which includes a proposed rate-limit mapping constructed using the method described above. These transactions are verified based on the correct parameterization of the period (period length, order limit, etc.) as well as the accuracy of the proposed rate-limit mapping. 
 \medskip
 
-Rebalance transactions from non-Byzantine validators should include rate-limit proposals that match the one generated from existing in-state balances. Due to the fact that all rebalance transactions from behaving validators should be identical, it does not matter which proposal is accepted. The usual case is the validator that is block proposer when the round-ending Ethereum block is finalized includes their own proposal. All subsequent proposals for that round will fail.
+Rebalance transactions from non-Byzantine validators should include rate-limit proposals that match the one generated from existing in-state balances. Due to the fact that all rebalance transactions from behaving validators should be identical, it does not matter which proposal is accepted. The usual case is that the validator designated block proposer when the round-ending Ethereum block is finalized includes their own proposal. All subsequent proposals for that round will fail.
 \medskip
 
-As posters submit order messages (signed with their Ethereum keypair used to bond Kosu tokens), their per-period order limit is decremented until either it reaches zero and no more orders are accepted from that proposer, or a new period starts and their limit is re-computed.
+As posters submit order messages (signed with their Ethereum keypair used to bond Kosu tokens), their per-period order limit is decremented until either it reaches zero and no more orders are accepted from that proposer, or a new period starts and their limit is re-computed and reset.
 \subsubsection{State model}\label{tm-network-state}
-Kosu nodes maintain an application state which includes the balance of poster accounts (updated through the peg-zone and witness mechanisms), the bandwidth allocation for posters (derived from their balance), information specific to the validator set to support its contract-based curation, and the parameterization of rebalance periods.
+Kosu nodes maintain an application state which includes the balance of poster accounts (updated through the peg-zone and witness mechanisms), the bandwidth allocation for posters (derived from their balance), information specific to the validator set to support its contract-based curation, and the parameterization of the active rebalance periods.
 \medskip
 
-The applications initial state is introduced in a hard-coded genesis block, and all subsequent states are generated deterministically from previous states, and the transactions processed within each block. Kosu’s genesis block will be generated after the contract system is deployed, allowing time for stakeholders to curate an initial validator set. Kosu’s genesis block will specify no initial validators. Instead, the genesis state generated from Kosu’s Ethereum contract system’s state at a specific height will indicate the staked balance of each entry in the Validator Registry, and the Kosu client implementation will deterministically generate and set the genesis validator set during execution of the \texttt{InitChain} ABCI method upon initialization of the chain\cite{tendermint-abci-apps}.
+The application's initial state is introduced in a hard-coded genesis block, and all subsequent states are generated deterministically from previous states and the transactions included within each block. Kosu’s genesis block will be generated after the contract system is deployed, allowing time for stakeholders to curate an initial validator set. Kosu’s genesis block will specify no initial validators. Instead, the genesis state generated from Kosu’s Ethereum contract system’s state at a specific height will reflect the staked balance of each entry in the Validator Registry, and the Kosu client implementation will deterministically generate and apply the genesis validator set during execution of the \texttt{InitChain} ABCI method upon initialization of the Kosu blockchain\cite{tendermint-abci-apps}.
 \medskip
 
 The state itself is represented in a mutable self-balancing AVL Merkle tree\cite{tendermint-iavl}, and the Merkle root hash is used to represent the \texttt{AppHash} included by Tendermint in the header of each block\cite{tendermint-abci-spec}.
 \medskip
 
-Usage of a Merkle tree data-structure enables proofs about the existence, absence, and accuracy of state data, which is a necessity for a network such as Kosu that can benefit from the existence of light-clients (see section \ref{future-work}). It also enables the Kosu state machine to easily determine if it has the correct state for a new block by comparing the Merkle root hash of its own state against the \texttt{AppHash} included in each block’s header. Usage of an accurate and deterministic calculation, such as a Merkle root, allows Tendermint to safeguard the application from functioning in undefined states\cite{tendermint-abci-apps}. 
+Usage of a Merkle tree data-structure enables proofs about the existence, absence, and correctness of state data, which is a necessity for a network such as Kosu that can benefit from the existence of light-clients (see section \ref{future-work}). It also enables the Kosu state machine to easily determine if it has the correct state for a new block by comparing the Merkle root hash of its own state against the \texttt{AppHash} included in each block’s header. Additionally, usage of an accurate and deterministic calculation, such as a Merkle root, allows Tendermint to safeguard the application from functioning in undefined states\cite{tendermint-abci-apps}. 
 \medskip
 
-Some of the notable structured maintained in the application's state are described below.
+Some of the notable structures maintained as part of the application's state are described below.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -469,23 +476,23 @@ Some of the notable structured maintained in the application's state are describ
 \hline
 \texttt{Validators} & A mapping of Tendermint-specific hashes of validator public keys (node IDs) to validator accounts that contain their associated Ethereum address, number of staked tokens, and fields used to track and record information about each validator. \\
 \hline
-\texttt{Events} & A mapping of Ethereum event data (identified by hashes of the data) populated from WitnessEvent transactions. Acts as a confirmation queue while events wait sufficient confirmation from validator attestations. \\
+\texttt{Events} & A mapping of Ethereum event data (identified by hashes of the data) populated from WitnessEvent transactions. Acts as a confirmation queue while events await sufficient confirmation from validator attestations. \\
 \hline
-\texttt{RebalanceInfo} & Stores the parameterization of rebalance rounds, including the starting and ending Ethereum heights, and the maximum number of orders to accept in the period. \\
+\texttt{RebalanceInfo} & Stores the parameterization of the active rebalance period, including the starting and ending Ethereum heights, and the maximum number of orders to accept in the period. \\
 \hline
-\texttt{LatestOrders} & A fixed length, first-in-first-out hash set containing the transaction ID’s of a parameterizable number of the latest order transactions. This hash-set makes up the stateful component of the network’s “order book”. \\
+\texttt{LatestOrders} & A fixed length, first-in-first-out hash list containing the transaction ID’s of a parameterizable number of the latest order transactions. This hash list makes up the stateful component of the network’s ``order book.'' \\
 \hline
 \end{tabularx}
 \caption{Summary of important fields maintained in the network Merkle state trie.} 
 \end{table}
 \egroup
 
-The primary account objects and state fields are described above, however other fields are included related to internal network functionality, and ultimately affect the state’s Merkle root inserted in each Tendermint block header.
+The primary account objects and state fields are described above, however other metadata fields are included in the state trie and ultimately affect the state’s Merkle root inserted in each Tendermint block header as the \texttt{AppHash}.
 \subsubsection{Transaction types}\label{tm-network-tx-types}
-The Kosu state machine implements four primary state-modifying transaction types, each described in detail in this section. Three of the transaction types are referred to as “internal” transactions, and require a signature from an active validator key-pair. These internal transactions (described below) facilitate the peg-zone to the Ethereum blockchain (see \ref{peg}) and manage access control for posters. 
+The Kosu state machine implements four primary state-modifying transaction types, each described in detail in this section. Three of the transaction types are referred to as ``internal'' transactions, and require a signature from an active validator key-pair. These internal transactions (described below) facilitate the peg-zone to the Ethereum blockchain (see \ref{peg}) and manage access control for posters. 
 \medskip
 
-The fourth type of transaction are order transactions that require a signature from a valid poster account, and may be relayed (gossiped) to validators for inclusion in a block from full nodes. Internal transactions must originate from validators.
+The fourth type of transaction are order transactions that require a signature from a valid poster account, and may be relayed (gossiped) to validators for inclusion in a block from full nodes. Internal transactions must only originate from validators.
 
 \bgroup
 \def\arraystretch{1.2}
@@ -496,29 +503,29 @@ The fourth type of transaction are order transactions that require a signature f
 \hline
 \textbf{Message name} & \textbf{Internal} & \textbf{Description} \\
 \hline
-\texttt{WitnessEvent} & yes & Primary message that supports the Ethereum peg zone. Submitted by each validator as an attestation to a state change to Kosu’s Ethereum contract system. Triggered by updates to poster’s bonded balances, and changes to the Validator Registry. \\
+\texttt{WitnessEvent} & yes & Primary message type that supports the Ethereum peg zone. Submitted by each validator as an attestation to a state change to Kosu’s Ethereum contract system. Triggered by updates to poster’s bonded balances, and changes to the Validator Registry. \\
 \hline
 \texttt{WitnessRebalance} & yes & Submitted by validators at the end of each rebalance period to parameterize the next period. Includes a proposal for the poster rate-limit mapping which is verified against in-state balances. \\
 \hline
-\texttt{EthCheckpoint} & yes & Submitted by validators on a best-effort basis as an attestation to each new Ethereum block. Does not affect rebalance mechanism or finality implementation, but can be used to verify correct age between finalized and new Ethereum blocks. \\
+\texttt{EthCheckpoint} & yes & Submitted by validators on a best-effort basis as an attestation to each new Ethereum block. Does not affect the rebalance mechanism or finality implementation, but can be used to verify correct age between finalized and new Ethereum blocks. \\
 \hline
-\texttt{ProposeOrder} & no & The only external (non-validator origin) transaction type, ProposeOrder messages are signed and submitted by bonded Posters to submit orders to the Kosu network. \\
+\texttt{ProposeOrder} & no & The only external (non-validator origin) transaction type, ProposeOrder messages are signed and submitted by bonded posters to add orders to the Kosu network. \\
 \hline
 \end{tabularx}
-\caption{Summary of Kosu network state-modifying transaction message types.} 
+\caption{Summary of Kosu network's state-modifying transaction message types.} 
 \end{table}
 \egroup
 
-\texttt{WitnessEvent} type transactions specify a “subject” field, which corresponds to the subject of the state change the event was generated to reflect. The subject can be set as “posters” for updates to the Poster Registry and the bonded balances of its accounts, or set to “validator” for updates to the Validator Registry. WitnessEvents require a super-majority of active vote power to attest to a given event (identified by a deterministic hash) before the corresponding modification is made to the primary state, such as the addition or removal of a validator.
+\texttt{WitnessEvent} type transactions specify a ``subject'' field, which corresponds to the subject of the state change the event was generated to reflect. The subject can be set to ``posters'' for updates to the Poster Registry and the bonded balances of its accounts, or to ``validator'' for updates to the Validator Registry. WitnessEvents require a super-majority of active vote power to attest to a given event (identified by a deterministic hash) before the corresponding modification is made to the primary state, such as the addition or removal of a validator.
 \medskip
 
-\texttt{WitnessRebalance} transactions are submitted by validators when a rebalance period ends, marked by the maturation of the Ethereum block included in the period’s parameterization as the ending block. The submitted message includes a proposal for the poster rate-limit to be used in the next period. Because this mapping is generated deterministically from in-state balances, all WitnessRebalance proposals for a given period should be identical from non-byzantine validators. Generally the rebalance transaction from the validator who happens to be proposing that block is accepted, given it matches the expected mapping from in-state balances. 
+\texttt{WitnessRebalance} transactions are submitted by validators when a rebalance period ends, marked by the maturation of the Ethereum block included in the period’s parameterization as the ending block. The submitted message includes a proposal for the poster rate-limit to be used in the next period. Because this mapping is generated deterministically from in-state balances, all WitnessRebalance proposals from non-Byzantine validators for a given period should be identical. Generally the rebalance transaction from the validator who happens to be proposing that block is accepted, given it matches the expected mapping from in-state balances. 
 \medskip
 
-\texttt{EthCheckpoint} transactions serve to correlate a given Kosu block height with the latest-known (non-matured) Ethereum block on a best-effort basis. Due to the possibility of reorganization of recent Ethereum blocks, the latest-known checkpoint is not used for any consensus critical mechanisms (such as generation of rate-limit mappings) and exists solely for validators to indicate the best-known Ethereum block. Validators submit an EthCheckpoint message each time a new Ethereum block is mined, and once a supermajority of validators attest to that block, it is accepted as the “latest” Ethereum block. 
+\texttt{EthCheckpoint} transactions serve to correlate a given Kosu block height with the latest-known (non-matured) Ethereum block on a best-effort basis. Due to the possibility of reorganization of recent Ethereum blocks, the latest-known checkpoint is not used for any consensus critical mechanisms (such as generation of rate-limit mappings) and exists solely for validators to indicate the best-known Ethereum block. Validators submit an EthCheckpoint message each time a new Ethereum block is mined, and once a super-majority of validators attest to that block, it is accepted as the ``latest'' Ethereum block. 
 \medskip
 
-\texttt{ProposeOrder} transactions may be submitted by posters who have bonded Kosu tokens in the Poster Registry, and count against that poster’s rate-limit for the active rebalance period. Assuming the ProposeOrder message is structurally valid, and the signature is recoverable and originated from a poster account with a remaining limit, the order is accepted. Upon acceptance of an order, the posters limit is decremented, and the order’s hash is added to the fixed-length first-in-first-out order hash set included in the network’s Merkle root.
+\texttt{ProposeOrder} transactions may be submitted by posters who have bonded Kosu tokens in the Poster Registry, and count against that poster’s rate-limit for the active rebalance period. Assuming the ProposeOrder message is structurally valid, and the signature is recoverable and originated from a poster account with a remaining limit, the order is accepted. Upon acceptance of an order, the posters limit is decremented, and the order’s hash is added to a fixed-length first-in-first-out order hash list included in the network’s Merkle root.
 \subsubsection{Validator curation}\label{tm-network-validators}
 A motivating requirement of Kosu’s design was the ability to support a highly dynamic proof-of-stake validator set. The incentive model of the overall protocol (see \ref{incentive-models}) requires that protocol stakeholders have the ability to curate the networks validators, both to facilitate healthy competition for the position, and to allow the removal of validators who may not be explicitly byzantine (by lying or attempting to compromise consensus), but who may otherwise be engaging in behavior stakeholders deem implicitly malicious. These considerations motivated the design of the curation mechanism (described in section \ref{ethereum-contract-system-tcr}) and supporting peg-zone (described in \ref{peg}).
 \medskip
@@ -540,68 +547,68 @@ The next section introduces the Kosu Ethereum peg-zone, and provides an overview
 % BEGIN PEG NETWORK SUB-SECTION
 \subsection{Ethereum Peg Zone}\label{peg}
 \subsubsection{Introduction}\label{peg-intro}
-Communication between blockchains, specifically those with differing types of finality guarantees, requires the usage of a peg-zone. The Ethereum blockchain currently offers probabilistic finality for state-modifying transactions included in blocks based on its proof-of-work consensus mechanism. Older PoW blocks are exponentially harder to reorganize\cite{blockchain-taxonomy} than recently mined blocks, thus as the age of a block increases, the chance of that block or its contents being moved in the blockchains chronology decreases exponentially.
+Communication between blockchains, specifically those with differing types of finality guarantees, requires the usage of a peg-zone. The Ethereum blockchain currently offers probabilistic finality for state-modifying transactions included in blocks based on its proof-of-work consensus mechanism. Older PoW blocks are exponentially harder to reorganize than recently mined blocks, thus as the age of a block increases, the chance of that block or its contents being moved in the blockchains chronology decreases exponentially\cite{blockchain-taxonomy}.
 \medskip
 
-This is in contrast to the security model Kosu uses where economic finality is guaranteed nearly instantly, thanks to the underlying Tendermint Consensus\cite{tendermint, tendermint-wp} engine. As soon as a super-majority of the network’s vote power supports the commit of a given block, it can be considered finalized and irreversible. It would be impossible for any entity to ”reorganize” the canonical chain in the proof-of- work sense without possessing a superiority of vote power through the acquisition of a significant number of 
+This is in contrast to the security model Kosu uses where economic finality is guaranteed nearly instantly, thanks to the underlying Tendermint Consensus engine\cite{tendermint, tendermint-wp}. As soon as a super-majority of the network’s vote power supports the commit of a given block, it can be considered finalized and irreversible. It would be impossible for any entity to ``reorganize'' the canonical chain in the proof-of- work sense without possessing a super-majority of vote power through the acquisition of a significant number of 
 Kosu tokens, and approval to the validator set by existing token holders.
 \medskip
 
-The Kosu to Ethereum one-way peg-zone facilitates a small subset of Ethereum’s state to be represented on the Tendermint network. The usage of a one-way peg allows Kosu to leverage the security and uptime of the Ethereum network for critical extra-protocol actions, such as the transfer and exchange of KOSU tokens, and validator set curation.
+The Kosu to Ethereum one-way peg-zone facilitates a small subset of Ethereum’s state to be represented on the Tendermint-based network. The usage of a one-way peg allows Kosu to leverage the security and uptime of the Ethereum network for critical extra-protocol actions, such as the transfer and exchange of KOSU tokens, and validator set curation.
 \medskip
 
 Generalized and two-way peg-zones require complex construction\cite{peggy-spec} and additional security assumptions, so Kosu uses a simple architecture for its peg-zone that is specific to a subset of state changes in the Kosu contract system (see \ref{ethereum-contract-system}).
 \subsubsection{Architecture}\label{peg-architecture}
-The architecture and design of Kosu’s one-way peg zone is conceptually simple, and builds off a two-way peg-zone design initially proposed by Cosmos\cite{peggy-spec}. Kosu’s peg zone comprises of two main components, one residing in the Kosu contract system, and the other as part of Kosu’s Tendermint-based network.
+The architecture and design of Kosu’s one-way peg-zone is conceptually simple, and builds off a two-way peg-zone design initially proposed by Cosmos\cite{peggy-spec}. Kosu’s peg zone comprises of two main components, one residing in the Kosu contract system, and the other as part of Kosu’s Tendermint-based network.
 \medskip
 
-Kosu’s contract system (see \ref{ethereum-contract-system}) contains a special “logging” contract called the EventEmitter which emits descriptive event logs for certain state changes to the overall contract system. The Kosu peg-zone implementation is concerned with two types of events emitted by the EventEmitter.
+Kosu’s contract system (see \ref{ethereum-contract-system}) contains a special ``logging'' contract called the EventEmitter which emits descriptive event logs for certain state changes to the overall contract system. The Kosu peg-zone implementation is concerned with two types of events emitted by the EventEmitter.
 \medskip
 
-One event type describes an update to the Poster Registry, when a new poster bonds token, or an existing poster modifies their balance by adding or withdrawing tokens. The event contains the Ethereum address of the poster, and an unsigned integer representing their new balance (which may be 0).
+One event type describes an update to the Poster Registry, when a new poster bonds token, or an existing poster modifies their balance by adding or withdrawing tokens. The event contains the Ethereum address of the poster, and an unsigned integer representing their new balance (which may be zero).
 \medskip 
 
-The second event describes updates to the Validator Registry, when a new validator is added, or an existing validator is removed. The event contains the Ethereum address to be associated with the validator, the number of Kosu tokens they have put at stake (which directly affects network vote power), as well a 32-byte ED25519 public key to be registered as a validating key\cite{tendermint-crypto-spec}. See section \ref{ethereum-contract-system-tcr} for a description registries logic. For the purposes of the peg-zone, all that matters is an event is emitted with each change to the registry’s state.
+The second event describes updates to the ValidatorRegistry, when a new validator is added, or an existing validator is removed. The event contains the Ethereum address to be associated with the validator, the number of Kosu tokens they have put at stake (which directly affects network vote power), as well a 32-byte ED25519 public key to be registered as a validating key\cite{tendermint-crypto-spec}. See section \ref{ethereum-contract-system-tcr} for a description registries logic. For the purposes of the peg-zone, all that matters is an event is emitted with each change to the registry’s state.
 \medskip
 
 The peg-zone is implemented as part of the Kosu network by a special process validators run called a Witness. All validators are required to run full Ethereum nodes, and submit attestation transactions for each of the pertinent events (described above, and in detail below), signed with their validating key pair. 
 \medskip
 
-When a super-majority of active validators\footnote{\ Measured in terms of vote power, the number of validators does not matter.} submit attestation transactions to the Kosu network about a given event from the contract system, that event is “applied” to the network’s state by updating the necessary account in the case of a poster, or by applying a modification to the validator set.
+When a super-majority of active validators\footnote{\ Measured in terms of vote power, the number of validators does not matter.} submit attestation transactions to the Kosu network about a given event from the contract system, that event is ``applied'' to the network’s state by updating the necessary account in the case of a poster, or by applying a modification to the validator set.
 \subsubsection{Process description}\label{peg-process}
 \begin{figure}[H]
   \centering
   \includegraphics[width=\textwidth]{../figures/fig1.png}
-  \caption{Simplified diagram of the systems involved in the Kosu-Ethereum peg zone. Box (1) shows components of the Kosu contract system, box (2) shows components of Kosu validators. The processes illustrated in red and blue are described below.}
+  \caption{A simplified diagram of the systems involved in the Kosu-Ethereum peg zone. Box 1 shows components of the Kosu contract system, box 2 shows components of Kosu validators. The processes illustrated in red and blue are described below.}
   \label{fig:fig2}
 \end{figure}
 
-Below is a simplified description of the processes involved in updating a poster account (A, solid lines in fig. \ref{fig:fig2}) or modifying the validator set (B, dashed lines in fig. \ref{fig:fig2}) as part of normal peg-zone functionality. The diagram shows only two validators for illustrative purposes, a live network should never operate with less than four validators, the minimum required to tolerate a single fault (byzantine or otherwise).
+Below is a simplified description of the processes involved in updating a poster account (A, solid lines in fig. \ref{fig:fig2}) or modifying the validator set (B, dashed lines in fig. \ref{fig:fig2}) as part of normal peg-zone functionality. The diagram shows only two validators for illustrative purposes, a live network should never operate with less than four validators, the minimum required to tolerate a single fault (Byzantine or otherwise).
 \medskip
 
 The process of updating the network’s validator set and poster accounts is similar, as both use the same witness infrastructure. However, there are important distinctions between how the events are initially generated, and the transitions they effect within the underlying Kosu state machine.
 
 \begin{enumerate}[A.]
-  \item Addition or modification of poster account (shown as A, solid lines in fig. \ref{fig:fig2}):
+  \item Addition, removal, or modification of a poster account (shown as A, solid lines in fig. \ref{fig:fig2}):
   \begin{enumerate}[i.]
-    \item A poster entity submits a bond or unbond transaction to the poster registry.
+    \item A poster entity submits a bond or unbond transaction to the PosterRegistry.
     \item If the transaction is valid, it is included in an Ethereum block and the registry calls a function on the EventEmitter contract during execution of the transaction.
     \item The EventEmitter contract produces an event log containing the posters address, their new balance, and additional meta-data.
     \item The Witness process on active validators is notified of the event from a local Ethereum node. After a certain confirmation threshold (measured in Ethereum blocks) passes, the Witness will sign a Kosu WitnessTransaction with the validators keypair attesting to the event.
     \item The validator’s attestation is submitted to their local Tendermint instance.
-    \item Tendermint propagates the attestations throughout the network to be validated, executed, and included in a block.
-    \item When the transactions reach the underlying state machine, they are added to a confirmation queue where they await sufficient confirmation from a super-majority of validators. Once reached, the state change is applied to the necessary poster account to reflect their updated balance of bonded Kosu tokens.
+    \item Tendermint propagates the attestations throughout the network to be validated, executed, and ultimately to be included in a block.
+    \item When the transactions reach the underlying state machine, they are added to a confirmation queue where they await sufficient confirmation from a super-majority of validating vote power. Once the confirmation threshold reached, the state change is applied to the necessary poster account to reflect their updated balance of bonded Kosu tokens.
   \end{enumerate}
   \item Addition or removal of a Kosu validator (shown as B, dotted lines in fig. \ref{fig:fig2}):
   \begin{enumerate}[i.]
-    \item A validator listing is confirmed into (or voted out of) the Validator Registry (exact process detailed in section \ref{ethereum-contract-system-tcr})
+    \item A validator listing is confirmed into (or voted out of) the ValidatorRegistry (exact process detailed in section \ref{ethereum-contract-system-tcr})
     \item During execution of an Ethereum transaction that confirms the validator’s listing update, a function call is made to the EventEmitter contract.
-    \item The EventEmitter contract produces an event with the validator’s Ethereum address, their Tendermint public key, and their staked balance (which is set to 0 in the case of a removal).
+    \item The EventEmitter contract produces an event with the validator’s Ethereum address, their Tendermint public key, and their staked balance (which is set to zero in the case of a removal).
     \item A validator’s active Witness process receives and parses the event, and waits for the necessary number of Ethereum blocks to be mined above the block the event-trigger transaction was included in.
-    \item The validator’s Witness component signs a Kosu WitnessTransaction attesting to the update, and submits it to the network via Tendermint.
+    \item The validator’s Witness component signs a Kosu WitnessEvent transaction attesting to the update, and submits it to the network via Tendermint.
     \item Tendermint propagates the attestation to other validators for inclusion in an upcoming block. 
-    \item Similar to poster events, new attestations are added to a pending queue until sufficient attestations are received about the event from active validators.
-    \item At this point, the process differs from the handling of poster balance updates. When the validator update event is confirmed, existing validators include field in the \texttt{EndBlock} response message sent to Tendermint that indicates the adjustment to the validator set. In the case of a new validator, the new public key is assigned a vote weight equal to the number of staked tokens\footnote{\ A conversion factor is required to avoid integer overflow of the Tendermint vote power representation.}. If the validator is removed, their vote power is set to 0. The update applied at block \texttt{H} takes enables a new validator to join the set at block \texttt{H+2}\cite{tendermint-abci-spec}.
+    \item Similar to poster events, new attestations are added to a confirmation queue until sufficient attestations are received about the event from active validators.
+    \item At this point, the process differs from the handling of poster balance updates. When the validator update event is confirmed, existing validators include a set of fields in the \texttt{EndBlock} response message sent to Tendermint that indicates the adjustment to the validator set. In the case of a new validator, the new public key is assigned a vote weight equal to the number of staked tokens\footnote{\ A conversion factor is required to avoid integer overflow of the Tendermint vote power representation.}. If the validator is removed, their vote power is set to zero. The update applied at block \texttt{H} takes enables a new validator to join the set and participate in consensus, starting at block \texttt{H+2}\cite{tendermint-abci-spec}.
   \end{enumerate} 
 \end{enumerate}
 % END PEG SUB-SECTION
@@ -612,7 +619,7 @@ The process of updating the network’s validator set and poster accounts is sim
 \subsection{Incentive Models}\label{incentive-models}
 
 \subsubsection{Validators}\label{incentive-models-validators}
-The network described above utilizes a bonded proof-of-stake system to manage sybil tolerance. Validators are required to make a security deposit, also known as a stake, in order to participate in consensus. Tendermint Consensus allows byzantine behavior committed by validators to be easily verified and punished accordingly. 
+The network described above utilizes a bonded proof-of-stake system to manage sybil tolerance. Validators are required to make a security deposit, also known as a stake, in order to participate in consensus. Tendermint Consensus allows certain types of malicious behavior committed by validators to be easily verified and punished accordingly. 
 \medskip
 
 The KOSU network makes a few core assumptions that influence the design of the validator incentive model. Such assumptions are motivated below.
@@ -636,10 +643,10 @@ The KOSU network makes a few core assumptions that influence the design of the v
   \end{itemize}
 \end{enumerate}
 
-These assumptions motivate a market driven fee schedule for a validator set that is dynamic in both size and inclusion. The Validator TCR system (described in section \ref{ethereum-contract-system-tcr}) allows for exactly this. To become a validator, a candidate must bond an unspecified amount tokens (above the parameterizable minimum), which will provide them a proportional influence in consensus, as well as define a requested fee schedule. The expected economic impact of a proposal (via inflation, security, latency) motivates a focal point on a continuum that will eventually resolve in a binary direction.
+These assumptions motivate a market driven fee schedule for a validator set that is dynamic in both size and inclusion. The ValidatorRegistry system (described in section \ref{ethereum-contract-system-tcr}) allows for exactly this. To become a validator, a candidate must bond an unspecified amount tokens (above the parameterizable minimum), which will provide them a proportional influence in consensus, as well as define a requested fee schedule. The expected economic impact of a proposal (via inflation, security, latency) motivates a focal point on a continuum that will eventually resolve in a binary direction.
 \medskip
 
-It is important to note that this validator selection model is considerably more subjective than largest-bond (rank) based proof of stake validator selection mechanisms. With that said, the unique domain requirements as well as the limited impact of malicious validator behavior seem to warrant such subjectivity.
+It is important to note that this validator selection model is considerably more subjective than largest-bond (rank) based proof-of-stake validator selection mechanisms. With that said, the unique domain requirements as well as the limited impact of malicious validator behavior seem to warrant such subjectivity.
 \medskip
 
 The listing can be challenged at any time by submitting a challenge proposal with a stake equivalent to the stake of the bonded validator. If the challenge succeeds, the validator is removed from the registry and loses their stake, which is distributed to voters on the winning outcome proportionally to token weight with extra reward given to the challenge initiator. This challenge method is a stakeholder-based slashing mechanism that is designed to regulate subjectively malicious value capture behavior.
@@ -648,19 +655,19 @@ The listing can be challenged at any time by submitting a challenge proposal wit
 More explicit byzantine behaviors can be enforced structurally via explicit slashing conditions based on fraud/liveness proofs. Conditions/behaviors that could be discouraged explicitly include double voting, low validator liveness, incorrect event witnessing etc.
 
 \subsubsection{Posters}\label{incentive-models-posters}
-In order to regulate network spam, posters, individuals contributing order data to the network, are also required to bond tokens. Posters are awarded a network access proportional to their bonded token quantity. In this model the inclusion of transactions is not fee based, but rather bandwidth based. This is a significant design feature of the network motivated on the basis that quality liquidity creation should be rewarded, and transaction fees are not compatible in this regard. Individual orders are not necessarily valuable, thus network contributions should be feeless so long as the contributor’s incentives are aligned with those of the greater network.
+In order to regulate network spam, posters, individuals contributing order data to the network, are required to bond tokens. Posters are awarded network access in the form of order bandwidth allocation proportional to their bonded token quantity. In this model, the inclusion of transactions is not fee based, but rather bandwidth based. This is a significant design feature of the network motivated on the basis that quality liquidity creation should be rewarded, and transaction fees are not compatible in this regard. Individual orders are not necessarily valuable, thus network contributions should be feeless so long as the contributor’s incentives are aligned with those of the greater network.
 \medskip
 
 Unlike validators, the behavior of posters is not directly punishable via slashing. Instead, the poster bond is intended to implicitly align the economic incentives of posters with the success of the overall network and create sybil tolerance via token scarcity. As the usage of the network increases, posters contributing quality orders are rewarded via token appreciation. Conversely, there is an economic disincentive for posters to post spam as this would result in a depreciated token value.
 \medskip
 
-In this model, there does exist the potential for “free-riders”, particularly speculators benefiting from the appreciation of KOSU value as a result of liquidity providers’ work. While not completely ideal, this artifact is not entirely corrupt as the “free-riders” do in fact contribute to the security of the protocol by increasing token scarcity. 
+In this model, there does exist the potential for ``free-riders,'' particularly speculators benefiting from the appreciation of KOSU value as a result of liquidity providers’ work. While not completely ideal, this artifact is not entirely corrupt as the ``free-riders'' do in fact contribute to the security of the protocol by increasing token scarcity. 
 
 \subsubsection{Voters}\label{incentive-models-voters}
-The validator selection model used by the KOSU network is relatively subjective, requiring the active participation of token holders in the curation of a validator set. Due to the magnitude of such decisions, it is important to maximally incentivize participation via explicit participation rewards. 
+The validator selection model used by the Kosu network is relatively subjective, requiring the active participation of token holders in the curation of a validator set. Due to the magnitude of such decisions, it is important to maximally incentivize participation via explicit participation rewards. 
 \medskip
 
-Token holders participating in the curation mechanisms, including those who submit winning challenges and vote correctly in challenges earn KOSU tokens as rewards. This results in an active token distribution towards active and benevolent network actors. It is important to note that all token holders, including those bonded as both validators and stakers, can participate in any election/decision.
+Token holders participating in the curation mechanisms, including those who submit winning challenges and vote correctly in challenges earn KOSU tokens as rewards. This results in an active token distribution directed towards participating and benevolent network actors. It is important to note that all token holders, including those bonded as both validators and stakers, can participate in any election/decision.
 % END INCENTIVE MODEL SUB-SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -676,10 +683,10 @@ Token holders participating in the curation mechanisms, including those who subm
 \section{Token Distribution}\label{token-distribution}
 
 \subsection{Overview}\label{token-distribution-overview}
-Token distribution is a key determinant of incentive compatibility for the models defined previously. Kosu’s proposed token includes multiple utilities that collectively stimulate wealth distribution to be a relatively dynamic process. To complement such dynamism, Paradigm Labs plans a continuous token distribution via a market-driven, validator defined reward system (outlined previously) and a bonding curve. KOSU’s distribution will thus be a function of both a deterministic process, the bonding curve, and an indeterminate process, the validator reward schedule.
+Token distribution is a key determinant of incentive compatibility for the models defined previously. Kosu’s proposed token includes multiple utilities that collectively catalyze wealth distribution to be a relatively dynamic process. To complement such dynamism, Paradigm Labs plans a continuous token distribution via a market-driven, validator defined reward system (outlined previously) and a bonding curve. KOSU’s distribution will thus be a function of both a determinant process, the bonding curve, and an indeterminate process, the validator reward schedule.
 \medskip
 
-Preceding an official network launch, a contract responsible for token distribution will be deployed\footnote{To preserve fairness, no tokens will be pre-mined. With that said, the bonding functions will be exponential in order to incentivize early participation.}. The contract will be permissioned to mint additional KOSU tokens based on an algorithmic pricing model. It will allow users to receive KOSU by bonding ETH and vise versa. The pricing model defines a parametric equation that allows curves to be dynamically defined based on the existing token contract state. This construction maintains the correctness of the system by providing an additional independent variable necessary for price adjustment due to token inflation as a result of validator rewards.
+Preceding an official network launch, a contract responsible for token distribution will be deployed\footnote{To preserve fairness, no tokens will be pre-mined. With that said, the bonding functions will be exponential in order to incentivize early participation.}. The contract will be permissioned to mint additional KOSU tokens based on an algorithmic pricing model. It will allow users to receive KOSU by bonding Ether (ETH) and vise versa. The pricing model defines a parametric equation that allows bonding curves to be dynamically defined based on the existing token contract state. This construction maintains the correctness of the system by providing an additional independent variable necessary for price adjustment due to token inflation as a result of validator rewards.
 
 \subsection{Mechanics}\label{token-distribution-mechanics}
 In order to gain intuition about the system and parametric equation used, we will consider the following derivation.
@@ -729,7 +736,7 @@ Borrowing from Bancor, let us now define a constant called the reserve ratio, $r
 Where (in equation \ref{parametric-eq}) $y$ is the KOSU price denominated in Ether, $x$ is the quantity of KOSU bonded, $j$ is the total KOSU supply, $b$ is the total quantity of Ether collateral (pool balance), and $r$ is the reserve ratio, defined in equation \ref{reserve-ratio}.
 \medskip 
 
-From equation \ref{parametric-eq}, we can further derive equations for calculating payouts in both directions. The equation for both payout directions are included below. For a more formal derivation of the equations referenced below, please refer to Bancor’s “Formulas for Bancor system”\cite{bancor-formulas}. 
+From equation \ref{parametric-eq}, we can further derive equations for calculating payouts in both directions. The equation for both payout directions are included below. For a more formal derivation of the equations referenced below, please refer to Bancor’s ``Formulas for Bancor system''\cite{bancor-formulas}. 
 \subsection{Ether to Kosu}\label{token-distribution-eth-kosu}
 \begin{equation}
   \beta = j* ((\frac{1+\alpha}{b})^{\frac{b}{p*j}} - 1)
@@ -754,7 +761,7 @@ Where $\beta$ is the quantity of KOSU deposited, $\alpha$ is the quantity of Eth
 
 % BEGIN FUTURE WORK SECTION
 \section{The Matcher Model}\label{matcher-model}
-There will inevitably exist a wide distribution in the technical sophistication of Kosu users. Traders, for example, may have little understanding of the bonding concept used by the system to maintain access control. Other subtleties, including issues with order collisions and front running, should not be assumed knowledge for general users of the system. As such, second-layer services should provide abstractions to many of the system’s complexities. In addition to approving user experience, these abstractions concentrate the network's stakeholders to a more participatory group.
+There will inevitably exist a wide distribution in the technical sophistication of Kosu users. Traders, for example, may have little understanding of the bonding concept used by the system to maintain access control. Other subtleties, including issues with order collisions and front running, should not be assumed knowledge for general users of the system. As such, second-layer services should provide abstractions of the system’s many complexities. In addition to improving user experience, these abstractions concentrate the network's stakeholders to a more participatory group.
 \medskip 
 
 For makers, these services might provide an endpoint with an associated quantity of bonded tokens, allowing users to post limit orders through an GUI/API without needing to bond tokens themselves. These could be structured as free services (entities hold KUSO tokens and expect their liquidity contribution to accrue value via the appreciation of the underlying token) or for a per-post fee.
