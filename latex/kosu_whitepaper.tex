@@ -314,7 +314,7 @@ Below is a list of the primary components (contracts) that make up the overall K
   \item \texttt{ValidatorRegistryProxy} - the proxy contract for the \texttt{ValidatorRegistry} that provides the public interface for validator governance and voting mechanisms.
   \item \texttt{PosterRegistry} - an implementation contract that allows users to bond\footnote{\ The term ``stake'' is avoided here since the balance may not be slashed, and does not provide explicit rewards for lockup.} and un-bond KOSU tokens at arbitrary times and amounts in exchange for write access to the Kosu network order book. 
   \item \texttt{ValidatorRegistry} - an implementation of a modified token-curated-registry\cite{tcr-1} that allows any KOSU token holder to participate in the selection of the Kosu network's validators. Stakeholders are rewarded for participating in governance (for certain outcomes) by challenging new and existing listings, and voting on those challenges. 
-  \item \texttt{Voting} - an generalized contract that manages challenges/votes for the \texttt{ValidatorRegistry} contract, and implements a basic commit-reveal voting scheme. Vote transactions interact directly with the contract (no proxy is used). The contract is sufficiently general to support future protocol voting mechanisms (see \ref{future-work-governance}).
+  \item \texttt{Voting} - a contract that manages voting within the Kosu contract system. It manages polls and provides a basic commit-reveal voting scheme. Users directly interact with this contract for committing and revealing their votes. It is currently utilized by the \texttt{ValidatorRegistry} contract for resolution of listing challenge, however it will be leveraged for contract system maintenance and parameterization in the future (see \ref{future-work-governance}).
 \end{itemize}
 
 The only contracts that provide meaningful functionality for external users are the Treasury, KOSU token contract, and the registry proxies for posters, validators, and voters.
@@ -362,7 +362,7 @@ The specific mechanics of listings, proposals, and challenges within the Kosu Va
   \begin{enumerate}
     \item Challengers must have a available balance of tokens equal-to or greater-than the stake of the listing or proposal being challenged. 
     \item Challenges may be voted on by any Kosu token holder using a commit-reveal vote scheme during a specified voting period.
-    \item Vote weight is determined by the system balance of a user within the Kosu contract system\footnote{\ All a user's tokens within the contract system count towards vote weight, including any amount locked in either registry.}
+    \item Vote weight is limited by the system balance of a user within the Kosu contract system\footnote{\ All a user's tokens within the contract system count towards vote weight, including any amount locked in either registry.}.
     \item After the completion of a vote period, the ruling is determined based on the binary outcome that received a majority of the participating vote weight.
     \item If a challenge resolves against a listing or proposal, the listing's staked tokens are distributed to the challenger and the winning voters (see below).
     
