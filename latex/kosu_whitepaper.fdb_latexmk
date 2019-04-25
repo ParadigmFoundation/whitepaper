@@ -1,10 +1,10 @@
 # Fdb version 3
-["pdflatex"] 1556147361 "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf" "kosu_whitepaper" 1556147365
+["pdflatex"] 1556147361 "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf" "kosu_whitepaper" 1556209403
   "../figures/fig1.png" 1555976452 331150 431cf105f3eefc4edae643d815ecf9ef ""
   "../figures/fig2.png" 1556147324 174130 743cd3e10a010a62362d43d433ef0bcd ""
   "../figures/fig3.png" 1556141137 119309 da41d654d5b57970c3296b38536e4256 ""
   "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.aux" 1556147364 12841 8ba24e5d39d5bd10c0c7d18be4dea478 ""
-  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" 1556147361 89113 d7c86fbc4821ae66e3ce81e1f2b1c168 ""
+  "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.tex" 1556209402 89113 d7c86fbc4821ae66e3ce81e1f2b1c168 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -108,13 +108,13 @@
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "kosu_whitepaper.aux" 1556147364 12841 8ba24e5d39d5bd10c0c7d18be4dea478 ""
   "kosu_whitepaper.out" 1556147364 2643 c227abb74461fbf19f18ddef65ba589e ""
-  "kosu_whitepaper.tex" 1556147361 89113 d7c86fbc4821ae66e3ce81e1f2b1c168 ""
+  "kosu_whitepaper.tex" 1556209402 89113 d7c86fbc4821ae66e3ce81e1f2b1c168 ""
   "kosu_whitepaper.toc" 1556147364 3289 1d437e5bdf70d59579766096639e6c04 ""
   (generated)
-  "kosu_whitepaper.aux"
   "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.pdf"
   "kosu_whitepaper.log"
   "/Users/hen/GitHub/whitepaper/latex/kosu_whitepaper.log"
-  "kosu_whitepaper.out"
   "kosu_whitepaper.toc"
+  "kosu_whitepaper.aux"
   "kosu_whitepaper.pdf"
+  "kosu_whitepaper.out"
