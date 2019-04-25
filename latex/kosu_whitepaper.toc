@@ -12,28 +12,28 @@
 \contentsline {subsubsection}{\numberline {3.2.4}Treasury}{10}{subsubsection.3.2.4}
 \contentsline {subsubsection}{\numberline {3.2.5}Poster bonding}{10}{subsubsection.3.2.5}
 \contentsline {subsubsection}{\numberline {3.2.6}Validator token-curated registry}{10}{subsubsection.3.2.6}
-\contentsline {subsection}{\numberline {3.3}Tendermint Network}{11}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Introduction}{11}{subsubsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3}Tendermint Network}{12}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Introduction}{12}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}Architecture}{12}{subsubsection.3.3.2}
 \contentsline {subsubsection}{\numberline {3.3.3}Poster access control}{13}{subsubsection.3.3.3}
 \contentsline {subsubsection}{\numberline {3.3.4}State model}{14}{subsubsection.3.3.4}
-\contentsline {subsubsection}{\numberline {3.3.5}Transaction types}{14}{subsubsection.3.3.5}
-\contentsline {subsubsection}{\numberline {3.3.6}Validator curation}{15}{subsubsection.3.3.6}
+\contentsline {subsubsection}{\numberline {3.3.5}Transaction types}{15}{subsubsection.3.3.5}
+\contentsline {subsubsection}{\numberline {3.3.6}Validator curation}{16}{subsubsection.3.3.6}
 \contentsline {subsection}{\numberline {3.4}Ethereum Peg Zone}{16}{subsection.3.4}
 \contentsline {subsubsection}{\numberline {3.4.1}Introduction}{16}{subsubsection.3.4.1}
-\contentsline {subsubsection}{\numberline {3.4.2}Architecture}{16}{subsubsection.3.4.2}
-\contentsline {subsubsection}{\numberline {3.4.3}Process description}{17}{subsubsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.2}Architecture}{17}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}Process description}{18}{subsubsection.3.4.3}
 \contentsline {subsection}{\numberline {3.5}Incentive Models}{19}{subsection.3.5}
 \contentsline {subsubsection}{\numberline {3.5.1}Validators}{19}{subsubsection.3.5.1}
 \contentsline {subsubsection}{\numberline {3.5.2}Posters}{20}{subsubsection.3.5.2}
 \contentsline {subsubsection}{\numberline {3.5.3}Voters}{20}{subsubsection.3.5.3}
-\contentsline {section}{\numberline {4}Token Distribution}{21}{section.4}
-\contentsline {subsection}{\numberline {4.1}Overview}{21}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Mechanics}{21}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}Ether to Kosu}{22}{subsection.4.3}
-\contentsline {subsection}{\numberline {4.4}Kosu to Ether}{22}{subsection.4.4}
-\contentsline {section}{\numberline {5}The Matcher Model}{23}{section.5}
-\contentsline {section}{\numberline {6}Future Work}{24}{section.6}
-\contentsline {subsection}{\numberline {6.1}Formalized Governance}{24}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}Decentralized Trade Execution}{24}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Decentralized Price Oracles}{24}{subsection.6.3}
+\contentsline {section}{\numberline {4}Token Distribution}{22}{section.4}
+\contentsline {subsection}{\numberline {4.1}Overview}{22}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Mechanics}{22}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Ether to Kosu}{23}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Kosu to Ether}{23}{subsection.4.4}
+\contentsline {section}{\numberline {5}The Matcher Model}{24}{section.5}
+\contentsline {section}{\numberline {6}Future Work}{25}{section.6}
+\contentsline {subsection}{\numberline {6.1}Formalized Governance}{25}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Decentralized Trade Execution}{25}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Decentralized Price Oracles}{25}{subsection.6.3}

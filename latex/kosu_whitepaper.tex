@@ -254,7 +254,7 @@ The Kosu order message format is described below in a language-agnostic manner, 
 \hline
 \texttt{subContract} & \texttt{string} & yes & The deployed address of the target SubContract settlement implementation. Defines expected arguments. \\
 \hline
-\texttt{maker} & \texttt{string} & yes & The address of the party that signed the maker order. Usually indicates the beneficiary of settled funds. \\
+\texttt{maker} & \texttt{string} & no & The address of the party that signed the maker order. Usually indicates the beneficiary of settled funds. \\
 \hline
 \texttt{makerArguments} & \texttt{array} & no & An array of equal length to the number of \texttt{makerArguments} containing objects that define the name and data-type for each argument. \\
 \hline
@@ -296,15 +296,10 @@ The contract system is modular and designed with upgradability in mind. Due to t
 The Kosu contract system uses a system of public-facing\footnote{\ The proxies are intended to be the interface points with the system, while no meaningful interactions are possible with implementation contracts.} proxy contracts that perform calls to independent implementation contracts where the primary logic and state management resides.
 \medskip
 
-Authorization of internal system methods (including management of the validator set and token supply), is managed by a registry contract that contains the addresses of protocol contracts that are permissioned to access those methods.
+Authorization of internal system methods (including management of the validator set and token supply), is managed by a registry contract that contains the addresses of protocol contracts that are permitted to access those methods. The authorization registry contract allows new system contracts to be added and authorized within the system, or for existing contracts to have authorization removed if necessary. 
 \medskip
 
-Such an architecture is desirable primarily for the following reasons:
-
-\begin{enumerate}
-  \item A component implementation may be updated while the proxy contract's address stays the same\footnote{\ In order for this to be true, there must be no breaking changes to the component's interface.}.
-  \item Implementation contracts can operate in ``trusted environments'' by only accepting calls from the designated proxy.
-\end{enumerate}
+Such an architecture is desirable primarily because a component implementation may be updated while the proxy contract's address stays the same\footnote{\ In order for this to be true, there must be no breaking changes to the component's interface.}.
 
 \subsubsection{System components}\label{ethereum-contract-system-components}
 Below is a list of the primary components (contracts) that make up the overall Kosu contract system, and a brief description of the functionality of each. More detail is provided about certain components in the following subsections.
@@ -319,7 +314,7 @@ Below is a list of the primary components (contracts) that make up the overall K
   \item \texttt{ValidatorRegistryProxy} - the proxy contract for the \texttt{ValidatorRegistry} that provides the public interface for validator governance and voting mechanisms.
   \item \texttt{PosterRegistry} - an implementation contract that allows users to bond\footnote{\ The term ``stake'' is avoided here since the balance may not be slashed, and does not provide explicit rewards for lockup.} and un-bond KOSU tokens at arbitrary times and amounts in exchange for write access to the Kosu network order book. 
   \item \texttt{ValidatorRegistry} - an implementation of a modified token-curated-registry\cite{tcr-1} that allows any KOSU token holder to participate in the selection of the Kosu network's validators. Stakeholders are rewarded for participating in governance (for certain outcomes) by challenging new and existing listings, and voting on those challenges. 
-  \item \texttt{Voting} - an implementation contract that manages challenges/votes for the \texttt{ValidatorRegistry} contract. Implements a basic commit-reveal voting scheme.
+  \item \texttt{Voting} - an generalized contract that manages challenges/votes for the \texttt{ValidatorRegistry} contract, and implements a basic commit-reveal voting scheme. Vote transactions interact directly with the contract (no proxy is used). The contract is sufficiently general to support future protocol voting mechanisms (see \ref{future-work-governance}).
 \end{itemize}
 
 The only contracts that provide meaningful functionality for external users are the Treasury, KOSU token contract, and the registry proxies for posters, validators, and voters.
@@ -359,20 +354,26 @@ The specific mechanics of listings, proposals, and challenges within the Kosu Va
       \item This reward may be positive (tokens minted), negative (tokens burned), or zero.
       \item If it is negative and the listing is accepted, the validator must continually collateralize a treasury balance sufficient to cover their burn rate.
       \item If they are unable to cover a burn, they may be removed from the listing without a full challenge (``touch-and-remove'').
-      \item If a listing owners system balance falls below their stake size, they may also be touch-and-removed. 
+      \item If a listing owners available balance falls below their stake size, they may also be touch-and-removed. 
     \end{enumerate}
-    \item Proposals that are not challenged (see below) are automatically accepted after a period of time measured in Ethereum blocks.
+    \item Proposals that are not challenged (see below) may be confirmed into the registry after a period of time measured in Ethereum blocks.
   \end{enumerate}
   \item Pending proposals and accepted listings may be challenged at any time.
   \begin{enumerate}
-    \item Challengers must have a system balance of tokens equal-to or greater-than the stake of the listing or proposal being challenged. 
+    \item Challengers must have a available balance of tokens equal-to or greater-than the stake of the listing or proposal being challenged. 
     \item Challenges may be voted on by any Kosu token holder using a commit-reveal vote scheme during a specified voting period.
-    \item Vote weight is determined by the balance of a user within the Kosu contract system.
+    \item Vote weight is determined by the system balance of a user within the Kosu contract system\footnote{\ All a user's tokens within the contract system count towards vote weight, including any amount locked in either registry.}
     \item After the completion of a vote period, the ruling is determined based on the binary outcome that received a majority of the participating vote weight.
-    \item If a challenge resolves against a listing or proposal, the listing's staked tokens are distributed to the challenger and the winning voters.
+    \item If a challenge resolves against a listing or proposal, the listing's staked tokens are distributed to the challenger and the winning voters (see below).
+    
     \item If a challenge fails, the challenger's collateral is distributed to the winning voters and the owner of the challenged listing. 
     \item Voters are never penalized for voting on the losing side of a challenge.
     \item Failed challenges lose their collateral to the challenged listing and the winning voters.
+  \end{enumerate}
+  \item The payout of resolved challenges is split between the winning stakeholder, and the participating voters on the winning side.
+  \begin{enumerate}
+    \item The payout's split between the winning challenger/listing owner and voters is parameterizable.
+    \item The proportion of the split payout awarded to voters is distributed proportionally according to vote weight (number of tokens within the system during the voting period).
   \end{enumerate}
 \end{enumerate}
 % END ETHEREUM CONTRACT SYSTEM SUB-SECTION
