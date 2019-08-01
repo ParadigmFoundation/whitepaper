@@ -432,7 +432,7 @@ Due to the fact that validators can be high-value targets for attacks (both for 
 The submission of order transactions is limited over deterministically calculated time intervals called rebalance periods. These periods are parameterized by validators with rebalance transactions (see \ref{tm-network-tx-types}) that specify the start and end of the period, indicated in Ethereum block heights. The rebalance periods additionally specify a maximum number of order transactions to accept within that period. 
 \medskip
 
-During the generation of these rebalance transactions, validators (via their Witness processes) snapshot the most up-to-date bonded balances of each account in the Poster Registry contract (see \ref{ethereum-contract-system-poster-bonding}), and proportionally allocate the number of orders to be accepted that period to posters based on the following equation.
+During the generation of these rebalance transactions, validators (via their Witness processes) snapshot the most up-to-date bonded balances of each account in the Poster Registry contract (see \ref{ethereum-contract-system-poster-bonding}), and proportionally allocate the number of orders to be accepted in the period to posters based on the following equation.
 
 \begin{equation}\label{bandwidth-equation}
   L_i =  P_{max} * \frac{B_i}{\sum_{i=1}^{n}B_i}
@@ -668,7 +668,7 @@ In this model, there does exist the potential for ``free-riders,'' particularly 
 The validator selection model used by the Kosu network is relatively subjective, requiring the active participation of token holders in the curation of a validator set. Due to the magnitude of such decisions, it is important to maximally incentivize participation via explicit participation rewards. 
 \medskip
 
-Token holders participating in the curation mechanisms, including those who submit winning challenges and vote correctly in challenges earn KOSU tokens as rewards. This results in an active token distribution directed towards participating and benevolent network actors. It is important to note that all token holders, including those bonded as both validators and stakers, can participate in any election/decision.
+Token holders participating in the curation mechanisms, including those who submit winning challenges and vote correctly in challenges earn KOSU tokens as rewards. This results in an active token distribution directed towards participating and benevolent network actors. It is important to note that all token holders with KOSU deposited in the Treasury, including those bonded as both validators and posters, can participate in any election/decision.
 % END INCENTIVE MODEL SUB-SECTION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
