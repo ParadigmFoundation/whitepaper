@@ -26,7 +26,7 @@
 \contentsline {subsection}{\numberline {3.5}Incentive Models}{19}{subsection.3.5}
 \contentsline {subsubsection}{\numberline {3.5.1}Validators}{19}{subsubsection.3.5.1}
 \contentsline {subsubsection}{\numberline {3.5.2}Posters}{20}{subsubsection.3.5.2}
-\contentsline {subsubsection}{\numberline {3.5.3}Voters}{20}{subsubsection.3.5.3}
+\contentsline {subsubsection}{\numberline {3.5.3}Voters}{21}{subsubsection.3.5.3}
 \contentsline {section}{\numberline {4}Token Distribution}{22}{section.4}
 \contentsline {subsection}{\numberline {4.1}Overview}{22}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Mechanics}{22}{subsection.4.2}

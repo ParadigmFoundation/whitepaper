@@ -528,7 +528,7 @@ The fourth type of transaction are order transactions that require a signature f
 
 \texttt{ProposeOrder} transactions may be submitted by posters who have bonded Kosu tokens in the Poster Registry, and count against that poster’s rate-limit for the active rebalance period. Assuming the ProposeOrder message is structurally valid, and the signature is recoverable and originated from a poster account with a remaining limit, the order is accepted. Upon acceptance of an order, the posters limit is decremented, and the order’s hash is added to a fixed-length first-in-first-out order hash list included in the network’s Merkle root.
 \subsubsection{Validator curation}\label{tm-network-validators}
-A motivating requirement of Kosu’s design was the ability to support a highly dynamic proof-of-stake validator set. The incentive model of the overall protocol (see \ref{incentive-models}) requires that protocol stakeholders have the ability to curate the networks validators, both to facilitate healthy competition for the position, and to allow the removal of validators who may not be explicitly byzantine (by lying or attempting to compromise consensus), but who may otherwise be engaging in behavior stakeholders deem implicitly malicious. These considerations motivated the design of the curation mechanism (described in section \ref{ethereum-contract-system-tcr}) and supporting peg-zone (described in \ref{peg}).
+A motivating requirement of Kosu’s design was the ability to support a dynamic proof-of-stake validator set. The incentive model of the overall protocol (see \ref{incentive-models}) requires that protocol stakeholders have the ability to curate the networks validators, both to facilitate healthy competition for the position, and to allow the removal of validators who may not be explicitly byzantine (by lying or attempting to compromise consensus), but who may otherwise be engaging in behavior stakeholders deem implicitly malicious. These considerations motivated the design of the curation mechanism (described in section \ref{ethereum-contract-system-tcr}) and supporting peg-zone (described in \ref{peg}).
 \medskip
 
 Kosu’s underlying networking and consensus engine, Tendermint Core, allows a genesis validator set to be hard-coded or computed during network genesis, and for updates to the validator set to be applied by existing validators at the end of each block\cite{tendermint-abci-apps}.
@@ -620,7 +620,7 @@ The process of updating the network’s validator set and poster accounts is sim
 \subsection{Incentive Models}\label{incentive-models}
 
 \subsubsection{Validators}\label{incentive-models-validators}
-The network described above utilizes a bonded proof-of-stake system to manage sybil tolerance. Validators are required to make a security deposit, also known as a stake, in order to participate in consensus. Tendermint Consensus allows certain types of malicious behavior committed by validators to be easily verified and punished accordingly. 
+The network described above utilizes a bonded proof-of-stake system to provide sybil tolerance. Validators are required to make a security deposit, also known as a stake, in order to participate in consensus. Tendermint Consensus allows certain types of malicious behavior committed by validators to be easily verified and punished accordingly. 
 \medskip
 
 The KOSU network makes a few core assumptions that influence the design of the validator incentive model. Such assumptions are motivated below.
@@ -644,16 +644,19 @@ The KOSU network makes a few core assumptions that influence the design of the v
   \end{itemize}
 \end{enumerate}
 
-These assumptions motivate a market driven fee schedule for a validator set that is dynamic in both size and inclusion. The ValidatorRegistry system (described in section \ref{ethereum-contract-system-tcr}) allows for exactly this. To become a validator, a candidate must bond an unspecified amount tokens (above the parameterizable minimum), which will provide them a proportional influence in consensus, as well as define a requested fee schedule. The expected economic impact of a proposal (via inflation, security, latency) motivates a focal point on a continuum that will eventually resolve in a binary direction.
+These assumptions motivate a market driven fee schedule for a validator set that is dynamic in both size and inclusion. The ValidatorRegistry system (described in section \ref{ethereum-contract-system-tcr}) allows for exactly this. To become a validator, a candidate must bond an unspecified amount tokens (above the parametrizable minimum), which will provide them a proportional influence in consensus, as well as define a requested fee schedule (a value of reserve tokens, paid out in KOSU tokens). The expected economic impact of a proposal (via inflation, security, latency) motivates a focal point on a continuum that will eventually resolve in a binary direction. 
 \medskip
 
-It is important to note that this validator selection model is considerably more subjective than largest-bond (rank) based proof-of-stake validator selection mechanisms. With that said, the unique domain requirements as well as the limited impact of malicious validator behavior seem to warrant such subjectivity.
+Listings can be challenged at any time via the submission of a challenge proposal with a stake equivalent to the stake of the bonded validator. If the challenge succeeds, the validator is removed from the registry and loses their stake, which is distributed to voters on the winning outcome proportionally to token weight with extra reward given to the challenge initiator. This challenge method is a stakeholder-based slashing mechanism that is designed to regulate malicious behavior subjectively.
 \medskip
 
-The listing can be challenged at any time by submitting a challenge proposal with a stake equivalent to the stake of the bonded validator. If the challenge succeeds, the validator is removed from the registry and loses their stake, which is distributed to voters on the winning outcome proportionally to token weight with extra reward given to the challenge initiator. This challenge method is a stakeholder-based slashing mechanism that is designed to regulate subjectively malicious value capture behavior.
+In the future, more explicit byzantine behaviors could be enforced structurally via explicit slashing conditions based on fraud/liveness proofs. Conditions/behaviors that could be discouraged explicitly include double voting, low validator liveness, incorrect event witnessing etc.
 \medskip
 
-More explicit byzantine behaviors can be enforced structurally via explicit slashing conditions based on fraud/liveness proofs. Conditions/behaviors that could be discouraged explicitly include double voting, low validator liveness, incorrect event witnessing etc.
+It is known that TCR systems and, more generally, coordination games without communication, converge to Schelling points based on salience rather than necessary truth\cite{tendermint-crypto-spec}. In order to make the "truthful" point salient, high-quality information must be cheaply observable. In an attempt to satisfy this given design constraint, special consideration was made to the economic model of the information system. The monetary policy of the system sets relatively explicit criterion for decisions made by the TCR. For example, the inflationary reward schedule for validators motivates a small curated validator set where any addition to the set is discouraged except in the case of instability within the current set. Instability is easily observable via a metric such as low network liveness. In addition, Kosu shareholders (market makers, validators) will likely be relatively concentrated and sophisticated which reduces the overall complexity of the incentive system.
+\medskip
+
+It is important to note that this validator selection model is considerably more subjective than largest-bond (rank) based proof-of-stake validator selection mechanisms. While the Kosu was designed with the shortcoming of TCR models in mind, the system is in many ways still experimental as few TCRs have been empirically tested. With that said, the unique domain requirements and conditions as well as the limited impact of malicious validator behavior seem to warrant such a design.
 
 \subsubsection{Posters}\label{incentive-models-posters}
 In order to regulate network spam, posters, individuals contributing order data to the network, are required to bond tokens. Posters are awarded network access in the form of order bandwidth allocation proportional to their bonded token quantity. In this model, the inclusion of transactions is not fee based, but rather bandwidth based. This is a significant design feature of the network motivated on the basis that quality liquidity creation should be rewarded, and transaction fees are not compatible in this regard. Individual orders are not necessarily valuable, thus network contributions should be feeless so long as the contributor’s incentives are aligned with those of the greater network.
@@ -665,7 +668,7 @@ Unlike validators, the behavior of posters is not directly punishable via slashi
 In this model, there does exist the potential for ``free-riders,'' particularly speculators benefiting from the appreciation of KOSU value as a result of liquidity providers’ work. While not completely ideal, this artifact is not entirely corrupt as the ``free-riders'' do in fact contribute to the security of the protocol by increasing token scarcity. 
 
 \subsubsection{Voters}\label{incentive-models-voters}
-The validator selection model used by the Kosu network is relatively subjective, requiring the active participation of token holders in the curation of a validator set. Due to the magnitude of such decisions, it is important to maximally incentivize participation via explicit participation rewards. 
+As mentioned previously, the validator selection model used by the Kosu network is relatively subjective, requiring the active participation of token holders in the curation of a validator set. Due to the magnitude of such decisions, it is important to maximally incentivize participation via explicit participation rewards. 
 \medskip
 
 Token holders participating in the curation mechanisms, including those who submit winning challenges and vote correctly in challenges earn KOSU tokens as rewards. This results in an active token distribution directed towards participating and benevolent network actors. It is important to note that all token holders with KOSU deposited in the Treasury, including those bonded as both validators and posters, can participate in any election/decision.
@@ -929,6 +932,10 @@ Warren, Will and Bandeali, Amir. ``0x: An Open Protocol for Decentralized Exchan
 \bibitem{0x-selective-delay}
 Zeitz, Peter. ``Research on Selective Delay TEC Process.''
 \\\texttt{https://bit.ly/0x-selective-delay-research}
+
+\bibitem{convention-a-philosophical-study}
+Lewis, David. ``Convention, a Philosophical Study.''
+\\\texttt{https://bit.ly/2koJBcI}
 
 \end{thebibliography}
 
