@@ -743,18 +743,18 @@ Where (in equation \ref{parametric-eq}) $y$ is the KOSU price denominated in Eth
 From equation \ref{parametric-eq}, we can further derive equations for calculating payouts in both directions. The equation for both payout directions are included below. For a more formal derivation of the equations referenced below, please refer to Bancor’s ``Formulas for Bancor system''\cite{bancor-formulas}. 
 \subsection{Ether to Kosu}\label{token-distribution-eth-kosu}
 \begin{equation}
-  \beta = j* ((1+\frac{\alpha}{b})^{\frac{b}{p*j}} - 1)
+  k = j* ((1+\frac{e}{b})^{\frac{b}{p*j}} - 1)
 \end{equation}
 \medskip
 
-Where $\alpha$ is the quantity of Ether deposited, $\beta$ is the quantity of KOSU received, $j$ is the current KOSU supply, $b$ is the quantity of Ether collateral (pool balance), and $p$ is the price of KOSU (in Ether) at supply level $j$. 
+Where $e$ is the quantity of Ether deposited, $k$ is the quantity of KOSU received, $j$ is the current KOSU supply, $b$ is the quantity of Ether collateral (pool balance), and $p$ is the price of KOSU (in Ether) at supply level $j$. 
 \subsection{Kosu to Ether}\label{token-distribution-kosu-eth}
 \begin{equation}
-  \alpha = b* (1-(1-\frac{\beta}{j})^{\frac{p*j}{b}})
+  e = b* (1-(1-\frac{k}{j})^{\frac{p*j}{b}})
 \end{equation}
 \medskip
 
-Where $\beta$ is the quantity of KOSU deposited, $\alpha$ is the quantity of Ether received, $j$ is the current KOSU supply, $b$ is the quantity of Ether collateral (pool balance), and $p$ is the price of KOSU (in Ether) at supply level $j$. 
+Where $k$ is the quantity of KOSU deposited, $e$ is the quantity of Ether received, $j$ is the current KOSU supply, $b$ is the quantity of Ether collateral (pool balance), and $p$ is the price of KOSU (in Ether) at supply level $j$. 
 \clearpage
 \pagebreak
 % END TOKEN DISTRIBUTION SECTION
