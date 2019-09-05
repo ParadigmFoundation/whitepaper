@@ -696,7 +696,7 @@ Preceding an official network launch, a contract responsible for token distribut
 In order to gain intuition about the system and parametric equation used, we will consider the following derivation.
 \medskip
 
-Let us define a slightly exponential family of curves $ y = m*x^n $ where $y$ is the price of KOSU denominated in ETH, $x$ is the KOSU supply, $n$ is a predetermined constant within the range $(1,2)$ and $m$ is the slope which is parameterized upon each bond/unbond transaction. The power function $y$ represents the price of KOSU denominated in ETH and $x$ defines the total KOSU supply. We can thus calculate the total amount paid, which should correspond to the total pool balance $b$, at some token supply $j$ with the following integral calculation.
+Let us define a family of curves, based on the power function $ y = m*x^n $ where $y$ is the price of KOSU denominated in ETH, $x$ is the KOSU supply, $n$ is a predetermined constant and $m$ is the slope which is parameterized upon each bond/unbond transaction. The power function $y$ represents the price of KOSU denominated in ETH and $x$ defines the total KOSU supply. We can thus calculate the total amount paid, which should correspond to the total pool balance $b$, at some token supply $j$ with the following integral calculation.
 
 \begin{equation}\label{full-bonding-integral}
   b = \int_{0}^{j} m*x^n dx = \frac{m}{n+1}j^{n+1}
